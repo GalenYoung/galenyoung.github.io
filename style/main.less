@@ -1,0 +1,292 @@
+@charset "utf-8";
+/*  通用样式  */
+	li{
+		list-style: none;
+	}
+	a{
+		color:#000;
+		text-decoration:none;
+	}
+
+/* 引用网络字体 */
+	@font-face{
+		font-family: "fzhcjt";
+		src:url(../../fonts/方正黄草简体.ttf);
+	}
+	@font-face{
+		font-family: "txtsksj";
+		src:url(../../fonts/腾祥铁山楷书简.ttf);
+	}
+/* 变量 */
+    .ani-border(@ani-name:css-border0,@timer:1s,@delay-time:4s,@fill-mode:forwards){
+        animation:@ani-name @timer;
+        animation-fill-mode:@fill-mode;
+        animation-delay:@delay-time;
+
+        -moz-animation:@ani-name @timer;
+        -moz-animation-fill-mode:@fill-mode;
+        -moz-animation-delay:@delay-time;
+
+        -webkit-animation:@ani-name @timer;
+        -webkit-animation-fill-mode:@fill-mode;
+        -webkit-animation-delay:@delay-time;
+
+        -o-animation:@ani-name @timer;
+        -o-animation-fill-mode:@fill-mode;
+        -o-animation-delay:@delay-time;
+    }
+/* 页面样式 */
+	/* 头部样式 */
+	.header{
+		width:100%;
+		height:50px;
+		border-bottom: 1px solid #eee;
+		position:relative;
+		text-align: right;
+		ul{
+			height:100%;
+			margin-right:20px;
+			li{
+				display: inline-block;
+				height:100%;
+				font:normal 400 18px/50px txtsksj;		
+				margin: 0 20px;
+				a {
+					color:#4296DB;	
+					&:hover{
+						color:#E91E63;
+					}
+				}
+				&:first-child a{
+					color:#E91E63;
+				}
+			}
+		}
+	}
+/* 内容样式 */
+	.content{
+		margin: 100px auto;
+        padding-top:20px;
+        position:relative;
+        .cont-words{
+			font:normal 500 22px/40px fzhcjt;
+			margin: 0 auto 40px;
+			width:60%;
+			position: relative;
+			span{
+				position: absolute;
+				top: 0;
+				left:-60px;
+				color:#E91E63;
+			};
+			p {
+	            margin-right:4px;
+	        };
+
+		}
+		.cont-pic {
+			background:#fff url(../../images/hp-bigpic.jpg) center top no-repeat;
+			height:460px;
+            width:60%;
+            margin:0 auto;
+            padding-bottom:40px;
+            position:relative;
+            .cot-css-ani-border3 {
+	            position:absolute;
+	            left: 0;
+	            top:-40px;
+	            background:#e91e63; 
+	            width:2px;      
+	            .ani-border(@ani-name:css-border3,@timer:2s,@delay-time:9s,@fill-mode:forwards);
+	        }
+	        @keyframes css-border3 {
+	            from {
+	                height: 0;
+	            }
+	            to {
+	                height:540px;
+	            }
+	        }
+	        @-moz-keyframes css-border3 {
+	            from {
+	                height: 0;
+	            }
+	            to {
+	                height:540px;
+	            }
+	        }
+	        @-webkit-keyframes css-border3 {
+	            from {
+	                height: 0;
+	            }
+	            to {
+	                height:540px;
+	            }
+	        }
+	        @-o-keyframes css-border3 {
+	            from {
+	                height: 0;
+	            }
+	            to {
+	                height:540px;
+	            }
+	        }
+		}
+	}
+
+  /* cot-css-ani-border0 */
+        .cot-css-ani-border0 {
+            position:absolute;
+            left:0px;
+            top:-2px;
+            height:2px;
+            background:#E91E63;
+			.ani-border(@ani-name:css-border0,@timer:4s,@delay-time:1s,@fill-mode:forwards);
+        }
+        @keyframes css-border0{
+            from {
+                width: 0;
+            }
+            to {
+                width:80%;
+            }
+        }
+
+        @-moz-keyframes css-border0{
+            from {
+                width: 0;
+            }
+            to {
+                width:80%;
+            }
+        }
+
+          @-webkit-keyframes css-border0{
+            from {
+                width: 0;
+            }
+            to {
+                width:80%;
+            }
+        }
+
+           @-o-keyframes css-border0{
+            from {
+                width: 0;
+            }
+            to {
+                width:80%;
+            }
+        }
+    /* cot-css-ani-border1 */
+        .cont-words .cot-css-ani-border1 {
+            position:absolute;
+            right: 0;
+            top: -20px;
+            background:#e91e63; 
+            width:2px;      
+            height: 0;
+			.ani-border(@ani-name:css-border1,@timer:1s,@delay-time:5s,@fill-mode:forwards);
+
+        }
+        @keyframes css-border1 {
+            from {
+                height: 0;
+            }
+            to {
+                height:100px;
+            }
+        }
+        @-moz-keyframes css-border1 {
+            from {
+                height: 0;
+            }
+            to {
+                height:100px;
+            }
+        }
+        @-webkit-keyframes css-border1 {
+            from {
+                height: 0;
+            }
+            to {
+                height:100px;
+            }
+        }
+        @-o-keyframes css-border1 {
+            from {
+                height: 0;
+            }
+            to {
+                height:100px;
+            }
+        }
+
+    /* cot-css-ani-border2 */
+         .cont-words .cot-css-ani-border2 {
+            position:absolute;
+            right: 0;
+            bottom:-2px;
+            background:#e91e63; 
+            height:2px;      
+            width: 0;
+			.ani-border(@ani-name:css-border2,@timer:3s,@delay-time:6s,@fill-mode:forwards);
+
+        }
+        @keyframes css-border2 {
+            from {
+                width: 0;
+            }
+            to {
+                width:100%;
+            }
+        }
+        @-moz-keyframes css-border2 {
+            from {
+                width: 0;
+            }
+            to {
+                width:100%;
+            }
+        }
+        @-webkit-keyframes css-border2 {
+            from {
+                width: 0;
+            }
+            to {
+                width:100%;
+            }
+        }
+        @-o-keyframes css-border2 {
+            from {
+                width: 0;
+            }
+            to {
+                width:100%;
+            }
+        }
+   /* cot-css-ani-border4 */
+         .cot-css-ani-border4 {
+            position:absolute;
+            left:20%;
+            bottom:-2px;
+            height:2px;
+            background:#E91E63;
+			.ani-border(@ani-name:css-border0,@timer:4s,@delay-time:11s,@fill-mode:forwards);
+
+        }
+
+/* 脚步样式 */
+	.footer{
+		height:80px;
+		border-top: 1px solid #eee;
+		padding-bottom:20px;
+		font:normal 400 16px/80px txtsksj;
+		color: #888;
+		p{
+			text-align: center;
+		}
+		a{
+			color:#666;
+		}
+	}
