@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="yg">
+    <meta name="description" content="This is Galen's personal Website!">
+    <meta name="keyword" content="personal blog，the front-ends">
+    <title>去掉迅雷开机自启动流氓进程</title>
+    <link  rel="shortcut icon" href="../../images/sunshine.png">
+    <!-- CSS style is here ! -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../soft-style/markd-common.css">
+    <link rel="stylesheet" type="text/css" href="../soft-style/soft-header&bottom-style.min.css">
+    <link rel="stylesheet" type="text/css" href="soft-page02.css">
+</head>
+<body>
+
+    <div class="header" id="header">
+        <ul>
+            <li><a href="../../homePage.html">首页</a></li><!--
+            --><li><a href="">编程</a></li><!--
+            --><li><a href="../software.html">软件</a></li><!--
+            --><li><a href="../../think/thinking.html">思考</a></li>
+        </ul>
+    </div>
+
+    <div class="soft-markdContent-wrap">
+        <h1>去掉迅雷开机自启动流氓进程</h1>
+        <ol>
+            <li>
+                <p><strong>说明</strong></p>
+                <ul>
+                    <li>当我们下载完迅雷软件到我们的电脑上，即使我们不设置迅雷开机启动，同时也并不运行迅雷程序的情况下，我们的电脑进程中就会出现迅雷的几个进程，而且每次开机它们都会存在，实在是非常的流氓。迅雷给出的说法是为了维持迅雷下载基础服务，其实将它们删除并不会对迅雷造成任何的影响。</li>
+                    <li>如果我们用微软自带的任务管理器打开，我们会发现一个进程。</li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201105116.png"></p>
+                <ul>
+                    <li>我们在TcpView(TcpView是一个查看端口和线程的小工具)里会看得更详细</li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201104203.png"></p>
+                <ul>
+                    <li>我们可以在注册表中找到它们，将它们删掉，这样再开机时它们就不存在了。</li>
+                </ul>
+            </li>
+            <li>
+                <p><strong>打开注册表</strong></p>
+                <ul>
+                    <li>按Win键+ R调出运行窗口，在运行窗口中输入regedit并回车即可进入注册表。 </li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201115322.png"></p>
+                <ul>
+                    <li>注册表窗口</li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201115801.png"></p>
+            </li>
+            <li>
+                <p><strong>在注册表找到其路径</strong></p>
+                <ul>
+                    <li>选择HKEY<em>LOCAL</em>MACHINE</li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201120808.png"></p>
+                <ul>
+                    <li>选择SYSTERM</li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201130149.png"></p>
+                <ul>
+                    <li>选择CurrentControlSet </li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201131713.png"></p>
+                <ul>
+                    <li>选择services</li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201132038.png"></p>
+                <ul>
+                    <li>找到XLServicePlatform选项并删除该文件夹</li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201132458.png"></p>
+                <ul>
+                    <li>删除</li>
+                </ul>
+                <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softw-det1-20151201132902.png"></p>
+                <p>这样我们下次再打开计算机的时候，迅雷的流氓进程就消失了，虽然这样做对我们电脑的实际操作并无明显影响，但对于有强迫症、注重个人电脑隐私和安全的同学还是非常有帮助的。</p>
+            </li>
+        </ol>
+    </div>
+    
+    <div class="footer" id="footer">
+        <p>© sunbeam. | <a href="http://sunbeam.site/">yg</a></p>
+    </div>
+
+    <script src="../../js/solve_footer_Location.js"></script>
+</body>
+</html>

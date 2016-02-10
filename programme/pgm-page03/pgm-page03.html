@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="yg">
+    <meta name="description" content="This is Galen's personal Website!">
+    <meta name="keyword" content="personal blog,the front-end">
+    <title>jQuery回到顶部小插件（二）</title>
+    <link  rel="shortcut icon" href="../../images/sunshine.png">
+    <!-- CSS style is here ! -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/markd-common.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/pgm-header&bottom-style.min.css">
+    <link rel="stylesheet" type="text/css" href="pgm-page03.css">
+</head>
+<body>
+
+    <div class="header" id="header">
+        <ul>
+            <li><a href="../../homePage.html">首页</a></li><!--
+            --><li><a href="">编程</a></li><!--
+            --><li><a href="../../software/software.html">软件</a></li><!--
+            --><li><a href="../../think/thinking.html">思考</a></li>
+        </ul>
+    </div>
+
+    <div class="pgm-markdContent-wrap">
+        <h1>jQuery回到顶部小插件(二)</h1>
+        <ul>
+            <li>
+                <p>说明</p>
+                <ul>
+                    <li>此版本比上一版本（一）新添加首屏不显示属性</li>
+                    <li>新添加的属性名称为 <code>show</code></li>
+                </ul>
+            </li>
+            <li>
+                <p>使用示例：</p>
+<pre><code>$(&quot;.obt&quot;).sal_backtop({
+    ispeed : 20，
+    show   : flase 
+    });
+/* 也可以单独设置 show 属性 */
+$(&quot;.obt&quot;).sal_backtop({show : true});
+</code></pre>
+
+            </li>
+            <li>
+                <p>使用说明：</p>
+                <ul>
+                    <li>
+                        将属性设置为 <code>show : true</code>
+                        <ul>
+                            <li>目标元素首屏显示</li>
+                        </ul>
+                    </li>
+                    <li>
+                        将属性设置为 <code>show ：false</code>
+                        <ul>
+                            <li>目标元素首屏不显示</li>
+                        </ul>
+                    </li>
+                    <li>默认的属性为<code>false</code>，首屏不显示</li>
+                </ul>
+            </li>
+            <li>
+                <p>源代码：</p>
+<pre><code>;(function($,window,document,undefined){
+    &quot;use strict&quot;;
+    if(!$) { return console.warn('页面没有正确引入jQuery'); };
+    $.fn.sal_backtop = function(options){
+        var defaults = {
+            ispeed :  5,
+            show   :  false
+        }; 
+        var that = this;
+        var settings = $.extend({},defaults,options);
+        if(!settings.show){
+            this.css('display', 'none');
+            $(window).scroll(function(){
+                var scrollHeight=document.documentElement.scrollTop||document.body.scrollTop;  
+                var screenHeight = window.screen.availHeight; 
+                if(scrollHeight &lt;= screenHeight){
+                    that.css('display', 'none');
+                }else{ that.css('display', 'block');};
+            }); 
+        };
+        this.click (function(){
+            var timer = setInterval(function(){
+                var scrolltop = document.documentElement.scrollTop || document.body.scrollTop; 
+                var Ispeed = Math.floor(-scrolltop/settings.ispeed);    
+                document.documentElement.scrollTop = scrolltop + Ispeed;
+                document.body.scrollTop = scrolltop + Ispeed;
+                if(scrolltop === 0){ clearInterval(timer)};
+            },30);
+        });
+        return this;
+    };
+})(window.jQuery,window,document);
+</code></pre>
+
+            </li>
+        </ul>
+    </div>
+    
+    <div class="footer" id="footer">
+        <p>© sunbeam. | <a href="http://sunbeam.site/">yg</a></p>
+    </div>
+
+    <script src="../../js/solve_footer_Location.js"></script>
+</body>
+</html>

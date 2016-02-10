@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="yg">
+    <meta name="description" content="This is Galen's personal Website!">
+    <meta name="keyword" content="personal blog,the front-end">
+    <title> JavaScript制作放大镜插件 </title>
+    <link  rel="shortcut icon" href="../../images/sunshine.png">
+    <!-- CSS style is here ! -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/markd-common.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/pgm-header&bottom-style.min.css">
+    <link rel="stylesheet" type="text/css" href="pgm-page06.css">
+    <link rel="stylesheet" type="text/css" href="magnifier.css">
+</head>
+<body>
+
+    <div class="header" id="header">
+        <ul>
+            <li><a href="../../homePage.html">首页</a></li><!--
+            --><li><a href="">编程</a></li><!--
+            --><li><a href="../../software/software.html">软件</a></li><!--
+            --><li><a href="../../think/thinking.html">思考</a></li>
+        </ul>
+    </div>
+
+    <div class="pgm-markdContent-wrap">
+        <h1>JavaScript制作放大镜插件</h1>
+        <ul>
+            <li>兼容性：所有浏览器</li>
+            <li>
+                <p>示例：</p>
+                <div id="sal-magnifier">
+                    <img src="imgs/small.jpg" alt="">
+                    <div id="sal-moveBox"></div>
+                    <div id="sal-mask"></div>
+                    <div id="sal-bigImg-wrap">
+                        <img src="imgs/big.jpg" alt="">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p>代码：</p>
+                <ul>
+                    <li>
+                        <p>HTML：</p>
+<pre><code>&lt;div id=&quot;sal-magnifier&quot;&gt;
+    &lt;img src=&quot;small.jpg&quot; alt=&quot;&quot;&gt;
+    &lt;div id=&quot;sal-moveBox&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;sal-mask&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;sal-bigImg-wrap&quot;&gt;
+        &lt;img src=&quot;big.jpg&quot; alt=&quot;&quot;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;  
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p>LESS：</p>
+<pre><code>// 通用样式 
+    @charset &quot;utf-8&quot;;
+//变量
+    //图片宽和高
+    @h:300px;
+    @w:215px;
+    .h-w(@height:@h,@width:@w){
+        height:@height;
+        width:@width;
+    }
+    .abs-t-l(@t:0,@l:0){
+        position:absolute;
+        top:@t;
+        left:@l;
+    }
+    .bg-e1(@border-width:1px,@border-color:#e1e1e1){
+        background-color: @border-width solid @border-color;
+    }
+//具体样式
+    #sal-magnifier{
+        .h-w;
+        .bg-e1;
+        position: relative;
+        #sal-moveBox{
+            .h-w(@h/3,@w/3);
+            border:1px solid #e1e1e1;
+            opacity:0.5;
+            filter: alpha(opacity=50);
+            background:#fcc;
+            position: absolute;
+            z-index:1;
+            display: none;
+        }
+        #sal-mask{
+            .h-w;
+            .abs-t-l;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            z-index:1;
+        }
+        #sal-bigImg-wrap{
+            .h-w(@h*3/4,@w*3/4);
+            .abs-t-l(0,1.05 * @w);
+            .bg-e1;
+            overflow:hidden;
+            display: none;
+            img{
+                position: absolute;
+                z-index: 2;
+            }
+        }
+    }   
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p>JavaScript：</p>
+<pre><code>(function(window,document,undefined){
+    //简化提取id的方式 $(id)即可
+    var $ = function(id){ return document.getElementById(id) };      
+    //获取元素的DOM节点
+    var magnifier = $(&quot;sal-magnifier&quot;);
+    var move_box = $(&quot;sal-moveBox&quot;);
+    var mask = $(&quot;sal-mask&quot;);
+    var bigImg_wrap = $(&quot;sal-bigImg-wrap&quot;);
+    var bigImg = bigImg_wrap.getElementsByTagName(&quot;img&quot;)[0];
+    mask.onmouseover = function(){
+        move_box.style.display = &quot;block&quot;;
+        bigImg_wrap.style.display = &quot;block&quot;;
+        mask.style.cursor = &quot;move&quot;;
+    };
+    mask.onmouseout = function(){
+        move_box.style.display = &quot;none&quot;;
+        bigImg_wrap.style.display = &quot;none&quot;;
+    };
+    mask.onmousemove = function(e){
+        //window.event是为了兼容IE8及其以下浏览器
+        var e = e ||window.event;
+        //clientX 事件属性返回当事件被触发时鼠标指针向对于浏览器页面（或客户区）的水平坐标。语法：event.clientX
+        //offsetLeft 获取的是相对于父对象的左边距
+        //offsetWidth 表示该对象的可见宽度，包滚动条等边线，会随窗口的显示大小改变 
+        var left = e.clientX - magnifier.offsetLeft - move_box.offsetWidth / 2 ;
+        var top = e.clientY - magnifier.offsetTop - move_box.offsetHeight / 2;
+        if(left&lt;0){
+            left= 0
+        }else if(left &gt; mask.offsetWidth - move_box.offsetWidth ){
+            left = mask.offsetWidth - move_box.offsetWidth;
+        }
+        if(top&lt;0){
+            top = 0
+        }else if(top &gt; mask.offsetHeight -move_box.offsetHeight){
+            top = mask.offsetHeight -move_box.offsetHeight;
+        }
+        move_box.style.left = left +&quot;px&quot;;
+        move_box.style.top  = top +&quot;px&quot;;
+        var percentX = left / (mask.offsetWidth - move_box.offsetWidth);
+        var percentY = top /( mask.offsetHeight- move_box.offsetHeight);
+        bigImg.style.left = percentX * (bigImg_wrap.offsetWidth - bigImg.offsetWidth) + &quot;px&quot;;
+        bigImg.style.top =  percentY *( bigImg_wrap.offsetHeight - bigImg.offsetHeight)+ &quot;px&quot;;
+    };
+})(window,document)
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="footer" id="footer">
+        <p>© sunbeam. | <a href="http://sunbeam.site/">yg</a></p>
+    </div>
+    <script src="magnifier.js"></script>
+    <script src="../../js/solve_footer_Location.js"></script>
+</body>
+</html>

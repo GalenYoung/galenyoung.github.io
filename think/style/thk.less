@@ -1,0 +1,151 @@
+@charset "utf-8";
+html,body{
+			height:100%;
+			background-color: #B6B6B6;
+			font-size: 16px;
+			font-family: txtsksj;
+}
+/* 引用网络字体 */
+@font-face{
+	font-family: "txtsksj";
+	src:url(../../fonts/腾祥铁山楷书简.ttf);
+}
+ul li,ol li {
+	list-style-type: none;
+}
+.thk-content{
+	width:1200px;
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #727272;
+	.thk-left{
+		width:300px;
+		float:left;
+		padding: 50px 0;
+		height:100%;
+		.thk-l-mine{
+			text-align: center;	
+			margin-bottom: 4em;
+			img{
+				border-radius: 50%;
+				display: inline-block;
+				margin-bottom: 1em;
+			}
+			h2{
+				color:#fff;
+				font:normal 600 32px/44px txtsksj;
+			}
+			h3{
+				color:rgba(255,255,255,0.5);
+				font:normal 300 14px/20px txtsksj;
+				span{
+					color:rgba(255,255,255,0.3);
+				}
+			}
+		}
+		.thk-l-nav ul li{
+			text-align: center;
+			list-style-type: none;
+			border-top: 1px solid rgba(255,255,255,0.08);
+			a{
+				color: rgba(255,255,255,0.5);
+				text-decoration: none;
+				display: block;
+				padding:2em 1.5em;
+				font:normal 700 20px/22px txtsksj;
+				&:hover{
+					color:rgba(255,255,255,1);
+				}
+			}
+			&:last-child a{
+				background-color: #E91E63;
+				color:rgba(255,255,255,1);
+			}
+		}
+	}
+	.thk-right{
+		width:800px;
+		float: left;
+		background:#fff;
+		border-top: 6px solid #E91E63;
+		padding:50px;
+		.thk-r-pic{
+			height:400px;
+			width: 800px;
+			overflow: hidden;
+			text-align: center;
+		}
+		.thk-r-quote{
+			margin-top: 3em;
+			padding-bottom: 3em;
+			border-bottom: 1px solid rgba(0,0,0,0.08);
+			h2{
+				font-size: 2.2em;
+				line-height: 1.3em;
+				text-align: left;
+				text-indent: 2em;
+				color: #6F6F6F;
+			}
+			h3{
+				text-align: right;
+				margin-right: 6em;
+				color: #B6B6B6;
+				font:normal 300 1.6em/2em txtsksj;
+			}
+		}
+		.thk-r-session{
+			width: 700px;
+			margin: 50px;
+			ul li {
+				padding: 30px;
+				border-top: 1px solid rgba(0,0,0,.1);
+				&:after{
+					content: "";
+					display: block;
+					clear: both;
+				}
+				&:first-child{
+					border-top: none;
+				}
+				span{
+					width:79px;
+					margin:0 30px 0 10px;
+					padding:30px 0;
+					display: block;
+					float: left;
+					text-align: center;
+					border-right:1px solid rgba(0,0,0,.1);
+					b{
+						display: block;
+						font:normal 700 1.8em txtsksj;
+					}
+				}
+				p{
+					float:left;
+					text-indent: 2em;
+					width: 520px;
+					font:normal 300 20px/28px txtsksj;
+					color: #6c6c6c;
+				}
+			}
+		}
+		.thk-r-copyright{
+			border-top: 1px solid rgba(1,1,1,.1);
+			padding-top: 30px;
+			span{
+				display: block;
+				letter-spacing: 0.20em;
+				line-height: 2.5em;
+				text-align: center;
+				text-transform: uppercase;
+				font-size: 1em;
+				color: rgba(0,0,0,0.7);
+				a{
+				    text-decoration: none;
+					color: rgba(0,0,0,0.9);
+				}
+			}
+		}
+	}
+}

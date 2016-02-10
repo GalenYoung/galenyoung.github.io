@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="yg">
+    <meta name="description" content="This is Galen's personal Website!">
+    <meta name="keyword" content="personal blog,the front-end">
+    <title>jQuery回到顶部小插件</title>
+    <link  rel="shortcut icon" href="../../images/sunshine.png">
+    <!-- CSS style is here ! -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/markd-common.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/pgm-header&bottom-style.min.css">
+    <link rel="stylesheet" type="text/css" href="pgm-page09.css">
+</head>
+<body>
+
+    <div class="header" id="header">
+        <ul>
+            <li><a href="../../homePage.html">首页</a></li><!--
+            --><li><a href="">编程</a></li><!--
+            --><li><a href="../../software/software.html">软件</a></li><!--
+            --><li><a href="../../think/thinking.html">思考</a></li>
+        </ul>
+    </div>
+
+    <div class="pgm-markdContent-wrap">
+        <h1>JavaScript 实现继承的三种方式</h1>
+        <ol>
+            <li>
+                <p>普通继承方法</p>
+                <ul>
+                    <li>
+                        <p>源代码：</p>
+<pre><code>var singger = function(name,sex){    //构造函数
+    this.name = name;       //公有属性
+    this.sex = sex;
+    this.pop = function(a){         //公有方法
+        console.log(this.name + &quot;非常的&quot; + a  + &quot;的！&quot;);
+    };
+} ;   
+var JayZhou = new singger (&quot;周杰伦&quot;,&quot;male&quot;);  //实例化对象
+JayZhou.pop(&quot;popular&quot;); 
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>使用原型方法实现继承</p>
+                <ul>
+                    <li>
+                        <p>源代码：</p>
+<pre><code>var singger = function(name,sex){
+    this.name = name;
+    this.sex = sex;
+};
+singger.prototype = {
+    pop : function(a){
+        console.log(this.name + &quot;是非常的&quot; + a + &quot;的！&quot;);
+    }
+};
+var JayZhou = new singger (&quot;周杰伦&quot;,&quot;male&quot;);
+JayZhou.pop(&quot;流行&quot;);  
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>使用工厂方法实现继承</p>
+                <ul>
+                    <li>
+                        <p>源代码：</p>
+<pre><code>var proto = {    //原型
+    pop : function(a){          //原型中定义的公有方法
+        console.log( this.name + &quot;是非常&quot; + a + &quot;的！&quot;)
+    },
+    age : 30        //原型中定义的公有属性
+};
+var singger = function(name ,sex){          //工厂函数
+    var inside = Object.create( proto );       //在工厂函数内部建立一个函数使其原型指向定义的原型对象
+    inside.name = name ;           //将工厂函数传入的参数和原型对象之间建立联系
+    inside.sex = sex;
+    return inside; //inside作为内部函数一定要返回，否者实例化的对象的值会变成undefined;之所以返回是因为使实例化的对象（如JayZhou）等于构造函数（如：singger）里的 inside
+};
+var JayZhou = singger (&quot;周杰伦&quot;,&quot;male&quot;);
+JayZhou.pop(&quot;流行&quot;);
+console.log(JayZhou.age);
+/*
+    Object.create 可以理解为是将一个对象作为原型给另一个函数
+ */
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    
+    <div class="footer" id="footer">
+        <p>© sunbeam. | <a href="http://sunbeam.site/">yg</a></p>
+    </div>
+
+    <script src="../../js/solve_footer_Location.js"></script>
+</body>
+</html>

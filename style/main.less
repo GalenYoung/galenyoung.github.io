@@ -6,16 +6,19 @@
 	a{
 		color:#000;
 		text-decoration:none;
+		&:hover{
+			.tran-hover;
+		}
 	}
 
 /* 引用网络字体 */
 	@font-face{
 		font-family: "fzhcjt";
-		src:url(../../fonts/方正黄草简体.ttf);
+		src:url(../fonts/方正黄草简体.ttf);
 	}
 	@font-face{
 		font-family: "txtsksj";
-		src:url(../../fonts/腾祥铁山楷书简.ttf);
+		src:url(../fonts/腾祥铁山楷书简.ttf);
 	}
 /* 变量 */
     .ani-border(@ani-name:css-border0,@timer:1s,@delay-time:4s,@fill-mode:forwards){
@@ -35,6 +38,13 @@
         -o-animation-fill-mode:@fill-mode;
         -o-animation-delay:@delay-time;
     }
+    .tran-hover(@timer:0.5s){
+			 transiton: @timer all;
+	-webkit-transition: @timer all;
+  	   -moz-transition: @timer all;
+         -o-transition: @timer all;
+        -ms-transition: @timer all;
+    }
 /* 页面样式 */
 	/* 头部样式 */
 	.header{
@@ -50,7 +60,7 @@
 				display: inline-block;
 				height:100%;
 				font:normal 400 18px/50px txtsksj;		
-				margin: 0 20px;
+				margin: 0 18px;
 				a {
 					color:#4296DB;	
 					&:hover{
@@ -83,54 +93,6 @@
 	            margin-right:4px;
 	        };
 
-		}
-		.cont-pic {
-			background:#fff url(../../images/hp-bigpic.jpg) center top no-repeat;
-			height:460px;
-            width:60%;
-            margin:0 auto;
-            padding-bottom:40px;
-            position:relative;
-            .cot-css-ani-border3 {
-	            position:absolute;
-	            left: 0;
-	            top:-40px;
-	            background:#e91e63; 
-	            width:2px;      
-	            .ani-border(@ani-name:css-border3,@timer:2s,@delay-time:9s,@fill-mode:forwards);
-	        }
-	        @keyframes css-border3 {
-	            from {
-	                height: 0;
-	            }
-	            to {
-	                height:540px;
-	            }
-	        }
-	        @-moz-keyframes css-border3 {
-	            from {
-	                height: 0;
-	            }
-	            to {
-	                height:540px;
-	            }
-	        }
-	        @-webkit-keyframes css-border3 {
-	            from {
-	                height: 0;
-	            }
-	            to {
-	                height:540px;
-	            }
-	        }
-	        @-o-keyframes css-border3 {
-	            from {
-	                height: 0;
-	            }
-	            to {
-	                height:540px;
-	            }
-	        }
 		}
 	}
 
@@ -290,3 +252,167 @@
 			color:#666;
 		}
 	}
+
+/* 响应式样式设计 */
+    @media only screen and (min-width: 1440px){
+        .cont-pic {
+            background:#fff url(../images/hp-bigpic.jpg) center top no-repeat;
+            height:460px;
+            width:60%;
+            margin:0 auto;
+            padding-bottom:40px;
+            position:relative;
+            .cot-css-ani-border3 {
+                position:absolute;
+                left: 0;
+                top:-40px;
+                background:#e91e63; 
+                width:2px;      
+                .ani-border(@ani-name:css-border3,@timer:2s,@delay-time:9s,@fill-mode:forwards);
+            }
+            @keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-moz-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-webkit-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-o-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+        }
+    }
+    @media only screen and (min-width: 960px) and (max-width: 1440px) {
+        .cot-css-ani-border0,.cot-css-ani-border1,.cot-css-ani-border2,.cot-css-ani-border3,.cot-css-ani-border4{
+            display: none;
+        };
+        .cont-pic {
+            background:#fff url(../images/hp-bigpic-min.jpg) center top no-repeat;
+            height:420px;
+            width:80%;
+            margin:0 auto;
+            padding-bottom:40px;
+            position:relative;
+            .cot-css-ani-border3 {
+                position:absolute;
+                left: 0;
+                top:-40px;
+                background:#e91e63; 
+                width:2px;      
+                .ani-border(@ani-name:css-border3,@timer:2s,@delay-time:9s,@fill-mode:forwards);
+            }
+            @keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-moz-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-webkit-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-o-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+        }
+
+    }
+     @media only screen and (min-width: 640px) and (max-width: 960px) {
+         .cot-css-ani-border0,.cot-css-ani-border1,.cot-css-ani-border2,.cot-css-ani-border3,.cot-css-ani-border4{
+            display: none;
+        };
+        .cont-pic {
+            background:#fff url(../images/hp-bigpic-min.414-764.jpg) center top no-repeat;
+            height:300px;
+            width:100%;
+            margin:0 auto;
+            padding-bottom:40px;
+            position:relative;
+            .cot-css-ani-border3 {
+                position:absolute;
+                left: 0;
+                top:-40px;
+                background:#e91e63; 
+                width:2px;      
+                .ani-border(@ani-name:css-border3,@timer:2s,@delay-time:9s,@fill-mode:forwards);
+            }
+            @keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-moz-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-webkit-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+            @-o-keyframes css-border3 {
+                from {
+                    height: 0;
+                }
+                to {
+                    height:540px;
+                }
+            }
+        }
+     }
+    @media only screen and (max-width: 640px){
+        .cot-css-ani-border0,.cot-css-ani-border1,.cot-css-ani-border2,.cot-css-ani-border3,.cot-css-ani-border4{
+            display: none;
+        };
+    }
