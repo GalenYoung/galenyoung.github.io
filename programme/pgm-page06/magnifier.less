@@ -1,0 +1,55 @@
+// 通用样式 
+	@charset "utf-8";
+//变量
+	//图片宽和高
+	@h:300px;
+	@w:215px;
+	.h-w(@height:@h,@width:@w){
+		height:@height;
+		width:@width;
+	}
+	.abs-t-l(@t:0,@l:0){
+		position:absolute;
+		top:@t;
+		left:@l;
+	}
+	.bg-e1(@border-width:1px,@border-color:#e1e1e1){
+		background-color: @border-width solid @border-color;
+	}
+//具体样式
+	#sal-magnifier{
+		.h-w;
+		.bg-e1;
+		position: relative;
+		#sal-moveBox{
+			.h-w(@h/3,@w/3);
+			border:1px solid #e1e1e1;
+			opacity:0.5;
+			filter: alpha(opacity=50);
+			background:#fcc;
+			position: absolute;
+			z-index:1;
+			display: none;
+		}
+		
+		#sal-mask{
+			.h-w;
+			.abs-t-l;
+			opacity: 0;
+			filter: alpha(opacity=0);
+			z-index:1;
+		}
+
+		#sal-bigImg-wrap{
+			.h-w(@h*3/4,@w*3/4);
+			.abs-t-l(0,1.05 * @w);
+			.bg-e1;
+			overflow:hidden;
+			display: none;
+			img{
+				position: absolute;
+				z-index: 2;
+			}
+		}
+
+	}

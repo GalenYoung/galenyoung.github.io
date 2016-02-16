@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="yg">
+    <meta name="description" content="This is Galen's personal Website!">
+    <meta name="keyword" content="personal blog,the front-end">
+    <title>jQuery回到顶部小插件</title>
+    <link  rel="shortcut icon" href="../../images/sunshine.png">
+    <!-- CSS style is here ! -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/markd-common.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/pgm-header&bottom-style.min.css">
+    <link rel="stylesheet" type="text/css" href="pgm-page02.css">
+</head>
+<body>
+
+    <div class="header" id="header">
+        <ul>
+            <li><a href="../../homePage.html">首页</a></li><!--
+            --><li><a href="">编程</a></li><!--
+            --><li><a href="../../software/software.html">软件</a></li><!--
+            --><li><a href="../../think/thinking.html">思考</a></li>
+        </ul>
+    </div>
+
+    <div class="pgm-markdContent-wrap">
+        <h1>jQuery回到顶部小插件</h1>
+        <ul>
+            <li>
+                说明：
+                <ul>
+                    <li>此插件是基于jQuery插件开发，所以在使用此插件之前请一定要事先引用 jQuery，本插件兼容所有jQuery版本</li>
+                    <li>此插件兼容所有浏览器，如果要兼容IE8及以下，请确保引用的jQuery文件是<code>1.x</code>版本</li>
+                </ul>
+            </li>
+            <li>
+                <p>使用方法</p>
+                <ul>
+                    <li>此插件命名为sal_backtop</li>
+                    <li>
+                        提供一种属性 ispeed
+                        <ul>
+                            <li>将ispeed的值设置越大，网页回弹的时间就越长、速度就越慢</li>
+                            <li>如果将ispeed的值设置为数字 <code>0</code> 的话，网页直接回弹到顶部，有设置 锚点<code>#</code>效果相同</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>使用示例：</p>
+                        <ul>
+                            <li>
+                                <p>不加参数属性的引用：</p>
+<pre><code>$(&quot;.obt&quot;).sal_backtop();
+</code></pre>
+
+                            </li>
+                            <li>
+                                <p>设置ispeed属性的使用方法：</p>
+<pre><code>$(&quot;.obt&quot;).sal_backtop({ispeed: 20});
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>插件代码：</p>
+<pre><code>;(function($,window,document,undefined){
+    &quot;use strict&quot;;
+    if(!$) { return console.warn('页面没有正确引入jQuery'); };
+    $.fn.sal_backtop = function(options){
+        var defaults = {
+            ispeed :  5 
+        }; 
+        var settings = $.extend({},defaults,options);
+        this.click (function(){
+            var timer = setInterval(function(){
+                var scrolltop = document.documentElement.scrollTop || document.body.scrollTop; 
+                var Ispeed = Math.floor(-scrolltop/settings.ispeed);    
+                document.documentElement.scrollTop = scrolltop + Ispeed;
+                document.body.scrollTop = scrolltop + Ispeed;
+                if(scrolltop === 0){ clearInterval(timer)};
+            },30);
+        });
+		return this;
+	};
+})(window.jQuery,window,document);
+</code></pre>
+
+            </li>
+        </ul>
+    </div>
+    
+    <div class="footer" id="footer">
+        <p>© sunbeam. | <a href="http://sunbeam.site/">yg</a></p>
+    </div>
+
+    <script src="../../js/solve_footer_Location.js"></script>
+</body>
+</html>

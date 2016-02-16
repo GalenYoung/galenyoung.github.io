@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* 主体样式 */
+@media only screen and (min-width: 640px) {
+  .pgm-content {
+    width: 50%;
+    margin: 4% auto;
+  }
+  .pgm-content li {
+    list-style: square outside url('../../images/arrow.gif');
+    padding-left: 10px;
+  }
+  .pgm-content li a {
+    color: #4296DB;
+    font: normal 400 22px/50px txtsksj;
+  }
+  .pgm-content li a:hover {
+    color: #E91E63;
+  }
+}
+@media only screen and (min-width: 414px) and (max-width: 640px) {
+  .pgm-content {
+    width: 80%;
+    margin: 4% auto;
+  }
+  .pgm-content li {
+    list-style: square outside url('../../images/arrow.gif');
+    padding-left: 10px;
+  }
+  .pgm-content li a {
+    color: #4296DB;
+    font: normal 400 18px/48px txtsksj;
+  }
+  .pgm-content li a:hover {
+    color: #E91E63;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .pgm-content {
+    width: 80%;
+    margin: 4% auto;
+  }
+  .pgm-content li {
+    list-style: square outside url('../../images/arrow.gif');
+    padding-left: 10px;
+  }
+  .pgm-content li a {
+    color: #4296DB;
+    font: normal 400 16px/40px txtsksj;
+  }
+  .pgm-content li a:hover {
+    color: #E91E63;
+  }
+}

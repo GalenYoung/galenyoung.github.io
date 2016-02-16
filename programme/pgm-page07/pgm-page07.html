@@ -1,0 +1,854 @@
+﻿<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="yg">
+    <meta name="description" content="This is Galen's personal Website!">
+    <meta name="keyword" content="personal blog,the front-end">
+    <title> HTML 知识点整理 </title>
+    <link  rel="shortcut icon" href="../../images/sunshine.png">
+    <!-- CSS style is here ! -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/markd-common.css">
+    <link rel="stylesheet" type="text/css" href="../pgm-style/pgm-header&bottom-style.min.css">
+    <link rel="stylesheet" type="text/css" href="pgm-page07.css">
+</head>
+<body>
+
+    <div class="header" id="header">
+        <ul>
+            <li><a href="../../homePage.html">首页</a></li><!--
+            --><li><a href="">编程</a></li><!--
+            --><li><a href="../../software/software.html">软件</a></li><!--
+            --><li><a href="../../think/thinking.html">思考</a></li>
+        </ul>
+    </div>
+
+    <div class="pgm-markdContent-wrap">
+        <h1>HTML 知识点整理</h1>
+        <ul>
+            <li>
+                <code>&lt;!DOCTYPE html&gt;</code>的作用主要是告诉浏览器俩个事情：
+                <ul>
+                    <li>它处理的是<code>HTML</code>文档</li>
+                    <li>用来标记文档内容的HTML所属的版本</li>
+                </ul>
+            </li>
+            <li>
+                html在css中的常用写法
+                <ul>
+                    <li>
+                        <code>html：focus{outline：none;}</code>
+                        <ul>
+                            <li>意为：html文档中当获得焦点的元素取消虚线框</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p><code>head</code>元素包含文档的元数据，元数据向浏览器提供了有关文档内容和标记的信息，此外还可以包含脚本和对外部资源的引用。</p>
+                <ul>
+                    <li>head元素中必须含有一个<code>title</code>元素，其它元数据非必要。</li>
+                    <li>每个HTML文档都应该有且只有一个<code>title</code>元素</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>&lt;base href='基准标签' target='_blank'&gt;</code></p>
+                <ul>
+                    <li>定义<code>基准URL</code>，页面中的所有其它相对url都会根据这个基准里的url进行拼接，同时它也可以定义打开新链接的方式。</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>meta</code>元素</p>
+                <ul>
+                    <li>在html5中，一个meta元素只能用于一种用途。</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>rel=nofollow</code>属性告诉搜索引擎爬虫不要跟随</p>
+                <ul>
+                    <li>
+                        <p>eq：</p>
+<pre><code>&lt;a href=&quot;http://www.tencent.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;关于腾讯&lt;/a&gt;
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>注释</p>
+                <ul>
+                    <li>
+                        HTML
+                        <ul>
+                            <li><code>&lt;!-- 注释 --&gt;</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        CSS
+                        <ul>
+                            <li><code>/* 注释 */</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        LESS
+                        <ul>
+                            <li>
+                                <code>// code</code>
+                                <ul>
+                                    <li>这种注释不会被编译到css文件中</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code>/* code */</code>
+                                <ul>
+                                    <li>这种注释则会在css文件中显示</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        JavaScript
+                        <ul>
+                            <li>
+                                <code>// code</code>
+                                <ul>
+                                    <li>单行注释</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code>/* code */</code>
+                                <ul>
+                                    <li>多行注释</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p><code>img</code>的<code>alt</code>与<code>title</code>有何异同？ </p>
+                <ul>
+                    <li><code>alt(alt text)</code>:为不能显示图像、窗体或applets的用户代理（UA），<code>alt</code>属性用来指定替换文字。替换文字的语言由<code>lang</code>属性指定。* (在<code>IE浏览器</code>下会在没有<code>title</code>时把<code>alt</code>当成 <code>tool tip</code>显示)</li>
+                    <li><code>title(tool tip)</code>:该属性为设置该属性的元素提供建议性的信息。</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>strong</code>与<code>em</code>的异同？</p>
+                <ul>
+                    <li><code>strong</code>:粗体强调标签，强调，表示内容的重要性</li>
+                    <li><code>em</code>:斜体强调标签，更强烈强调，表示内容的强调点</li>
+                </ul>
+            </li>
+            <li>
+                <p>语义与呈现分离</p>
+                <ul>
+                    <li>个人理解：就是把HTML和CSS分离，使HTML专门控制页面结构和含义，css专门控制页面的呈现方式，这样会使页面更有利于维护。呈现与语义分离的最终目的就是为了让HTML文档更易于程序化处理。</li>
+                </ul>
+            </li>
+            <li>
+                <p>如何理解HTML结构的语义化？　　</p>
+                <ul>
+                    <li>
+                        去掉或样式丢失的时候能让页面呈现清晰的结构：
+                        <ul>
+                            <li>html本身是没有表现的，我们看到例 如<code>&lt;h1&gt;</code>是粗体，字体大小<code>2em</code>，加粗；<code>&lt;strong&gt;</code>是加粗的，不要认为这是html的表现，这些其实html默认的 css样式在起作用，所以去掉或样式丢失的时候能让页面呈现清晰的结构不是语义化的HTML结构的优点`，但是浏览器都有有默认样式，默认样式的目的也是为 了更好的表达html的语义，可以说浏览器的默认样式和语义化的HTML结构是不可分割的。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        屏幕阅读器（如果访客有视障）会完全根据你的标记来“读”你的网页.
+                        <ul>
+                            <li>例如,如果你使用的含语义的标记,屏幕阅读器就会“逐个拼出”你的单词,而不是试着去对它完整发音.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        PDA、手机等设备可能无法像普通电脑的浏览器一样来渲染网页（通常是因为这些设备对CSS的支持较弱）
+                        <ul>
+                            <li>使用语义标记可以确保这些设备以一种有意义的方式来渲染网页.理想情况下,观看设备的任务是符合设备本身的条件来渲染网页.</li>
+                            <li>语义标记为设备提供了所需的相关信息,就省去了你自 己去考虑所有可能的显示情况（包括现有的或者将来新的设备）.例如,一部手机可以选择使一段标记了标题的文字以粗体显示.而掌上电脑可能会以比较大的字体 来显示.无论哪种方式一旦你对文本标记为标题,您就可以确信读取设备将根据其自身的条件来合适地显示页面.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        搜索引擎的爬虫也依赖于标记来确定上下文和各个关键字的权重
+                        <ul>
+                            <li>过去你可能还没有考虑搜索引擎的爬虫也是网站的“访客”,但现在它们他们实际上是极其宝贵的用户.没有他们的话,搜索引擎将无法索引你的网站,然后一般用户将很难过来访问.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        你的页面是否对爬虫容易理解非常重要,因为爬虫很大程度上会忽略用于表现的标记,而只注重语义标记.
+                        <ul>
+                            <li>因此,如果页面文件的标题被标记,而不是,那么这个页面在搜索结果的位置可能会比较靠后.除了提升易用性外,语义标记有利于正确使用CSS和JavaScript,因为其本身提供了许多“钩钩”来应用页面的样式与行为.</li>
+                            <li>SEO主要还是靠你网站的内容和外部链接的。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        便于团队开发和维护
+                        <ul>
+                            <li>W3C给我们定了一个很好的标准，在团队中大家都遵循这个标准，可以减少很多差异化的东西，方便开发和维护，提高开发效率，甚至实现模块化开发。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p><code>&lt;link rel='prefetch' href=''&gt;</code></p>
+                <ul>
+                    <li>利用浏览器的空闲时间去先下载用户指定需要的内容,然后缓存起来,这样用户下次加载时,就直接从缓存中取出来,效率就快了. </li>
+                </ul>
+            </li>
+            <li>
+                <p>带有<code>defer</code>属性的script元素</p>
+                <ul>
+                    <li>其作用：使载入的外部文件的加载和执行推迟到页面html文档所有元素都已得到解析之后。</li>
+                    <li>
+                        <p><code>defer</code>属性只能用于外部脚本文件，它对文档内嵌脚本不起作用。</p>
+                        <ul>
+                            <li>
+                                <p>eq：</p>
+<pre><code>&lt;script defer src='simple.js'&gt;&lt;/script&gt;
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>带有<code>async</code>属性的script元素异步执行脚本</p>
+                <ul>
+                    <li>其作用：异步加载外部脚本,async 属性仅适用于外部脚本（只有在使用 src 属性时）。</li>
+                    <li>
+                        <p>eq:</p>
+<pre><code>&lt;script async src='simple.js'&gt;&lt;/script&gt;
+</code></pre>
+
+                    </li>
+                    <li>使用<code>async</code>属性的一个重要后果是页面中的脚本可能不再按定义他们的次序进行。因此如果脚本使用了其它脚本中定义的函数或值，那就不宜使用<code>async</code>属性。</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>noscript</code>的另一种功能在浏览器不支持JS时将其引至另一个URL。这需要在noscript元素中加入meta元素。</p>
+                <ul>
+                    <li>
+                        <p>eq:</p>
+<pre><code>&lt;meta http-equiv='refresh' content='0,http://www.sunbeam.site'&gt;
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>注释：有多种执行外部脚本的方法：</p>
+                <ul>
+                    <li>如果 <code>async=&quot;async&quot;</code>：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）</li>
+                    <li>如果不使用 <code>async</code> 且 <code>defer=&quot;defer&quot;</code>：脚本将在页面完成解析时执行</li>
+                    <li>如果既不使用 <code>async</code> 也不使用 <code>defer</code>：在浏览器继续解析页面之前，立即读取并执行脚本</li>
+                </ul>
+            </li>
+            <li>
+                <p>HTML5新增的一些语义化的元素</p>
+<pre><code>&lt;header&gt;
+    &lt;nav&gt;&lt;/nav&gt;
+&lt;header&gt;
+&lt;article&gt;
+    &lt;section&gt;   &lt;aside&gt;
+    &lt;/section&gt;  &lt;/aside&gt;
+&lt;/article&gt;
+&lt;footer&gt;
+&lt;/footer&gt;
+还有&lt;address&gt;&lt;/address&gt;
+</code></pre>
+
+            </li>
+            <li>
+                <p>HTML和CSS兼容性</p>
+                <ol>
+                    <li>各个浏览器默认的空格间隙大小不同</li>
+                    <li>
+                        <p>火狐浏览器、chrome、Opera等浏览器有自动纠错的能力，IE浏览器（即使IE11）没有纠错能力</p>
+                        <ul>
+                            <li>
+                                <p>eq:</p>
+<pre><code>&lt;img src=''alt=''&gt;
+          ↑此处如果忘记空格，IE会无法显示图片
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>opacity</code>透明属性<code>IE6、7、8</code>不支持
+                        <ul>
+                            <li>要增加<code>filter=progid:DXImageTransform.Microsoft.Alpha(opacity=70)</code> 透明度为<code>70%</code></li>
+                            <li>也可以简写为<code>filter: alpha(opacity=70);</code></li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>制作一个基本表单需要三个基本的元素：<code>form</code>、<code>input</code>、<code>button</code>元素。</p>
+                <ul>
+                    <li>
+                        <p>eq:</p>
+<pre><code>&lt;form method='post' action='http://titan:8080/form'&gt;
+    &lt;input name='fave'/&gt;
+    &lt;button&gt;Submit Vote&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p><code>form</code>元素：该元素表示HTML页面上的表单，只要知道form元素告诉浏览器它处理的是HTML表单就行了。</p>
+                    </li>
+                    <li>
+                        <p><code>input</code>元素：其用途是收集用户输入数据。</p>
+                    </li>
+                    <li>
+                        <p>关于<code>method</code>请求，允许的值有<code>get</code>和<code>post</code>两个，它们分别对应于<code>http</code>的<code>get</code>和<code>post</code>方法，未设置<code>method</code>属性时采用的默认值为<code>get</code>。</p>
+                    </li>
+                    <li>
+                        <p>一般而言，<code>get</code>请求应该用于<code>获取只读信息</code>，而<code>post</code>请求则应该适用于<code>会改变应用程序状态的各种操作</code>，使用恰当的请求很重要。</p>
+                        <ul>
+                            <li>如果拿不准该用哪个，宁可谨慎一点，就用<code>post</code>方法好了。</li>
+                            <li><code>autofocus</code>属性只会在<code>IE10</code>和<code>IE11</code>才能起作用</li>
+                            <li><code>fieldset</code>元素可以将<code>form</code>表单中的一些元素组织在一起。将<code>input</code>元素分别编组，但是未向用户提供相关说明。</li>
+                            <li>在每一个<code>fieldset</code>元素中添加一个<code>legend</code>元素即可弥补这个缺点。</li>
+                            <li><code>legend</code>元素必须是<code>fieldset</code>元素的第一个子元素。</li>
+                            <li>
+                                <p>eq:	</p>
+<pre><code>&lt;form&gt; 
+    &lt;fieldset&gt;
+        &lt;legend&gt;TEST_SIGN&lt;/legend&gt;
+        &lt;label for='testt'&gt;TEST&lt;input name='testt' autofocus&gt;&lt;/label&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>关于<code>BUTTON</code>元素</p>
+                        <ul>
+                            <li>
+                                该元素有三种方法，这些不同操作模式通过具有三种值的<code>type</code>属性设定
+                                <ol>
+                                    <li><code>submit</code> 表示按钮的用途是提交表单 （此为默认行为）</li>
+                                    <li><code>reset</code> 表示按钮的用途是重置表单</li>
+                                    <li><code>button</code> 表示按钮没有具体语义</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>border属性的连写</p>
+                <ul>
+                    <li>
+                        <p>border 简写属性在一个声明设置所有的边框属性。</p>
+                        <ul>
+                            <li>
+                                <p>可以按顺序设置如下属性：</p>
+                                <ul>
+                                    <li>border-width</li>
+                                    <li>
+                                        border-style
+                                        <ul>
+                                            <li><code>solid</code>   实线</li>
+                                            <li><code>dotted</code>  点状线</li>
+                                            <li><code>dashed</code>  虚线</li>
+                                            <li><code>double</code>  双线</li>
+                                        </ul>
+                                    </li>
+                                    <li>border-color</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>eq:</p>
+<pre><code>border:1px solid #ccc;
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>伪元素</p>
+<pre><code>&lt;style&gt;
+    a:before{
+        content:'click here to '
+    }
+    a:after{
+        content:'!!!'
+    }
+&lt;style&gt;
+</code></pre>
+
+            </li>
+            <li>
+                <p>浏览器特定厂商前缀：</p>
+                <ul>
+                    <li>浏览器				厂商前缀</li>
+                    <li>Chrome、Safari		<code>-webkit-</code></li>
+                    <li>Opera				<code>-0-</code></li>
+                    <li>Firefox			<code>-moz-</code></li>
+                    <li>Internet Exploer	<code>-ms-</code></li>
+                </ul>
+            </li>
+            <li>
+                <p><code>padding</code>的值不可以为负，如果设置为负的话，浏览器会强制设置成<code>0</code>；但是<code>margin</code>是可以改成负值的。</p>
+            </li>
+            <li>
+                <p><code>clear</code>属性</p>
+                <ul>
+                    <li><code>clear:left</code>  属性就是规定在此元素的左边不允许左浮动元素</li>
+                    <li><code>clear:right</code> 属性就是规定在此元素的右边不允许右浮动元素</li>
+                    <li><code>clear:both</code>  属性就是规定在此元素的左侧不允许左浮动元素，在其右侧不允许右浮动元素	</li>
+                </ul>
+            </li>
+            <li>
+                <p>css补救（hack）方法</p>
+<pre><code>&lt;!--[if !IE]&gt;&lt;!--&gt; 除IE外都可识别 &lt;!--&lt;![endif]--&gt;
+&lt;!--[if IE]&gt; 所有的IE可识别 &lt;![endif]--&gt;
+&lt;!--[if IE 6]&gt; 仅IE6可识别 &lt;![endif]--&gt;
+&lt;!--[if lt IE 6]&gt; IE6以及IE6以下版本可识别 &lt;![endif]--&gt;
+&lt;!--[if gte IE 6]&gt; IE6以及IE6以上版本可识别 &lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt; 仅IE7可识别 &lt;![endif]--&gt;
+&lt;!--[if lt IE 7]&gt; IE7以及IE7以下版本可识别 &lt;![endif]--&gt;
+&lt;!--[if gte IE 7]&gt; IE7以及IE7以上版本可识别 &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt; 仅IE8可识别 &lt;![endif]--&gt;
+&lt;!--[if IE 9]&gt; 仅IE9可识别 &lt;![endif]--&gt; 可用的操作符号包括：lte（小于或等于）、lt（小于）、gt（大于）或gte（大于或等于）。
+    相等操作符可以省略，如&lt;!--[if IE 7]&gt;
+</code></pre>
+
+            </li>
+            <li>
+                <p>关于 CSS 的字体</p>
+                <ul>
+                    <li>
+                        为了避免字体的混乱，CSS 定义了<code>五种</code>通用样式：
+                        <ul>
+                            <li><code>serif</code>：这些字体成比例，而且有上下短线。包括 <code>Times</code>、<code>Georgia</code>、<code>New Century</code>和<code>Schoolbook</code>；</li>
+                            <li><code>Sans-serif</code>：这些字体是成比例的，而且没有上下短线。包括 <code>Helvetica</code>、<code>Geneva</code>、<code>Verdana</code>、<code>Arial</code> 或 <code>Univers</code>；</li>
+                            <li><code>Monospace</code> 字体：<code>Monospace</code>字体并不是成比例的。它们通常用于模拟打字机打出的文本、老式点阵打印机的输出，甚至更老式的视频显示终端。采用这些字体，每个字符的宽度都必须完全相同，所以小写的<code>i</code>和小写的<code>m</code>有相同的宽度。这些字体可能有上下短线，也可能没有。如果一个字体的字符宽度完全相同，则归类为<code>Monospace</code>字体，而不论是否有上下短线。<code>Monospace</code>字体的例子包括 <code>Courier</code>、<code>Courier New</code>和 <code>Andale Mono</code>。</li>
+                            <li><code>Cursive</code>字体：这些字体试图模仿人的手写体。通常，它们主要由曲线和 Serif 字体中没有的笔划装饰组成。例如，大写<code>A</code>再其左腿底部可能有一个小弯，或者完全由花体部	分和小的弯曲部分组成。<code>Cursive</code>字体的例子包括 <code>Zapf Chancery</code>、<code>Author</code>和`Comic Sans。</li>
+                            <li><code>Fantasy</code>字体：这些字体无法用任何特征来定义，只有一点是确定的，那就是我们无法很容易地将其规划到任何一种其他的字体系列当中。这样的字体包括 <code>Western</code>、<code>Woodblock</code>和<code>Klingon</code>。</li>
+                        </ul>
+                    </li>
+                    <li>理论上讲，用户安装的任何字体系列都会落入到上述某种通用系列中，但实际上可能并非如此，不过例外情况（如果有的话）往往很少。</li>
+                    <li>
+                        <p>eq:</p>
+<pre><code>div{font-family: Georgia, serif;}
+</code></pre>
+
+                        <ul>
+                            <li>
+                                <p>如果使用者电脑里没有定义<code>Georgia这</code>种字体，那么使用这种定义的方式的话，用户代理就可	以在通用字体serif里面选择一个使用者电脑里面安装的字体样式来显示。所以我们建议在所有 <code>font-family</code>规则中都提供一个通用字体系列。这样就提供了一条后路，在用户代理无法提供与规则匹配的特定字体时，就可以选择一个候选字体。</p>
+                            </li>
+                            <li>
+                                <p>如果您对字体非常熟悉，也可以为给定的元素指定一系列类似的字体。要做到这一点，需要把这些字体按照优先顺序排列，然后用逗号进行连接：</p>
+<pre><code>p {font-family: Times, TimesNR, 'New Century Schoolbook',Georgia, 'New York', serif;}
+</code></pre>
+
+                            </li>
+                            <li>
+                                <p>根据这个列表，用户代理会按所列的顺序查找这些字体。如果列出的所有字体都不可用，就会简单地选择一种可用的<code>serif</code>字体。</p>
+                            </li>
+                            <li>
+                                <p>字体中使用引号：</p>
+                                <ul>
+                                    <li>上面的例子中使用了单引号。只有当<code>字体名中有一个或多个空格（比如 New York）</code>，或者如果字体名包括<code>#</code>或 <code>$</code>之类的符号，才需要在<code>font-family</code>声明中加引号。</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><code>font-weight</code>属性设置文本的粗细</p>
+                                <ul>
+                                    <li>关键字 <code>100</code> ~ <code>900</code> 为字体指定了<code>9</code>级加粗度。如果一个字体内置了这些加粗级别，那么这些数字就直接映射到预定义的级别,<code>100</code>对应最细的字体变形,<code>900</code>对应最粗的字体变形。数字 <code>400</code> 等价于<code>normal</code>，而<code>700</code>等价于<code>bold</code>。</li>
+                                </ul>
+                            </li>
+                            <li>
+                                关于文字大小
+                                <ul>
+                                    <li>如果您没有规定字体大小，普通文本（比如段落）的默认大小是 <code>16</code> 像素 (16px=1em)。</li>
+                                    <li>浏览器中默认的文本大小是<code>16</code>像素。因此<code>1em</code>的默认尺寸是<code>16</code>像素。</li>
+                                    <li><code>W3C</code>推荐使用<code>em</code>尺寸单位。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>语法：</p>
+<pre><code>{font:font-style font-variant font-weight font-size font-family}
+</code></pre>
+
+                        <ul>
+                            <li>
+                                <p>
+                                    eq:
+                                </p>
+<pre><code>P { font: italic bold 12pt/14pt Times, serif }
+</code></pre>
+
+                                <p>[ <字体风格> || <字体变形> || <字体加粗> ]? <字体大小> [ / <行高> ]? <字体类形></p>
+<pre><code>通用字体    实现字体系列
+serif       Times
+sans-serif  Helvetica
+cursive     Zapf-Chancery
+fantasy     Western
+monospace   Courier
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>CSS3 字体</p>
+                        <ul>
+                            <li>
+                                <p>eq：</p>
+<pre><code>&lt;style&gt; 
+    @font-face{
+        font-family: myFirstFont;
+        src: url('Sansation_Light.ttf'),
+        url('Sansation_Light.eot'); /* IE9+ */
+    }
+&lt;/style&gt;
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>你能描述一下<code>渐进增强</code>和<code>优雅降级</code>之间的不同吗?</p>
+                <ul>
+                    <li><code>渐进增强 progressive enhancement</code>：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</li>
+                    <li><code>优雅降级 graceful degradation</code>：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</li>
+                    <li>区别：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。　</li>
+                    <li>
+                        <code>优雅降级</code>观点
+                        <ul>
+                            <li><code>优雅降级</code>观点认为应该针对那些最高级、最完善的浏览器来设计网站。而将那些被认为“过时”或有功能缺失的浏览器下的测试工作安排在开发周期的最后阶段，并把测试对象限定为主流浏览器（如 IE、Mozilla 等）的前一个版本。</li>
+                            <li>在这种设计范例下，旧版的浏览器被认为仅能提供“简陋却无妨 (poor, but passable)” 的浏览体验。你可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较大的错误之外，其它的差异将被直接忽略。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>渐进增强</code>观点
+                        <ul>
+                            <li><code>渐进增强</code>观点则认为应关注于内容本身。</li>
+                            <li>内容是我们建立网站的诱因。有的网站展示它，有的则收集它，有的寻求，有的操作，还有的网站甚至会包含以上的种种，但相同点是它们全都涉及到内容。这使 得“渐进增强”成为一种更为合理的设计范例。这也是它立即被 Yahoo! 所采纳并用以构建其“分级式浏览器支 持 (Graded Browser Support)”策略的原因所在。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>为什么利用多个域名来存储网站资源会更有效？</p>
+                <ul>
+                    <li>CDN 缓存更方便</li>
+                    <li>突破浏览器并发限制</li>
+                    <li>节约cookie带宽</li>
+                    <li>节约主域名的连接数，优化响应速度</li>
+                    <li>防止不必要的安全问题</li>
+                </ul>
+            </li>
+            <li>
+                <p>请谈一下你对网页标准和标准制定机构重要性的理解。</p>
+                <ul>
+                    <li>（无标准答案）网页标准和标准制定机构都是为了能让web发展的更‘健康’，开发者遵循统一的标准，降低开发难度，开发成本，SEO也会更好做，也不会因为滥用代码导致各种BUG、安全问题，最终提高网站易用性。</li>
+                </ul>
+            </li>
+            <li>
+                <p>谈谈以前端角度出发做好<code>SEO</code>需要考虑什么？</p>
+                <ul>
+                    <li>
+                        了解搜索引擎如何抓取网页和如何索引网页
+                        <ul>
+                            <li>你需要知道一些搜索引擎的基本工作原理，各个搜索引擎之间的区别，搜索机器人（SE robot 或叫 web crawler）如何进行工作，搜索引擎如何对搜索结果进行排序等等。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Meta标签优化
+                        <ul>
+                            <li>主要包括主题（Title)，网站描述(Description)，和关键词（Keywords）。还有一些其它的隐藏文字比如Author（作者），Category（目录），Language（编码语种）等。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        如何选取关键词并在网页中放置关键词
+                        <ul>
+                            <li>搜索就得用关键词。关键词分析和选择是SEO最重要的工作之一。首先要给网站确定主关键词（一般在5个上下），然后针对这些关键词进行优化，包括关键词密度（Density），相关度（Relavancy），突出性（Prominency）等等。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        了解主要的搜索引擎
+                        <ul>
+                            <li>虽然搜索引擎有很多，但是对网站流量起决定作用的就那么几个。比如英文的主要有Google，Yahoo，Bing等；中文的有百度，搜狗，有道等。不同的搜索引擎对页面的抓取和索引、排序的规则都不一样。 还要了解各搜索门户和搜索引擎之间的关系，比如AOL网页搜索用的是Google的搜索技术，MSN用的是Bing的技术。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        主要的互联网目录
+                        <ul>
+                            <li>Open Directory自身不是搜索引擎，而是一个大型的网站目录，他和搜索引擎的主要区别是网站内容的收集方式不同。目录是人工编辑的，主要收录网站主页；搜索引擎是自动收集的，除了主页外还抓取大量的内容页面。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        按点击付费的搜索引擎
+                        <ul>
+                            <li>搜索引擎也需要生存，随着互联网商务的越来越成熟，收费的搜索引擎也开始大行其道。最典型的有Overture和百度，当然也包括Google的广告项目Google Adwords。越来越多的人通过搜索 引擎的点击广告来定位商业网站，这里面也大有优化和排名的学问，你得学会用最少的广告投入获得最多的点击。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        搜索引擎登录
+                        <ul>
+                            <li>网站做完了以后，别躺在那里等着客人从天而降。要让别人找到你，最简单的办法就是将网站提交（submit）到搜索引擎。如果你的是商业网站，主要的搜索引擎和目录都会要求你付费来获得收录（比如Yahoo 要299美元），但是好消息是（至少到目前为止）最大的搜索引擎Google目前还是免费，而且它主宰着60％以上的搜索市场。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        链接交换和链接广泛度（Link Popularity）
+                        <ul>
+                            <li>网页内容都是以超文本（Hypertext）的方式来 互相链接的，网站之间也是如此。除了搜索引擎以外，人们也每天通过不同网站之间的链接来Surfing（“冲浪”）。其它网站到你的网站的链接越多，你也 就会获得更多的访问量。更重要的是，你的网站的外部链接数越多，会被搜索引擎认为它的重要性越大，从而给你更高的排名。</li>
+                        </ul>
+                    </li>
+                    <li>合理的标签使用</li>
+                </ul>
+            </li>
+            <li>
+                <p>简述一下<code>src</code>与<code>href</code>的区别。</p>
+                <ul>
+                    <li>
+                        <code>src</code>用于替换当前元素，<code>href</code>用于在当前文档和引用资源之间确立联系。
+                        <ul>
+                            <li><code>src</code>是<code>source</code>的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求<code>src</code>资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。</li>
+                            <li>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><code>href</code>是<code>Hypertext Reference</code>的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加</p>
+<pre><code>&lt;link href=&quot;common.css&quot; rel=&quot;stylesheet&quot;/&gt;
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用<code>@import</code>方式。</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    在css/js代码上线之后开发人员经常会优化性能，从用户刷新网页开始,一次js请求一般情况下有哪些地方会有缓存处理？
+                    * <code>dns缓存</code>，<code>cdn缓存</code>，<code>浏览器缓存</code>，<code>服务器缓存</code>。
+                </p>
+            </li>
+            <li>
+                <p>一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验。</p>
+                <ol>
+                    <li>图片懒加载，在页面上的未可视区域可以添加一个滚动条事件，判断图片位置与浏览器顶端的距离与页面的距离，如果前者小于后者，优先加载。</li>
+                    <li>如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。</li>
+                    <li>如果图片为css图片，可以使用CSSsprite，SVGsprite，Iconfont、Base64等技术。</li>
+                    <li>如果图片过大，可以使用特殊编码的图片，加载时会先加载一张压缩的特别厉害的缩略图，以提高用户体验。</li>
+                    <li>如果图片展示区域小于图片的真实大小，则因在服务器端根据业务需要先行进行图片压缩，图片压缩后大小与展示一致。</li>
+                </ol>
+            </li>
+            <li>
+                <p>CSS 都有哪些选择器？</p>
+                <ul>
+                    <li><code>派生选择器</code>（用<code>HTML标签</code>申明）</li>
+                    <li><code>id选择器</code>（用DOM的ID申明）</li>
+                    <li><code>类选择器</code>（用一个样式类名申明）</li>
+                    <li>
+                        <code>属性选择器</code>（用DOM的属性申明，属于CSS2，IE6不支持，不常用）
+                        除了前3种基本选择器，还有一些扩展选择器，包括
+                    </li>
+                    <li><code>后代选择器</code>（利用空格间隔，比如<code>div a{  }</code>）</li>
+                    <li>
+                        <code>群组选择器</code>（利用逗号间隔，比如<code>p,div,#a{  }</code>）　
+                        那么问题来了，CSS选择器的优先级是怎么样定义的？　
+                    </li>
+                    <li>
+                        <p>基本原则：</p>
+                        <ul>
+                            <li>一般而言，选择器越特殊，它的优先级越高。也就是选择器指向的越准确，它的优先级就越高。</li>
+                            <li>
+                                <p>复杂的计算方法：</p>
+                                <ul>
+                                    <li>用<code>1</code>表示派生选择器的优先级</li>
+                                    <li>用<code>10</code>表示类选择器的优先级</li>
+                                    <li>
+                                        用<code>100</code>标示ID选择器的优先级
+                                        <ul>
+                                            <li>
+                                                <code>div.test1 .span var</code> 优先级 <code>1+10 +10 +1</code>
+                                            </li>
+                                            <li>
+                                                <code>span#xxx .songs li</code> 优先级 <code>1+100 + 10 + 1</code>
+                                            </li>
+                                            <li><code>#xxx li</code> 优先级 <code>100 +1</code> </li>
+                                        </ul>
+                                    </li>
+                                    <li>与样式定义在文件中的先后顺序有关，即是后面的覆盖前面的，与在<code>&lt;p class='classB classA'&gt;</code>中的先后关系无关。</li>
+                                    <li>
+                                        <p>一个元素可以设置为俩个<code>class</code>,但正确的写法只有</p>
+<pre><code>&lt;div class=&quot;showNav backTop&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+                                    </li>
+                                    <li>一个元素不能够被标记为俩个<code>id</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>CSS中可以通过哪些属性定义，使得一个DOM元素不显示在浏览器可视范围内？　　</p>
+                <ul>
+                    <li>
+                        最基本的：
+                        <ul>
+                            <li>设置<code>display</code>属性为<code>none</code>，或者设置<code>visibility</code>属性为<code>hidden</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        技巧性：
+                        <ul>
+                            <li>设置<code>宽高</code>为<code>0</code>，设置<code>透明度</code>为<code>0</code>，设置<code>z-index</code>位置在<code>-1000</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p><code>display:none</code>与<code>visibility:hidden</code>的区别是什么？</p>
+                <ul>
+                    <li><code>display</code> : 隐藏对应的元素但不挤占该元素原来的空间。</li>
+                    <li>
+                        <code>visibility</code>: 隐藏对应的元素并且挤占该元素原来的空间。
+                        * 使用CSS <code>display:none</code>属性后，HTML元素（对象）的宽度、高度等各种属性值都将“丢失”;而使用<code>visibility:hidden</code>属性后，HTML元素（对象）仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>超链接访问过后<code>hover</code>样式就不出现的问题是什么？如何解决？</p>
+                <ul>
+                    <li>被点击访问过的超链接样式不在具有<code>hover</code>和<code>active</code>了,解决方法是改变CSS属性的排列顺序: <code>L-V-H-A</code>（<code>link</code>,<code>visited</code>,<code>hover</code>,<code>active</code>）</li>
+                </ul>
+            </li>
+            <li>
+                <p>什么是<code>CSS Hack</code>？<code>ie6,7,8</code>的<code>hack</code>分别是什么？</p>
+                <ul>
+                    <li>针对不同的浏览器写不同的<code>CSS code</code>的过程，就是<code>CSS hack</code>。</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>行内元素</code>和<code>块级元素</code>的具体区别是什么？行内元素的padding和margin可设置吗？</p>
+                <ul>
+                    <li>
+                        块级元素(block)特性：
+                        <ul>
+                            <li>总是独占一行，表现为另起一行开始，而且其后的元素也必须另起一行显示;</li>
+                            <li>
+                                宽度(width)、高度(height)、内边距(padding)和外边距(margin)都可控制;
+                                * 内联元素(inline)特性：
+                            </li>
+                            <li>和相邻的内联元素在同一行;</li>
+                            <li>宽度(width)、高度(height)、内边距的top/bottom(padding-top/padding-bottom)和外边距的top/bottom(margin-top/margin-bottom)都不可改变（也就是padding和margin的left和right是可以设置的），就是里面文字或图片的大小。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        那么问题来了，浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？
+                        <ul>
+                            <li><code>&lt;input&gt;</code> 、<code>&lt;img&gt;</code> 、<code>&lt;button&gt;</code> 、<code>&lt;textarea&gt;</code> 、<code>&lt;label&gt;</code>。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>什么是外边距重叠？重叠的结果是什么？</p>
+                <ul>
+                    <li>
+                        外边距重叠就是<code>margin-collapse</code>
+                        <ul>
+                            <li>在CSS当中，相邻的两个盒子（可能是兄弟关系也可能是祖先关系）的外边距可以结合成一个单独的外边距。这种合并外边距的方式被称为	折叠	，并且因而所结合成的外边距称为折叠外边距</li>
+                            <li>
+                                折叠结果遵循下列计算规则：
+                                <ol>
+                                    <li>两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。</li>
+                                    <li>两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。</li>
+                                    <li>两个外边距一正一负时，折叠结果是两者的相加的和。</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p><code>rgba()</code>和<code>opacity</code>的透明效果有什么不同？</p>
+                <ul>
+                    <li>
+                        <code>rgba()</code>和<code>opacity</code>都能实现透明效果，但最大的不同是<code>opacity</code>作用于元素，以及元素内的所有内容的透明度，
+                        而<code>rgba()</code>只作用于元素的颜色或其背景色。（设置rgba透明的元素的子元素不会继承透明效果！）
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>CSS 中可以让文字在垂直和水平方向上重叠的两个属性是什么？</p>
+                <ul>
+                    <li>垂直方向：line-height</li>
+                    <li>水平方向：letter-spacing</li>
+                    <li>
+                        那么问题来了，关于letter-spacing的妙用知道有哪些么？
+                        <ul>
+                            <li>可以用于消除<code>inline-block</code>元素间的换行符空格间隙问题。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p><code>px</code>和<code>em</code>的区别。</p>
+                <ul>
+                    <li><code>px</code>和<code>em</code>都是长度单位，区别是，<code>px</code>的值是固定的，指定是多少就是多少，计算比较容易。em得值不是固定的，并且em会继承父级元素的字体大小。</li>
+                    <li>浏览器的默认字体高都是16px。所以未经调整的浏览器都符合: <code>1em=16px</code>。那么<code>12px=0.75em</code>, <code>10px=0.625em</code>。</li>
+                </ul>
+            </li>
+            <li>
+                <p>描述一个`re</p>
+            </li>
+            <li>
+                <p><code>的CSS文件并如何使用它。知道</code>normalize.css`吗？你了解他们的不同之处？　</p>
+                <ul>
+                    <li>重置样式非常多，凡是一个前端开发人员肯定有一个常用的重置CSS文件并知道如何使用它们。他们是盲目的在做还是知道为什么这么做呢？原因是不同的浏览器对一些元素有不同的默认样式，如果你不处理，在不同的浏览器下会存在必要的风险，或者更有戏剧性的性发生。</li>
+                    <li>你可能会用Normalize来代替你的重置样式文件。它没有重置所有的样式风格，但仅提供了一套合理的默认样式值。既能让众多浏览器达到一致和合理，但又不扰乱其他的东西（如粗体的标题）。</li>
+                    <li>在这一方面，无法做每一个复位重置。它也确实有些超过一个重置，它处理了你永远都不用考虑的怪癖，像HTML的au</li>
+                    <li>dio元素不一致或line-height不一致。</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>Sass</code>、<code>LESS</code>是什么？大家为什么要使用他们？</p>
+                <ul>
+                    <li>他们是CSS预处理器。他是CSS上的一种抽象层。他们是一种特殊的语法/语言编译成CSS。</li>
+                    <li>
+                        例如Less是一种动态样式语言. 将CSS赋予了动态语言的特性，如变量，继承，运算， 函数. LESS 既可以在客户端上运行 (支持IE 6+, Webkit, Firefox)，也可一在服务端运行 (借助 Node.js)。
+                        * 为什么要使用它们？
+                        <ul>
+                            <li>结构清晰，便于扩展。</li>
+                            <li>可以方便地屏蔽浏览器私有语法差异。这个不用多说，封装对浏览器语法差异的重复处理，减少无意义的机械劳动。</li>
+                            <li>可以轻松实现多重继承。</li>
+                            <li>完全兼容 CSS 代码，可以方便地应用到老项目中。LESS 只是在 CSS语法上做了扩展，所以老的 CSS 代码也可以与 LESS 代码一同编译。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <hr>
+                <img src="imgs/background.png" height="455" width="462" alt="">
+            </li>
+        </ul>
+    </div>
+    
+    <div class="footer" id="footer">
+        <p>© sunbeam. | <a href="http://sunbeam.site/">yg</a></p>
+    </div>
+</body>
+</html>

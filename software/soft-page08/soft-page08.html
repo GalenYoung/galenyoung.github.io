@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="yg">
+    <meta name="description" content="This is Galen's personal Website!">
+    <meta name="keyword" content="personal blog,the front-end">
+    <title>重装系统之后优化系统性能</title>
+    <link  rel="shortcut icon" href="../../images/sunshine.png">
+    <!-- CSS style is here ! -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../soft-style/markd-common.css">
+    <link rel="stylesheet" type="text/css" href="../soft-style/soft-header&bottom-style.min.css">
+    <link rel="stylesheet" type="text/css" href="soft-page08.css">
+</head>
+<body>
+
+    <div class="header" id="header">
+        <ul>
+            <li><a href="../../homePage.html">首页</a></li><!--
+            --><li><a href="../../programme/programme.html">编程</a></li><!--
+            --><li><a href="../software.html">软件</a></li><!--
+            --><li><a href="../../think/thinking.html">思考</a></li>
+        </ul>
+    </div>
+
+    <div class="soft-markdContent-wrap">
+        <h1>重装系统之后优化系统性能</h1>
+        <ul>
+            <li>针对windows 7 以上系统的优化（包括Windows 10） </li>
+            <li>
+                <p>第一项：加速系统启动速度</p>
+                <ul>
+                    <li>使用快捷键<code>WIN + R</code>打开运行窗口，输入<code>msconfig</code>命令</li>
+                    <li>点击选择<code>引导</code>选项卡，选择<code>高级选项</code></li>
+                    <li>勾选处理器数和最大内存，按电脑的实际大小进行选择。</li>
+                </ul>
+            </li>
+            <li>
+                <p>第二项： 加快系统关机速度</p>
+                <ul>
+                    <li>
+                        <p>第一步：</p>
+                        <ul>
+                            <li>依然在运行窗口中输入命令 <code>regedit</code>,打开注册表编辑器</li>
+                            <li>找到 <code>HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Control</code>  一项  <code>&quot;WaitToKillServiceTimeOut&quot;</code></li>
+                            <li>右键点击修改可以看到系统默认数值，在这里把数值适当的修改低一些，也可以设置为0 </li>
+                            <li>设置完最好重启电脑</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>第二步(关机不询问)：</p>
+                        <ul>
+                            <li>打开运行，输入命令<code>gpedit.msc</code>打开组策略编辑器</li>
+                            <li>依次展开  <code>计算机配置</code>——<code>管理模板</code>——<code>系统</code>——<code>关机选项</code></li>
+                            <li>双击右侧的<code>关闭会阻止或取消关机的应用程序的自动终止功能</code>，在弹出的对话框里把配置修改为<code>已启动</code></li>
+                            <li>设置生效后，再次关机时，即使有应用程序未关闭，系统也不会再询问用户是否要强制或取消关机了。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>第三项：关闭系统搜索索引服务</p>
+                <ul>
+                    <li>
+                        <p>如果是windows 7 系统</p>
+                        <ul>
+                            <li>打开运行，输入命令<code>services</code>，在菜单里点击“查看本地服务”，在弹出的对话框里寻找到<code>Windows Search</code>,然后右击选择停止此服务即可。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>如果是windows 10 系统</p>
+                        <ul>
+                            <li>同时按住 <code>Ctrl + Shift + Esc</code>,调出任务管理器窗口，点击<code>服务</code>按钮，选择 <code>WSearch</code>，然后右击选择停止此服务即可。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>第四项： 取消文件压缩和索引</p>
+                <ul>
+                    <li>其中文件压缩的目的是为了节约磁盘空间，但实际上这个功能并不能节约出多大的硬盘空间，几乎没有什么实际效果。而文件索引的目的就是让用户能够更快地找到硬盘上的文件，这个功能本来很好，但Windows系统会经常在空闲时检查索引，造成大量的硬盘读写操作。</li>
+                    <li>鼠标右键单击硬盘盘符，在菜单上选择<code>属性</code>，在弹出的界面上，将<code>压缩此驱动器以节约磁盘空间</code>和<code>除了文件属性外，还允许索引此驱动器上文件的内容</code>这两项前面的小钩去掉。之后点击确定退出。不过这样的操作建议仅针对非系统盘，比如我们用来存储电影或音乐的D，E，F盘等，系统盘还是保留原样比较好。</li>
+                </ul>
+            </li>
+            <li>
+                <p>第五项： 关闭自动播放</p>
+                <ul>
+                    <li>在运行中输入命令<code>gpedit.msc</code></li>
+                    <li>选择 <code>计算机配置</code>——<code>管理模板</code>——<code>Windows组件</code></li>
+                    <li>将右侧菜单拉到最下，双击<code>自动播放策略</code></li>
+                    <li>双击关闭自动播放，在弹出的窗口中选择 <code>已启用</code>,然后点击 <code>确定</code>。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="footer" id="footer">
+        <p>© sunbeam. | <a href="http://sunbeam.site/">yg</a></p>
+    </div>
+
+    <script src="../../js/solve_footer_Location.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="yg">
+    <meta name="description" content="This is Galen's personal Website!">
+    <meta name="keyword" content="personal blog，the front-end">
+    <title>Sublime Text 3 开发环境配置</title>
+    <link  rel="shortcut icon" href="../../images/sunshine.png">
+    <!-- CSS style is here ! -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../soft-style/markd-common.css">
+    <link rel="stylesheet" type="text/css" href="../soft-style/soft-header&bottom-style.min.css">
+    <link rel="stylesheet" type="text/css" href="soft-page06.css">
+</head>
+<body>
+
+    <div class="header" id="header">
+        <ul>
+            <li><a href="../../homePage.html">首页</a></li><!--
+            --><li><a href="">编程</a></li><!--
+            --><li><a href="../software.html">软件</a></li><!--
+            --><li><a href="../../think/thinking.html">思考</a></li>
+        </ul>
+    </div>
+
+    <div class="soft-markdContent-wrap">
+        <h1>Sublime Text 3环境配置</h1>
+        <ol>
+            <li>软件安装包下载地址： <code>http://www.sublimetext.com/3</code></li>
+            <li>
+                <p>常用插件配置：</p>
+                <ol>
+                    <li><code>package control</code>：方便其它插件的快速安装</li>
+                    <li><code>EMMET</code>： 快速生成HTML结构，并且快速输入HTML代码</li>
+                    <li><code>IMESupport</code>：解决输入法显示位置异常的问题</li>
+                    <li><code>autoFileName</code>：要引入文件和地址时，出现提示</li>
+                    <li><code>LESS</code> ：使LESS代码有颜色</li>
+                    <li><code>SideBarEnhancements</code>：可以设置打开各个浏览器的快捷键</li>
+                    <li><code>DocBlockr</code>： 注释插件</li>
+                    <li><code>SublimeCodeIntel</code>：代码提示插件</li>
+                    <li><code>Bracket Highlighter</code>: 使代码高亮显示</li>
+                    <li><code>python 3</code>: 写python代码</li>
+                    <li><code>HTML5</code></li>
+                    <li><code>jQuery</code></li>
+                </ol>
+            </li>
+            <li>
+                <p>package control插件管理器安装方法：</p>
+                <ul>
+                    <li>菜单<code>view</code> &gt; <code>Show Console</code> 调出命令行工具粘贴命令</li>
+                    <li>将<code>（import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ）</code>括号里面的内容粘贴进去。</li>
+                    <li>回车，重启Sublime Text 3即可。</li>
+                    <li>检查插件管理安装成功：如果<code>Preferences</code> &gt; <code>Package Control</code> 这个选项，即表示插件管理器安装成功！</li>
+                </ul>
+            </li>
+            <li>
+                <p>其它插件的安装方法类似：用<code>ctrl + shift + p</code> 调出面板选择 <code>install package</code>安装插件即可。</p>
+            </li>
+            <li>
+                <p><code>SideBarEnhancements</code>配置：</p>
+                <ul>
+                    <li>
+                        选择以下菜单选项
+                        <code>preferences</code> / <code>Package Settings</code> / <code>Side Bar</code> / <code>Key Bindings - User</code>
+                    </li>
+                    <li>
+                        <p>将以下代码复制进去：</p>
+<pre><code>[
+    { &quot;keys&quot;: [&quot;ctrl+shift+c&quot;], &quot;command&quot;: &quot;copy_path&quot; },
+    //chrome
+    { &quot;keys&quot;: [&quot;f12&quot;], &quot;command&quot;: &quot;side_bar_files_open_with&quot;,
+        &quot;args&quot;: {
+            &quot;paths&quot;: [],
+            &quot;application&quot;:&quot;C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe&quot;,
+            &quot;extensions&quot;:&quot;.*&quot; //匹配任何文件类型
+        }
+    },
+    //firefox
+    { &quot;keys&quot;: [&quot;shift+f12&quot;], &quot;command&quot;: &quot;side_bar_files_open_with&quot;,
+        &quot;args&quot;: {
+            &quot;paths&quot;: [],
+            &quot;application&quot;:&quot;C:\\Program Files\\Firefox Developer Edition\\firefox.exe&quot;,
+            &quot;extensions&quot;:&quot;.*&quot;
+        }
+     },
+    //ie
+    { &quot;keys&quot;: [&quot;ctrl+f12&quot;], &quot;command&quot;: &quot;side_bar_files_open_with&quot;,
+        &quot;args&quot;: {
+            &quot;paths&quot;: [],
+            &quot;application&quot;:&quot;C:\\Program Files\\Internet Explorer\\iexplore.exe&quot;,
+            &quot;extensions&quot;:&quot;.*&quot;
+        }
+    },
+]
+</code></pre>
+
+                        <ul>
+                            <li><code>chrome</code>打开快捷键：<code>F12</code></li>
+                            <li><code>firefox</code>打开快捷键：<code>shift + F12</code></li>
+                            <li><code>IE</code>打开快捷键：<code>ctrl + F12</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>注意文件的路径引用，每个电脑的浏览器引用路径并不一定相同，而且间隔符号要用双斜杠 \。</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>配置参考地址：</p>
+                <ul>
+                    <li>浏览器打开快捷方式设置：<code>http://www.w3cfuns.com/blog-5431998-5401485.html</code></li>
+                    <li>代码高亮设置方法：<code>http://www.tuicool.com/articles/EV3eEzA</code></li>
+                </ul>
+            </li>
+            <li>
+                <p>Sublime Text 3 常用方法</p>
+                <ul>
+                    <li>快速注释的快捷键：<code>ctrl+/</code>或者 <code>ctrl+shift+/</code></li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    
+    <div class="footer" id="footer">
+        <p>© sunbeam. | <a href="http://sunbeam.site/">yg</a></p>
+    </div>
+
+    <script src="../../js/solve_footer_Location.js"></script>
+</body>
+</html>
