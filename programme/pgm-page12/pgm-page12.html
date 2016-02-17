@@ -7,12 +7,12 @@
     <meta name="author" content="yg">
     <meta name="description" content="This is Galen's personal Website!">
     <meta name="keyword" content="personal blog,the front-end">
-    <title>Javascript Tab延迟切换插件(二)</title>
+    <title>Javascript Tab延迟切换插件(三)</title>
     <link  rel="shortcut icon" href="../../images/sunshine.png">
     <!-- CSS style is here ! -->
     <link rel="stylesheet" type="text/css" href="../pgm-style/markd-common.css">
     <link rel="stylesheet" type="text/css" href="../pgm-style/pgm-header&bottom-style.min.css">
-    <link rel="stylesheet" type="text/css" href="pgm-page11.css">
+    <link rel="stylesheet" type="text/css" href="pgm-page12.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="pgm-markdContent-wrap">
-        <h1>Javascript Tab延迟切换插件(二)</h1>
+        <h1>Javascript Tab延迟切换插件(三)</h1>
         <ul>
             <li>
                 <p><strong>HTML结构</strong></p>
@@ -49,50 +49,42 @@
                 <p><strong>JavaScript</strong></p>
 <pre><code>(function(window,document,undefined){
     &quot;use strict&quot;;
-    var sal_choiceUL = document.getElementsByClassName(&quot;sal-choiceUL&quot;)[0];
-    var sal_choiceLI = document.getElementsByClassName(&quot;sal-choiceLI&quot;);
-    var sal_showUL = document.getElementsByClassName(&quot;sal-showUL&quot;)[0];
-    var sal_showLI = document.getElementsByClassName(&quot;sal-showLI&quot;);
-    if (sal_showLI.length === sal_choiceLI.length) {
-        for (var i = 0; i &lt; sal_choiceLI.length; i++) {
-            sal_choiceLI[i].index = i;
-            var timer = null ; 
-            if (i === 0) {
-                sal_choiceLI[0].onmouseover = function(){
-                    if(null){
-                        clearTimeout(timer);
-                        timer = null;
-                    }
-                    var that = this ; 
-                    timer = window.setTimeout(function(){
-                        for (var j = 0 ; j &lt; sal_choiceLI.length ; j++){
-                            sal_choiceLI[j].className = &quot;sal-choiceLI&quot;;
-                            sal_showLI[j].style.display = &quot;none&quot;;
-                        };
-                        this.className = &quot;sal-choiceLI sal-choiceLI-hover&quot;;
-                        sal_showLI[0].style.display = &quot;block&quot;;
-                    },500); 
-                };
-            }else{
-                sal_choiceLI[i].onmouseover = function(){
-                    if(null){
-                        clearTimeout(timer);
-                        timer = null;
-                    };
-                    var that = this ;
-                    timer = window.setTimeout(function(){
-                        for(var j = 1 ; j &lt; sal_choiceLI.length ; j++){
-                            sal_choiceLI[j].className = &quot;sal-choiceLI&quot;;
-                            sal_showLI[j].style.display = &quot;none&quot;;
-                        };
-                        sal_choiceLI[0].className = &quot;sal-choiceLI&quot;;
-                        sal_showLI[0].style.display = &quot;none&quot;;
-                        that.className = &quot;sal-choiceLI sal-choiceLI-hover&quot;;
-                        sal_showLI[that.index].style.display = &quot;block&quot;; 
-                    },500); 
-                }
-            }
-        };
+    var sal_choiceLI = document.getElementsByClassName(&quot;sal-choiceLI&quot;),
+        sal_showLI = document.getElementsByClassName(&quot;sal-showLI&quot;);
+    var index = 0;
+    var timer = null;
+    var default_time = 2000 ; 
+    if(sal_choiceLI.length != sal_showLI.length) return;
+    for(var i=0;i&lt;sal_choiceLI.length;i++){
+        sal_choiceLI[i].turn = i;
+        sal_choiceLI[i].onmouseover=function(){
+            clearInterval(timer);
+            showPlay(this.turn);
+        }
+        sal_choiceLI[i].onmouseout=function(){  
+            timer=setInterval(autoPlay,default_time);    
+        }
+    }
+    if(timer){
+        clearInterval(timer);
+        timer=null;
+    } 
+    timer=setInterval(autoPlay,default_time);
+    function autoPlay(){
+        index++;
+        if(index&gt;=sal_choiceLI.length){
+             index=0;
+        }
+        showPlay(index);
+    }
+    function showPlay(param){
+        for(var j=0;j&lt;sal_choiceLI.length;j++){
+            sal_choiceLI[j].className='sal-choiceLI';
+            sal_showLI[j].style.display='none';
+        }
+        sal_choiceLI[param].className='sal-choiceLI sal-choiceLI-hover';
+        sal_showLI[param].style.display='block';
+        index=param;
     };
 })(window,document)
 </code></pre>
@@ -109,7 +101,7 @@
                             <li>解决办法：引用<code>reset</code>清除浏览器的所有默认样式</li>
                         </ul>
                     </li>
-                    <li>此插件设置的延迟时间是<code>500毫秒</code></li>
+                    <li>此插件设置的自动播放时间是<code>2秒</code>,，可以通过设置变量<code>default_time</code>来更改自动播放时间</li>
                 </ul>
             </li>
         </ul>

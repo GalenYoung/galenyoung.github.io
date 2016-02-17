@@ -1,0 +1,114 @@
+.pgm-pic-container{
+	height: 800px;
+	width:800px;
+	margin: 0 auto;
+	position: relative;
+	
+}
+.pgm-pic-container img{
+	border:1px solid #e1e1e1;
+	box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.4);
+	-webkit-transition:all 0.5s ease-in;
+	   -moz-transition:all 0.5s ease-in;
+			transition:all 0.5s ease-in; 
+			position: absolute;
+			z-index: 1;
+}
+.pgm-pic-container img:hover{
+	box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4); 
+	-webkit-transform:rotate(0deg) scale(1.20); 
+	   -moz-transform:rotate(0deg) scale(1.20); 
+	        transform:rotate(0deg) scale(1.20);
+	z-index: 2; 
+}
+
+.pic0
+{
+	left:0; 
+	top:20px; 
+	-webkit-transform: rotate(20deg); 
+	-moz-transform: rotate(20deg); 
+	transform: rotate(20deg);
+}
+.pic1{
+	left: 400px; 
+	top: 0; 
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg); 
+	transform: rotate(-5deg);
+}
+
+.pic2{
+	top: 0; 
+	left: 600px; 
+	-webkit-transform: rotate(-20deg); 
+	-moz-transform: rotate(-20deg); 
+	transform: rotate(-20deg);
+}
+
+.pic3
+{
+	bottom: 0; 
+	right: 0; 
+	-webkit-transform: rotate(5deg); 
+	-moz-transform: rotate(5deg); 
+	transform: rotate(5deg);
+}
+	
+.pic4
+{
+	bottom:0; 
+	left:300px; 
+	-webkit-transform: rotate(-10deg); 
+	-moz-transform: rotate(-10deg); 
+	transform: rotate(-10deg);
+}
+
+.pic5
+{
+	bottom: 0; 
+	left: 0; 
+	-webkit-transform: rotate(-10deg); 
+	-moz-transform: rotate(-10deg); 
+	transform: rotate(-10deg);
+}
+
+.pic6
+{
+	top: 0; 
+	left:-400px; 
+	-webkit-transform: rotate(-15deg); 
+	-moz-transform: rotate(-15deg); 
+	transform: rotate(-15deg);
+}
+
+.pic7
+{
+	top: 40px; 
+	left: 750px; 
+	-webkit-transform: rotate(20deg); 
+	-moz-transform: rotate(20deg); 
+	transform: rotate(20deg);
+}
+
+.pic8
+{
+	bottom: -10px; 
+	right: 730px; 
+	-webkit-transform: rotate(5deg); 
+	-moz-transform: rotate(5deg); 
+	transform: rotate(5deg);
+}
+
+.pic9
+{
+	top: 400px; 
+	left: 550px; 
+	-webkit-transform: rotate(-15deg); 
+	-moz-transform: rotate(-15deg); 
+	transform: rotate(-15deg);
+}
+
+.pgm-markdContent-wrap{
+	margin-top:100px;
+}
