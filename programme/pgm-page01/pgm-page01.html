@@ -7,10 +7,9 @@
     <meta name="author" content="yg">
     <meta name="description" content="This is Galen's personal Website!">
     <meta name="keyword" content="personal blog,the front-end">
-    <title>Winodws 自带截图功能使用技巧</title>
+    <title>基于jQuery的可以钉在网页的pin插件</title>
     <link  rel="shortcut icon" href="../../images/sunshine.png">
     <!-- CSS style is here ! -->
-    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" type="text/css" href="../pgm-style/markd-common.css">
     <link rel="stylesheet" type="text/css" href="../pgm-style/pgm-header&bottom-style.min.css">
     <link rel="stylesheet" type="text/css" href="pgm-page01.css">
@@ -27,61 +26,111 @@
         </ul>
     </div>
 
-    <div class="soft-markdContent-wrap">
-            <h1>Winodws 自带截图功能使用技巧</h1>
-            <ul>
-                <li>
-                    <p><strong>第一步 说明</strong></p>
-                    <ul>
-                        <li>首先此教程是针对Winodws 7及以上系统，xp系统并不存在此快捷方法。 本教程作为演示的系统为Windows 7 sp1旗舰版，其它版本及系统实现方法大同小异。</li>
-                    </ul>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails0wins7.png"></p>
-                </li>
-                <li>
-                    <p><strong>第二步 找到Windows的截图工具</strong></p>
-                    <ul>
-                        <li>第一种方法：单击&quot;开始&quot;菜单，打开“所有程序”“附件”“截图工具”，即可打开截图工具。</li>
-                    </ul>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails020151130133047.png"></p>
-                    <ul>
-                        <li>第二种方法：可以通过“运行”中输入命令：<code>snippingtool</code></li>
-                    </ul>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails020151130133235.png"></p>
-                </li>
-                <li>
-                    <p><strong>第三步 截图工具的使用方法</strong></p>
-                    <ul>
-                        <li>按住鼠标左键直接拖拽包围你想要截图的部分即可 </li>
-                    </ul>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails020151130133500.png"></p>
-                </li>
-                <li>
-                    <p><strong>第四步：配置截图选项和做标记</strong></p>
-                    <ul>
-                        <li>你也可以根据选项选择适合的截图方法</li>
-                    </ul>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails020151130134202.png"></p>
-                    <ul>
-                        <li>你可以点击铅笔按钮，按住鼠标左键拖动在你的截图上用鼠标做标记 </li>
-                    </ul>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails020151130134502.png"></p>
-                </li>
-                <li>
-                    <p><strong>第五步 保存截图</strong></p>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails020151130134716.png"></p>
-                    <ul>
-                        <li>你可以将截图保存为png、gif以及jpeg等多个格式</li>
-                    </ul>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails020151130134924.png"></p>
-                </li>
-                <li>
-                    <p><strong>第六步 定义快捷键</strong></p>
-                    <ul>
-                        <li>为了方便我们快速使用截图功能，我们可以定义快捷键，选中截图图标，点击鼠标右键 点开属性 在快捷方式选项卡中定义快捷键，我定义的是Ctrl + Alt + S ,你可以定义其它的快捷键组合，这样我们每次想要截图的时候，只要按住ctrl，alt和S键，截图就会自动弹出来了。 </li>
-                    </ul>
-                    <p><img src="http://7xocay.com1.z0.glb.clouddn.com/softwdetails020151130135146.png"></p>
-                </li>
-            </ul>
+    <div class="pgm-markdContent-wrap">
+        <h1>基于jQuery的可以钉在网页的pin插件</h1>
+        <ul>
+            <li>
+                <p>使用示例</p>
+<pre><code>  $(&quot;.goal-element&quot;).sal_pin({
+        minWidth: 1000,
+        containerSelector: &quot;.parent-container&quot;
+    });
+</code></pre>
+
+            </li>
+            <li>
+                <p>使用说明</p>
+                <ul>
+                    <li>
+                        本插件共提供俩个接口
+                        <ul>
+                            <li><code>minWidth</code>: 在小于设置的<code>minWidth</code>尺寸的屏幕上禁用Pin效果</li>
+                            <li><code>containerSelector</code> : 将目标元素钉在设置的<code>containerSelector</code>父元素中</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>默认的属性为</p>
+<pre><code>minWidth: 0,
+containerSelector:body
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>源代码</p>
+<pre><code>;(function($,window,document,undefined){
+    &quot;use strict&quot;;
+    if(!$) { return console.warn('页面没有正确引入jQuery'); };  
+    $.fn.sal_pin = function(options){
+        var that = this;
+        options = options || {minWidth: 0,containerSelector: $(document.body)}; 
+        if( $(window).width() &gt;= options.minWidth){
+            //目标元素距顶部的距离
+            var thatOffsetTop = that.offset().top;
+            //获取目标元素距离浏览器左侧的距离
+            var thatOffsetLeft = that.offset().left;
+            //获取目标元素的高度
+            var thatHeight =  parseInt(that.css(&quot;height&quot;));
+            //为了能够在页面向上滚动回去的时候，目标元素的定位能够恢复到以前的设置，我们要获取它之前的定位属性
+            var thatPos = that.css(&quot;position&quot;);
+            var thatTop = that.css(&quot;top&quot;);
+            var thatLeft = that.css(&quot;left&quot;);
+            //如果设置了相对父元素定位的父元素的话，获取其 dom
+            var $container = options.containerSelector ? $(that.closest(options.containerSelector)) : $(document.body);
+            //获得父元素距离浏览器顶部的距离
+            var $containerOffsetTop = $container.offset().top;
+            //获取父元素的高度
+            var $containerHeight = $container.height();
+            $(window).scroll(function(){
+                //页面滚动的距离
+                var winScrollTop = $(window).scrollTop();
+                //获取目标元素的margin-top值
+                var thatMarginTop = parseInt(that.css(&quot;marginTop&quot;));
+                if(winScrollTop &gt;= (thatOffsetTop - thatMarginTop) ){
+                    that.css({
+                        position : 'fixed',
+                        top      : '0',
+                        left     : thatOffsetLeft
+                    });
+                }else{
+                    that.css({
+                        position: thatPos,
+                        top     : thatTop,
+                        left    : thatLeft
+                    });
+                };
+                if(options.containerSelector){
+                    if (winScrollTop &gt;= ($containerOffsetTop + $containerHeight-  thatHeight - thatMarginTop)) {
+                        if( $container.css(&quot;position&quot;) === &quot;static&quot;){
+                             $container.css('position', 'relative');
+                        };
+                        that.css({
+                            position : 'absolute',
+                            top      : ( $containerHeight - 2 * thatHeight),
+                            left     : thatLeft
+                        });
+                    };
+                };
+            });
+        };
+        return this;
+    };
+})(window.jQuery,window,document)
+</code></pre>
+
+            </li>
+            <li>
+                <p>注意：</p>
+                <ul>
+                    <li>本插件所有的定位都采用的是<code>top</code>、<code>left</code>,以免出现bug,需要用到该插件的元素的定位都应该使用<code>top</code>和<code>left</code></li>
+                </ul>
+                <!--
+            问题：that.offset().top的值是否包括margin值?
+                    答案是：包括
+             -->
+            </li>
+        </ul>
     </div>
     
     <div class="footer" id="footer">
