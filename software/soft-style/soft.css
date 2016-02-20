@@ -16,11 +16,12 @@ a:hover {
   text-decoration: none;
 }
 /* 变量 */
-/* 引用网络字体 */
-@font-face {
-  font-family: "txtsksj";
-  src: url(../../fonts/腾祥铁山楷书简.ttf);
-}
+/* 引用网络字体 
+	@font-face{
+		font-family: "txtsksj";
+		src:url(../../fonts/腾祥铁山楷书简.ttf);
+	}
+*/
 /* 页面样式 */
 /* 头部样式 */
 .header {
@@ -37,7 +38,7 @@ a:hover {
 .header ul li {
   display: inline-block;
   height: 100%;
-  font: normal 400 18px/50px txtsksj;
+  font: normal 400 18px/50px "Agency FB", STXingkai, KaiTi;
   margin: 0 18px;
 }
 .header ul li a {
@@ -61,7 +62,7 @@ a:hover {
   }
   .soft-content li a {
     color: #4296DB;
-    font: normal 400 22px/50px txtsksj;
+    font: normal 400 22px/50px "Agency FB", STXingkai, KaiTi;
   }
   .soft-content li a:hover {
     color: #E91E63;
@@ -78,7 +79,7 @@ a:hover {
   }
   .soft-content li a {
     color: #4296DB;
-    font: normal 400 18px/48px txtsksj;
+    font: normal 400 18px/48px "Agency FB", STXingkai, KaiTi;
   }
   .soft-content li a:hover {
     color: #E91E63;
@@ -95,7 +96,7 @@ a:hover {
   }
   .soft-content li a {
     color: #4296DB;
-    font: normal 400 14px/30px txtsksj;
+    font: normal 400 14px/30px "Agency FB", STXingkai, KaiTi;
   }
   .soft-content li a:hover {
     color: #E91E63;
@@ -106,7 +107,7 @@ a:hover {
   height: 80px;
   border-top: 1px solid #eee;
   padding-bottom: 20px;
-  font: normal 400 16px/80px txtsksj;
+  font: normal 400 16px/80px "Agency FB", STXingkai, KaiTi;
   color: #888;
 }
 .footer p {
@@ -131,7 +132,7 @@ a:hover {
 .buffer-mask {
   height: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: #f5f5f5;
   overflow: hidden;
   position: fixed;
   top: 0;

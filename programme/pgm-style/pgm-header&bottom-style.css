@@ -12,11 +12,12 @@ a:hover {
   -ms-transition: 0.5s all;
   text-decoration: none;
 }
-/* 引用网络字体 */
-@font-face {
-  font-family: "txtsksj";
-  src: url(../../fonts/腾祥铁山楷书简.ttf);
-}
+/* 引用网络字体 
+	@font-face{
+		font-family: "txtsksj";
+		src:url(../../fonts/腾祥铁山楷书简.ttf);
+	}
+*/
 /* 变量 */
 /* 页面样式 */
 /* 头部样式 */
@@ -34,7 +35,7 @@ a:hover {
 .header ul li {
   display: inline-block;
   height: 100%;
-  font: normal 400 18px/50px txtsksj;
+  font: normal 400 18px/50px "Agency FB", STXingkai, KaiTi;
   margin: 0 18px;
 }
 .header ul li a {
@@ -51,7 +52,7 @@ a:hover {
   height: 80px;
   border-top: 1px solid #eee;
   padding-bottom: 20px;
-  font: normal 400 16px/80px txtsksj;
+  font: normal 400 16px/80px "Agency FB", STXingkai, KaiTi;
   color: #888;
 }
 .footer p {

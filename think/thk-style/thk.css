@@ -4,14 +4,15 @@ body {
   height: 100%;
   background-color: #B6B6B6;
   font-size: 16px;
-  font-family: txtsksj;
+  font-family: "Agency FB", STXingkai, KaiTi;
   overflow-x: hidden;
 }
-/* 引用网络字体 */
-@font-face {
-  font-family: "txtsksj";
-  src: url(../../fonts/腾祥铁山楷书简.ttf);
+/* 引用网络字体 
+@font-face{
+	font-family: "txtsksj";
+	src:url(../../fonts/腾祥铁山楷书简.ttf);
 }
+*/
 ul li,
 ol li {
   list-style-type: none;
@@ -41,11 +42,11 @@ ol li {
   }
   .thk-content .thk-left .thk-l-mine h2 {
     color: #fff;
-    font: normal 600 32px/44px txtsksj;
+    font: normal 600 32px/44px "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-left .thk-l-mine h3 {
     color: rgba(255, 255, 255, 0.5);
-    font: normal 300 14px/20px txtsksj;
+    font: normal 300 14px/20px "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-left .thk-l-mine h3 span {
     color: rgba(255, 255, 255, 0.3);
@@ -60,7 +61,7 @@ ol li {
     text-decoration: none;
     display: block;
     padding: 2em 1.5em;
-    font: normal 700 20px/22px txtsksj;
+    font: normal 700 20px/22px "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-left .thk-l-nav ul li a:hover {
     color: #ffffff;
@@ -98,7 +99,7 @@ ol li {
     text-align: right;
     margin-right: 6em;
     color: #B6B6B6;
-    font: normal 300 1.6em/2em txtsksj;
+    font: normal 300 1.6em/2em "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-right .thk-r-session {
     width: 700px;
@@ -127,13 +128,13 @@ ol li {
   }
   .thk-content .thk-right .thk-r-session ul li span b {
     display: block;
-    font: normal 700 1.8em txtsksj;
+    font: normal 700 1.8em "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-right .thk-r-session ul li p {
     float: left;
     text-indent: 2em;
     width: 519px;
-    font: normal 300 20px/28px txtsksj;
+    font: normal 300 20px/28px "Agency FB", STXingkai, KaiTi;
     color: #6c6c6c;
   }
   .thk-content .thk-right .thk-r-copyright {
@@ -179,11 +180,11 @@ ol li {
   }
   .thk-content .thk-left .thk-l-mine h2 {
     color: #fff;
-    font: normal 600 32px/44px txtsksj;
+    font: normal 600 32px/44px "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-left .thk-l-mine h3 {
     color: rgba(255, 255, 255, 0.5);
-    font: normal 300 14px/20px txtsksj;
+    font: normal 300 14px/20px "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-left .thk-l-mine h3 span {
     color: rgba(255, 255, 255, 0.3);
@@ -198,7 +199,7 @@ ol li {
     text-decoration: none;
     display: block;
     padding: 2em 1.5em;
-    font: normal 700 20px/22px txtsksj;
+    font: normal 700 20px/22px "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-left .thk-l-nav ul li a:hover {
     color: #ffffff;
@@ -236,7 +237,7 @@ ol li {
     text-align: right;
     margin-right: 6em;
     color: #B6B6B6;
-    font: normal 300 1.6em/2em txtsksj;
+    font: normal 300 1.6em/2em "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-right .thk-r-session {
     width: 100%;
@@ -265,13 +266,13 @@ ol li {
   }
   .thk-content .thk-right .thk-r-session ul li span b {
     display: block;
-    font: normal 700 1.8em txtsksj;
+    font: normal 700 1.8em "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-right .thk-r-session ul li p {
     float: left;
     text-indent: 2em;
     width: 74%;
-    font: normal 300 20px/28px txtsksj;
+    font: normal 300 20px/28px "Agency FB", STXingkai, KaiTi;
     color: #6c6c6c;
   }
   .thk-content .thk-right .thk-r-copyright {
@@ -321,7 +322,7 @@ ol li {
     display: block;
     height: 100%;
     padding: 20px 20px;
-    font: normal 700 20px/30px txtsksj;
+    font: normal 700 20px/30px "Agency FB", STXingkai, KaiTi;
     text-align: center;
   }
   .thk-content .thk-left .thk-l-nav ul li a:hover {
@@ -359,7 +360,7 @@ ol li {
     text-align: right;
     margin-right: 6em;
     color: #B6B6B6;
-    font: normal 300 1em/1.4em txtsksj;
+    font: normal 300 1em/1.4em "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-right .thk-r-session {
     width: 100%;
@@ -388,13 +389,13 @@ ol li {
   }
   .thk-content .thk-right .thk-r-session ul li span b {
     display: block;
-    font: normal 700 1.8em txtsksj;
+    font: normal 700 1.8em "Agency FB", STXingkai, KaiTi;
   }
   .thk-content .thk-right .thk-r-session ul li p {
     float: left;
     text-indent: 2em;
     width: 70%;
-    font: normal 300 20px/28px txtsksj;
+    font: normal 300 20px/28px "Agency FB", STXingkai, KaiTi;
     color: #6c6c6c;
   }
   .thk-content .thk-right .thk-r-copyright {
@@ -431,7 +432,7 @@ ol li {
 .buffer-mask {
   height: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: #f5f5f5;
   overflow: hidden;
   position: fixed;
   top: 0;

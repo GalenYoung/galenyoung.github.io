@@ -11,7 +11,7 @@
   }
   .pgm-content li a {
     color: #4296DB;
-    font: normal 400 22px/50px txtsksj;
+    font: normal 400 22px/50px "Agency FB", STXingkai, KaiTi;
   }
   .pgm-content li a:hover {
     color: #E91E63;
@@ -28,7 +28,7 @@
   }
   .pgm-content li a {
     color: #4296DB;
-    font: normal 400 18px/48px txtsksj;
+    font: normal 400 18px/48px "Agency FB", STXingkai, KaiTi;
   }
   .pgm-content li a:hover {
     color: #E91E63;
@@ -45,7 +45,7 @@
   }
   .pgm-content li a {
     color: #4296DB;
-    font: normal 400 16px/40px txtsksj;
+    font: normal 400 16px/40px "Agency FB", STXingkai, KaiTi;
   }
   .pgm-content li a:hover {
     color: #E91E63;
@@ -67,7 +67,7 @@
 .buffer-mask {
   height: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: #f5f5f5;
   overflow: hidden;
   position: fixed;
   top: 0;
