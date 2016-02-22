@@ -15,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="pgm-page07.css">
 </head>
 <body>
-    <script src="../../js/buffer_icon.js"></script>
-    
     <div class="header" id="header">
         <ul>
             <li><a href="../../index.html">首页</a></li><!--
@@ -840,9 +838,42 @@ monospace   Courier
                     </li>
                 </ul>
             </li>
+            <hr>
+            <img src="imgs/background.png" height="455" width="462" alt="">
+        </ul>
+        <ul>
+            <li><code>Repaint（重绘）</code>：如果某些操作影响了DOM元素的可见性，但又没有影响布局，那么就会发生浏览器的重绘。</li>
             <li>
-                <hr>
-                <img src="imgs/background.png" height="455" width="462" alt="">
+                <p><code>Reflow（回流）</code>：回流是一个更具有破坏性的操作，它会让浏览器重新计算所有元素的坐标位置和尺寸大小。</p>
+            </li>
+            <li>
+                <p>为什么最好不要使用内联样式？</p>
+                <ul>
+                    <li>HTML文档下载完成之后，行内样式会触发一次额外的回流事件。</li>
+                </ul>
+            </li>
+            <li>
+                提高 Web页面性能的技巧
+                <ul>
+                    <li>
+                        精简 CSS 样式
+                        <ul>
+                            <li>样式越少，回流越快，此外，尽量不要使用过于复杂的选择器。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        精简 DOM 层级
+                        <ul>
+                            <li>指的是减少 DOM 树的级数已经每一分支上的 DOM 元素的数量，结果就是层级越少、数量越少，回流越快。此外，如果无需考虑旧版本浏览器，应该尽量剔除无意义的包裹类标签和层级。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        从文档流中移除复杂的动画效果
+                        <ul>
+                            <li>应该确保使用动画的元素脱离里文档流，使用<code>position:absolute</code>和 <code>position:fixed</code>属性脱离文档流的元素会被浏览器创建一个新层级来存放，这些图层上的修改不会影响其它层级上的元素。</li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
