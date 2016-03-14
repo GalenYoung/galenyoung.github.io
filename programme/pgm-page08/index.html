@@ -1,0 +1,561 @@
+---
+layout: pgm-into
+title: JavaScript 知识点整理
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page08/pgm-page08.css">
+permalink: /programme/08
+---
+
+		<h1>JavaScript知识点整理</h1>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div style=&quot;height:3000px;width:1500px;&quot;&gt;&lt;/div&gt;
+        &lt;div style=&quot;height:100px;width:500px;text-align: center;&quot; id='test'&gt;&lt;/div&gt;
+        &lt;div style=&quot;height:3000px;width:1500px;&quot;&gt;&lt;/div&gt;
+        &lt;script&gt;
+            function exist(test){
+                if (document.getElementById('test')) {
+                    window.onscroll = function(){
+                        console.log('aa')
+                    }
+                }
+            }
+            exist();
+            /*
+            window.onscroll事件被exist函数包裹，如果exist函数没有执行，那么onscroll事件也不会执行。
+            */
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+        <ul>
+            <li>
+                关于实例化对象
+                <ul>
+                    <li><img src="../programme/pgm-page08/imgs/object2424.PNG"></li>
+                </ul>
+            </li>
+            <li>
+                <p>对象就是有属性和方法</p>
+                <ul>
+                    <li><code>var myData = new Object;</code></li>
+                    <li>
+                        <p>使用对象字面量快速定义对象的属性和方法</p>
+<pre><code>var myData ={
+    name : 'young',
+    weather : 'sunny'
+}   rf
+</code></pre>
+
+                    </li>
+                    <li>
+                        删除对象的属性
+                        <ul>
+                            <li><code>delete myData.name;</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>俩种将数字转换为字符串的方法</p>
+                <ul>
+                    <li><code>eq： var myData = (5).toString + String(5);</code></li>
+                </ul>
+            </li>
+            <li>
+                <p>将字符串转换为数值</p>
+                <ul>
+                    <li><code>Number(&lt;str&gt;)</code>   通过分析指定字符串，生成一个整数或实数值</li>
+                    <li><code>parseInt(&lt;str&gt;)</code> 通过分析指定字符串，生成一个整数</li>
+                    <li><code>parseFloat(&lt;str&gt;)</code>通过分析指顶字符串，生成一个整数和实数值</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>a?b:c</code></p>
+                <ul>
+                    <li>如果<code>a</code>为真，则表达式的值为<code>b</code>；如果<code>a</code>为假，则表达式的值为<code>c</code></li>
+                </ul>
+            </li>
+        </ul>
+        <hr />
+<pre><code>(function(window,document,undifined){
+    //code
+})(window,document)
+/*
+* 将系统变量以参数形式传递到插件内部也是个不错的实践。
+* 当我们这样做之后，window等系统变量在插件内部就有了一个局部的引用，可以提高访问速度，会有些许性能的提升
+* 而至于这个undefined,为了得到没有被修改的undefined，我们并没有传递这个参数，但却在接收时接收了它，
+  因为实际并没有传，所以‘undefined’那个位置接收到的就是真实的'undefined'了。
+*/
+</code></pre>
+
+        <ul>
+            <li>
+                <p>在JavaScript中</p>
+                <ol>
+                    <li><code>Math.ceil()</code>用作向上取整。</li>
+                    <li><code>Math.floor()</code>用作向下取整。</li>
+                    <li><code>Math.round()</code> 我们数学中常用到的四舍五入取整。</li>
+                    <li><code>Math.random()</code>产生一个在<code>0</code>和<code>1</code>之间的随机数。</li>
+                </ol>
+            </li>
+            <li>
+                <p>带有折行的警告框：中间加<code>\n</code>就是折行</p>
+                <ul>
+                    <li>
+                        <p>eq：</p>
+<pre><code>alert(&quot;再次向您问好！在这里，我们向您演示&quot; + '\n' + &quot;如何向警告框添加折行。&quot;)
+</code></pre>
+
+                    </li>
+                    <li>警告框： <code>alert()</code></li>
+                    <li>确认框：<code>confirm()</code> 返回的值为<code>true</code> 和 <code>false</code></li>
+                    <li>提示框：<code>prompt('文本'，'默认值')</code>  返回的值为<code>用户输入的值</code>,如果用户点击的是<code>取消</code>，返回的结果是<code>null</code></li>
+                </ul>
+            </li>
+            <li>
+                <p>JavaScript计时事件   </p>
+                <ul>
+                    <li><code>setInterval()</code> - 间隔指定的毫秒数不停地执行指定的代码</li>
+                    <li><code>clearInterval()</code> 方法用于停止 setInterval() 方法执行的函数代码</li>
+                    <li><code>setTimeout()</code> - 暂停指定的毫秒数后执行指定的代码</li>
+                    <li><code>clearTimeout()</code> 方法用于停止执行setTimeout()方法的函数代码</li>
+                </ul>
+            </li>
+            <li>
+                <p><code>a++</code>等同于<code>a = a+1</code>；</p>
+            </li>
+            <li><code>a--</code>等同于<code>a = a-1</code>；</li>
+            <li>
+                <p>操作符之间的优先级（高到低）:</p>
+                <ul>
+                    <li>算术操作符 &gt; 比较操作符 &gt; 逻辑操作符 &gt; &quot;=&quot;赋值符号 </li>
+                </ul>
+            </li>
+            <li>
+                <p><code>jQuery</code>的<code>noConflict()</code> 方法</p>
+                <ul>
+                    <li>如果其它JavaScript框架也使用<code>$</code> 符号作为简写怎么办？其中某些框架也使用<code>$</code>符号作为简写（就像<code>jQuery</code>），如果您在用的两种不同的框架正在使用相同的简写符号，有可能导致脚本停止运行。</li>
+                    <li>
+                        <p><code>noConflict()</code> 方法会释放会 <code>$</code> 标识符的控制，这样其他脚本就可以使用它了。</p>
+                    </li>
+                    <li>
+                        <p>仍然可以通过全名替代简写的方式来使用 jQuery：</p>
+<pre><code>$.noConflict();
+jQuery(document).ready(function(){
+    jQuery(&quot;button&quot;).click(function(){
+        jQuery(&quot;p&quot;).text(&quot;jQuery 仍在运行！&quot;);
+    });
+});
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p>您也可以创建自己的简写。<code>noConflict()</code> 可返回对 <code>jQuery</code> 的引用，您可以把它存入变量，以供稍后使用。</p>
+<pre><code>var jq = $.noConflict();
+jq(document).ready(function(){
+    jq(&quot;button&quot;).click(function(){
+        jq(&quot;p&quot;).text(&quot;jQuery 仍在运行！&quot;);
+    });
+});
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p>如果你的 <code>jQuery</code> 代码块使用 <code>$</code> 简写，并且您不愿意改变这个快捷方式，那么您可以把 <code>$</code> 符号作为<code>变量</code>传递给 <code>ready</code> 方法。这样就可以在函数内使用 <code>$</code> 符号了 - 而在函数外，依旧不得不使用 <code>jQuery</code>。</p>
+<pre><code>$.noConflict();
+jQuery(document).ready(function($){
+    $(&quot;button&quot;).click(function(){
+        $(&quot;p&quot;).text(&quot;jQuery 仍在运行！&quot;);
+    });
+});
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>JavaScript兼容性</p>
+                <ol>
+                    <li>
+                        <p>获取浏览器滚动高度</p>
+                        <ul>
+                            <li>兼容IE、Firefox： document.documentElement.scrollTop;</li>
+                            <li>
+                                <p>
+                                    兼容chrome、Opera： document.body.scrollTop;
+                                    可以这么写
+                                </p>
+<pre><code>var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>事件委托</p>
+                        <ul>
+                            <li>传入参数到绑定方法的函数中，<code>IE 6、7、8</code>是<code>window.event</code>对象</li>
+                            <li>兼容写法 <code>e = e || window.event;</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><code>微软IE8</code>及其以下浏览器不支持 <code>document.getElementsByClassName()</code>获取 <code>DOM</code></p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>AJAX</p>
+                <ul>
+                    <li>AJAX = 异步 JavaScript 和 XML（</li>
+                    <li>
+                        <p>hronous JavaScript and XML）。</p>
+                    </li>
+                    <li>
+                        <p>jQuery - AJAX <code>load()</code>方法</p>
+                        <ul>
+                            <li>
+                                <code>$(selector).load(URL,data,callback);</code>
+                                <ul>
+                                    <li>必需的 URL 参数规定您希望加载的 URL。</li>
+                                    <li>可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。</li>
+                                    <li>可选的 callback 参数是 load() 方法完成后所执行的函数名称。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>jQuery - AJAX <code>get()</code> 和 <code>post()</code> 方法</p>
+                        <ul>
+                            <li>
+                                <p>jQuery <code>get()</code> 和 <code>post()</code> 方法用于通过 HTTP <code>GET</code> 或 <code>POST</code> 请求从服务器请求数据。</p>
+                            </li>
+                            <li>
+                                <p>HTTP 请求：<code>GET</code> vs. <code>POST</code></p>
+                                <ul>
+                                    <li>
+                                        两种在客户端和服务器端进行请求-响应的常用方法是：<code>GET</code> 和 <code>POST</code>。
+                                        <ul>
+                                            <li>GET - 从指定的资源请求数据</li>
+                                            <li>POST - 向指定的资源提交要处理的数据</li>
+                                        </ul>
+                                    </li>
+                                    <li>GET 基本上用于从服务器获得（取回）数据。注释：GET 方法可能返回缓存数据 。</li>
+                                    <li>POST 也可用于从服务器获取数据。不过，POST 方法不会缓存数据，并且常用于    连同请求一起发送数据。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><code>$.get()</code> 方法</p>
+                        <ul>
+                            <li><code>$.get()</code> 方法通过 <code>HTTP GET</code>请求从服务器上请求数据。</li>
+                            <li>
+                                <p><code>$.get(URL,callback)</code></p>
+                                <ul>
+                                    <li>必需的 URL 参数规定您希望请求的 URL。</li>
+                                    <li>可选的<code>callback</code> 参数是请求成功后所执行的函数名。</li>
+                                    <li>
+                                        <p>eq:</p>
+<pre><code>$(&quot;button&quot;).click(function(){
+  $.get(&quot;demo_test.asp&quot;,function(data,status){
+    alert(&quot;Data: &quot; + data + &quot;\nStatus: &quot; + status);
+  });
+});
+</code></pre>
+
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>jQuery <code>$.post()</code>方法</p>
+                        <ul>
+                            <li>
+                                <p><code>$.post()</code> 方法通过 <code>HTTP POST</code> 请求从服务器上请求数据。</p>
+<pre><code>$.post(URL,data,callback);
+</code></pre>
+
+                                <ul>
+                                    <li>必需的 <code>URL</code> 参数规定您希望请求的 URL。</li>
+                                    <li>可选的 <code>data</code> 参数规定连同请求发送的数据。</li>
+                                    <li>可选的 <code>callback</code> 参数是请求成功后所执行的函数名。</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>eq:</p>
+<pre><code>$(&quot;button&quot;).click(function(){
+    $.post(&quot;demo_test_post.asp&quot;,
+    {
+        name:&quot;Donald Duck&quot;,
+        city:&quot;Duckburg&quot;
+    },
+    function(data,status){
+        alert(&quot;Data: &quot; + data + &quot;\nStatus: &quot; + status);
+    });
+});
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>在JavaScript函数中，<code>立即执行函数</code>存在的一个重要意义就是<code>创建作用域</code></p>
+            </li>
+        </ul>
+        <hr />
+<pre><code>&lt;script src=”//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js”&gt;&lt;/script&gt;
+&lt;script&gt;
+    window.jQuery || document.write(‘&lt;script src=”js/libs/jquery-1.7.2.min.js”&gt;&lt;\/script&gt;’)
+&lt;/script&gt;
+ 如果第一个引用的jQuery出现问题，那么我们第二个jQuery引用地址就会生效。这是一种备份措施      
+</code></pre>
+
+        <hr />
+<pre><code>date = new Date('2015,09,30') 这样显示是正确的
+也可以这样写 new Date('2015 09 30') 或者 new Date('2015/09/30')
+而date = new Date(2015,09,30)这样的写法会多加一个月出来，所以一定不要忘记括上引号。
+</code></pre>
+
+        <ul>
+            <li>
+                <p>JavaScript中css属性float的特殊写法</p>
+                <ol>
+                    <li>
+                        <p>对于没有中划线的css属性一般直接使用style.属性名即可。</p>
+                        <ul>
+                            <li>
+                                eq：<code>obj.style.margin</code>，<code>obj.style.width</code>，<code>obj.style.left</code>，<code>obj.style.position</code>等。
+                                2、对于含有中划线的css属性，将每个中划线去掉并将每个中划线后的第一个字符换成大写即可。
+                            </li>
+                            <li>eq：<code>obj.style.marginTop</code>，<code>obj.style.borderLeftWidth</code>，<code>obj.style.zIndex</code>等。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>对在css中有一个特殊的属性其js使用方法确比较特殊，因为float是Javascript的保留字。</p>
+                        <ul>
+                            <li>我们不能直接使用<code>obj.style.float</code>来使用，这样操作是无效的。</li>
+                            <li>其正确的使用方法是为：<code>IE</code>:<code>obj.style.styleFloat</code>，其他浏览器<code>Mozilla(gecko)</code>，<code>firefox</code>等用<code>styleFloat:obj.style.cssFloat</code>。</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>耦合是什么意思？</p>
+                <ul>
+                    <li>(名)物理学上指两个或两个以上的体系或两种运动形式之间通过各种相互作用而彼此影响以至联合起   来的现象。</li>
+                </ul>
+            </li>
+            <li>
+                <p>页面加载时出现小图标缓冲特效的原理：</p>
+                <ul>
+                    <li>
+                        <code>onreadystatechange</code> 事件：
+                        <ul>
+                            <li>每当<code>readystatechange</code>事件改变时，就会触发<code>onreadystatechange</code>事件。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>HTML DOM readyState</code> 属性（所有主要浏览器都支持 readyState 属性）：
+                        <ul>
+                            <li>
+                                <code>readyState</code> 属性返回当前文档的状态（载入中……）。
+                                <ul>
+                                    <li>
+                                        该属性返回一下的值：
+                                        <ol>
+                                            <li><code>uninitialized</code> - 还未开始载入</li>
+                                            <li><code>loading</code> - 载入中</li>
+                                            <li><code>interactive</code> - 已加载，文档与用户可以开始交互</li>
+                                            <li><code>complete</code> - 载入完成</li>
+                                        </ol>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>如果要在页面加载完成之前出现缓冲的动态小图标的例子</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    document.onreadystatechange = subSomething;
+    function subSomething(){
+        if(document.readyState == &quot;loading&quot;){
+            //code here
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>给<code>a</code>标签设置为<code>空</code>的方法<code>href=&quot;javascript:void(0);&quot;</code></p>
+            </li>
+        </ul>
+        <p>
+            var bodyW = document.documentElement.clientWidth;     //获取屏幕的宽度
+            var bodyH = document.documentElement.clientHeight;    //获取屏幕的高度
+            var dragW = drag.offsetWidth;       //元素的可见宽度
+            var dragH = drag.offsetHeight;      //元素的可见高度
+        </p>
+        <p>
+            onresize事件：
+            onresize 事件会在窗口或框架被调整大小时发生。
+        </p>
+        <ul>
+            <li>
+                <p>
+                    <code>HTTP</code>状态码总共有<code>60</code>余种，经常使用的<code>HTTP状态码</code>只有<code>14</code>种
+                    <img src="../programme/pgm-page08/imgs/http3264.PNG">
+                </p>
+                <ul>
+                    <li>
+                        <code>2XX</code>的响应结果表明请求被正常处理了
+                        <ul>
+                            <li><code>200 OK</code> - 表示从客户端发来的请求在服务器被正常处理了。</li>
+                            <li><code>204 No Content</code> -  请求处理成功，但没有资源可返回。</li>
+                            <li><code>206 Partial Content</code> -  该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>3XX</code> <code>重定向</code> 3XX响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。
+                        <ul>
+                            <li><code>301</code> <code>Moved Permanently</code> - 永久性重定向</li>
+                            <li><code>302</code> <code>Found</code> - 临时重定向</li>
+                            <li><code>303</code> <code>See Other</code> - 303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当采用GET方法获取资源，这点和302状态码有区别。</li>
+                            <li>
+                                <code>304</code> <code>Not Modified</code> - 该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况。304状态码返回时，不包含任何响应的主体部分。304虽然被划分在3XX类别中，但是和重定向没有什么关系。
+                                如果客户端发送了一个带条件的GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个304状态码。简单的表达就是：客户端已经执行了GET，但文件未变化。（这段话是我自己加的：这样浏览器就会使用缓存来加载想要的资源。）
+                            </li>
+                            <li><code>307</code> <code>Temporary Redirect</code> 临时重定向。该状态码与302状态码有着相同的含义。尽管302标准禁止POST变换成GET，但实际使用时大家并不遵守。307会遵照浏览器的标准，不会从POST变换成GET。但是，对于处理响应时的行为，每种浏览器又可能出现不同的情况。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>4XX</code> <code>客户端错误</code> 4XX的响应结果表明客户端是发生错误的原因所在。
+                        <ul>
+                            <li><code>400 Bad Request</code> - 该状态码表示请求报文存在语法错误，当错误发生时，需要修改请求的内容后再次发送请求。</li>
+                            <li><code>401 Unauthorized</code> - 该状态码表示发送的请求需要通过HTTP认证的认证信息。另外若之前已进行过1次请求，则表示用户认证失败。</li>
+                            <li><code>403 Forbidden</code> - 该状态码表明对请求资源的访问被服务器拒绝了。（这段话是我自己加的：也就是没有权限访问该资源）。</li>
+                            <li><code>404 Not Found</code> - 该状态码表明服务器上无法找到请求的资源。除此之外，也可以在服务器端拒绝请求且不想说明理由时使用。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><code>5XX</code> <code>服务器错误</code> - 5XX的响应结果表明服务器本身发生错误。</p>
+                        <ul>
+                            <li><code>500</code> Internal Server Error - 该状态码表明服务器端在执行请求时发生了错误。也有可能是Web应用存在着bug或某些临时的故障。</li>
+                            <li><code>503</code> Service Unavailable - 该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。（这段话是我自己加得：也就是服务器正忙）。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>状态码和状况的不一致</p>
+                        <ul>
+                            <li>不少返回的状态码响应都是错误的，但是用户可能察觉不到这点。比如Web应用程序内部发生错误，状态码依然返回200 OK，这种情况也经常遇到。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>从 CDN 引入 jQuery 操作自己网站的对象,为什么没有跨域问题?</p>
+                <ul>
+                    <li>虽然浏览器默认禁止了跨域访问，但并不禁止在页面中引用其他域的JS文件，并可以自由执行引入的JS文件中的function（包括操作cookie、Dom等等）</li>
+                </ul>
+            </li>
+            <li>
+                <p>请描述一下<code>cookies</code>，<code>sessionStorage</code> 和 <code>localStorage</code>的区别？</p>
+                <ul>
+                    <li><code>sessionStorage</code>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此<code>sessionStorage</code>不是一种持久化的本地存储，仅仅是会话级别的存储。而<code>localStorage</code>用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</li>
+                    <li>
+                        <code>web storage</code>和<code>cookie</code>的区别
+                        <ul>
+                            <li>
+                                <code>web storage</code> 共分为俩种：
+                                <ul>
+                                    <li>sessionStorage</li>
+                                    <li>localStorage</li>
+                                </ul>
+                            </li>
+                            <li>Web Storage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。</li>
+                            <li>除此之外，<code>Web Storage</code>拥有<code>setItem</code>,<code>getItem</code> ,<code>removeItem</code>,<code>clear</code>等方法，不像<code>cookie</code>需要前端开发者自己封装<code>setCookie</code>，<code>getCookie</code>。但是<code>Cookie</code>也是不可以或缺的：<code>Cookie</code>的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而<code>Web Storage</code>仅仅是为了在本地“存储”数据而生。</li>
+                            <li><code>cookie</code>大小被限制在<code>4kb</code>，<code>Web Storage</code>官方建议每个网站<code>5MB</code>。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>JavaScript Cookies - Cookies 用于存储 web 页面的用户信息。</p>
+                <ul>
+                    <li><code>Cookies</code> 以<code>名/值对</code>形式存储 如：<code>username=John Doe</code> </li>
+                    <li>JavaScript 可以使用 <code>document.cookie</code>属性来<code>创建</code> 、<code>读取</code>、及<code>删除</code> <code>cookies</code>。</li>
+                    <li>
+                        <p>可以为<code>cookie</code>添加一个过期时间（以 UTC 或 GMT 时间）。默认情况下,<code>cookie</code>在浏览器关闭时删除：</p>
+<pre><code>document.cookie=&quot;username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT&quot;;
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p>可以使用<code>path</code>参数告诉浏览器<code>cookie</code>的路径。默认情况下，<code>cookie</code>属于当前页面。</p>
+<pre><code>document.cookie=&quot;username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; path=/&quot;;
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p>在 JavaScript 中, 可以使用以下代码来读取<code>cookies</code>：</p>
+<pre><code>var x = document.cookie;
+</code></pre>
+
+                    </li>
+                    <li><code>document.cookie</code>将以字符串的方式返回所有的<code>cookies</code>，类型格式：<code>cookie1=value</code>; <code>cookie2=value</code>; <code>cookie3=value</code>;</li>
+                </ul>
+            </li>
+        </ul>
+        <hr />
+<pre><code>        创建元素  document.createElement('元素名称')；
+        设置元素属性 document.getElementById(ID).setAttribute('属性名','值')；
+        向页面中追加创建的元素  document.body.appendChild(变量名)；
+                                变量.appendChild(变量名)；
+        删除子节点：removeChild(node)
+        setAttribute() 把制定属性设置或修改为指定的值
+        getAttribute() 返回指定的属性值
+        createTextNode() 创建文本节点
+        createElement() 创建元素节点
+        createAttribute() 创建属性节点
+        insertBefore() 在指定的节点前插入新的子节点
+        replaceChild() 替换子节点
+        removeChild() 删除子节点
+        appendChild() 把新的子节点添加到指定节点
+        一些常用的DOM属性：
+        innerHTML 节点的文本值
+        parentNode 节点的父节点
+        childNodes 节点的子节点
+        attrubutes 节点的属性节点
+</code></pre>
+
+        <ul>
+            <li>
+                <p>JavaScript事件</p>
+                <ul>
+                    <li>获得焦点事件  <code>onfocus</code></li>
+                    <li>失去焦点事件  <code>onblur</code>                 </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    初级js工程师学习路线参考
+                    <img src="../programme/pgm-page08/imgs/Web-Design_JS.png">
+                </p>
+            </li>
+            <li>
+                <p>
+                    前端工程师学习路线参考
+                    <img src="../programme/pgm-page08/imgs/webfe3.jpg">
+                </p>
+                <p><img src="../programme/pgm-page08/imgs/webfe.jpg"></p>
+            </li>
+        </ul>

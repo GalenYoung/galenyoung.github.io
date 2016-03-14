@@ -1,0 +1,78 @@
+---
+layout: pgm-into
+title: Javascript Tab普通切换插件(一)
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page10/pgm-page10.css">
+permalink: /programme/10
+---
+
+		<h1>Javascript Tab普通切换插件(一)</h1>
+        <ul>
+            <li>
+                <p><strong>HTML结构</strong></p>
+<pre><code>&lt;div class=&quot;sal-commonTab&quot;&gt;
+    &lt;ul class=&quot;sal-choiceUL&quot;&gt;
+        &lt;li class=&quot;sal-choiceLI sal-choiceLI-hover&quot;&gt; a &lt;/li&gt;
+        &lt;li class=&quot;sal-choiceLI&quot;&gt; b &lt;/li&gt;
+        &lt;li class=&quot;sal-choiceLI&quot;&gt; c &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class=&quot;sal-showUL&quot;&gt;
+        &lt;li class=&quot;sal-showLI&quot;&gt; A &lt;/li&gt;
+        &lt;li class=&quot;sal-showLI&quot;&gt; B &lt;/li&gt;
+        &lt;li class=&quot;sal-showLI&quot;&gt; C &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+            </li>
+            <li>
+                <p><strong>JavaScript</strong></p>
+<pre><code>(function(window,document,undefined){
+    &quot;use strict&quot;;
+    var sal_choiceUL = document.getElementsByClassName(&quot;sal-choiceUL&quot;)[0];
+    var sal_choiceLI = document.getElementsByClassName(&quot;sal-choiceLI&quot;);
+    var sal_showUL = document.getElementsByClassName(&quot;sal-showUL&quot;)[0];
+    var sal_showLI = document.getElementsByClassName(&quot;sal-showLI&quot;);
+    if (sal_showLI.length === sal_choiceLI.length) {
+        for (var i = 0; i &lt; sal_choiceLI.length; i++) {
+            sal_choiceLI[i].index = i;
+            if (i === 0) {
+                sal_choiceLI[0].onmouseover = function(){
+                    for (var j = 0 ; j &lt; sal_choiceLI.length ; j++){
+                        sal_choiceLI[j].className = &quot;sal-choiceLI&quot;;
+                        sal_showLI[j].style.display = &quot;none&quot;;
+                    };
+                    this.className = &quot;sal-choiceLI sal-choiceLI-hover&quot;;  //注意：如果有另加的class样式，一定不要忘记添加到此处
+                    sal_showLI[0].style.display = &quot;block&quot;;
+                };
+            }else{
+                sal_choiceLI[i].onmouseover = function(){
+                    for(var j = 1 ; j &lt; sal_choiceLI.length ; j++){
+                        sal_choiceLI[j].className = &quot;sal-choiceLI&quot;;
+                        sal_showLI[j].style.display = &quot;none&quot;;
+                    };
+                    sal_choiceLI[0].className = &quot;sal-choiceLI&quot;;
+                    sal_showLI[0].style.display = &quot;none&quot;;
+                    this.className = &quot;sal-choiceLI sal-choiceLI-hover&quot;;
+                    sal_showLI[this.index].style.display = &quot;block&quot;;
+                }
+            }
+        };
+    };
+})(window,document)
+</code></pre>
+
+            </li>
+            <li>
+                <p>注意：</p>
+                <ul>
+                    <li>要注意css的类名使用的是<code>-</code>连接,如：<code>sal-choiceUL</code>；JS的变量使用的是<code>_</code>连接，如：<code>sal_choiceUL</code></li>
+                    <li><code>sal_showLI</code>类建议使用<code>float:left</code>,<code>sal-showUL</code>类最好使用<code>overflow:hidden</code>属性来实现<code>隐藏</code>效果。</li>
+                    <li>
+                        要时刻小心浏览器的默认样式，<code>div</code>包裹<code>ul</code>下，<code>li</code>设置成<code>float:left</code>的状态下,浏览器默认的<code>li</code>距离其包裹<code>div</code>的左填充为宽度的十分之一
+                        <ul>
+                            <li>解决办法：引用<code>reset</code>清除浏览器的所有默认样式</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>

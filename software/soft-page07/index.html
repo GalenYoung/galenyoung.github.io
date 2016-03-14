@@ -1,0 +1,43 @@
+---
+layout: soft-into
+title: 去掉显卡右键菜单项
+css: <link rel="stylesheet" type="text/css" href="../software/soft-page07/soft-page07.css">
+permalink: /software/07
+---
+        
+		 <h1>去掉显卡右键菜单项</h1>
+        <ul>
+            <li>
+                <p>说明 ： </p>
+                <ul>
+                    <li>当我们安装显卡驱动或者升级显卡驱动之后再次重启计算机之后，当我们鼠标在桌面上点击右键之后，会看到有俩个<code>显卡图形</code>和<code>显卡属性</code>的选项，可以说这俩个属性完全没有任何用。</li>
+                    <li>我们可以制作批处理小程序来将它去除，对计算机不会造成任何影响。</li>
+                </ul>
+            </li>
+            <li>
+                <p>制作批处理的方法</p>
+                <ul>
+                    <li>
+                        <p>复制一下代码</p>
+<pre><code>@echo off
+regsvr32 /u /s igfxpph.dll 1&gt;nul
+reg delete HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers /f 1&gt;nul
+reg add HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\new /ve /d {D969A300-E7FF-11d0-A93B-00A0C90F2719} 1&gt;nul
+@echo 操作成功，请按任意键继续！
+pause 1&gt;nul
+</code></pre>
+
+                    </li>
+                    <li>
+                        <p>打开一个文本编辑器（windows随机自带记事本亦可），将代码粘贴，将保存，重命名为<code>去掉显卡右键菜单项</code>,并将其后缀改为bat。 </p>
+                    </li>
+                    <li>双击运行此批处理程序即可。</li>
+                </ul>
+            </li>
+            <li>
+                注意：
+                <ul>
+                    <li>此程序一定要在<code>管理员身份运行</code>，否者不会起作用，主要是针对windows7 及以上的系统，</li>
+                </ul>
+            </li>
+        </ul>

@@ -1,0 +1,78 @@
+---
+layout: pgm-into
+title: JavaScript 实现继承的三种方式
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page09/pgm-page09.css">
+permalink: /programme/09
+---
+
+		<h1>JavaScript 实现继承的三种方式</h1>
+        <ol>
+            <li>
+                <p>普通继承方法</p>
+                <ul>
+                    <li>
+                        <p>源代码：</p>
+<pre><code>var singger = function(name,sex){    //构造函数
+    this.name = name;       //公有属性
+    this.sex = sex;
+    this.pop = function(a){         //公有方法
+        console.log(this.name + &quot;非常的&quot; + a  + &quot;的！&quot;);
+    };
+} ;   
+var JayZhou = new singger (&quot;周杰伦&quot;,&quot;male&quot;);  //实例化对象
+JayZhou.pop(&quot;popular&quot;); 
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>使用原型方法实现继承</p>
+                <ul>
+                    <li>
+                        <p>源代码：</p>
+<pre><code>var singger = function(name,sex){
+    this.name = name;
+    this.sex = sex;
+};
+singger.prototype = {
+    pop : function(a){
+        console.log(this.name + &quot;是非常的&quot; + a + &quot;的！&quot;);
+    }
+};
+var JayZhou = new singger (&quot;周杰伦&quot;,&quot;male&quot;);
+JayZhou.pop(&quot;流行&quot;);  
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>使用工厂方法实现继承</p>
+                <ul>
+                    <li>
+                        <p>源代码：</p>
+<pre><code>var proto = {    //原型
+    pop : function(a){          //原型中定义的公有方法
+        console.log( this.name + &quot;是非常&quot; + a + &quot;的！&quot;)
+    },
+    age : 30        //原型中定义的公有属性
+};
+var singger = function(name ,sex){          //工厂函数
+    var inside = Object.create( proto );       //在工厂函数内部建立一个函数使其原型指向定义的原型对象
+    inside.name = name ;           //将工厂函数传入的参数和原型对象之间建立联系
+    inside.sex = sex;
+    return inside; //inside作为内部函数一定要返回，否者实例化的对象的值会变成undefined;之所以返回是因为使实例化的对象（如JayZhou）等于构造函数（如：singger）里的 inside
+};
+var JayZhou = singger (&quot;周杰伦&quot;,&quot;male&quot;);
+JayZhou.pop(&quot;流行&quot;);
+console.log(JayZhou.age);
+/*
+    Object.create 可以理解为是将一个对象作为原型给另一个函数
+ */
+</code></pre>
+
+                    </li>
+                </ul>
+            </li>
+        </ol>

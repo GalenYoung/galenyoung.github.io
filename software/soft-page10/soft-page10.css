@@ -1,6 +1,6 @@
 ul li code{
-	    white-space: pre-wrap;
+	    white-space: pre-wrap ;
 }
 a{
-	color:#4183C4;
+	color:#4183C4 !important;
 }

@@ -1,0 +1,83 @@
+---
+layout: pgm-into
+title: jQuery回到顶部小插件(二)
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page03/pgm-page03.css">
+permalink: /programme/03
+---
+
+		<h1>jQuery回到顶部小插件(二)</h1>
+        <ul>
+            <li>
+                <p>说明</p>
+                <ul>
+                    <li>此版本比上一版本（一）新添加首屏不显示属性</li>
+                    <li>新添加的属性名称为 <code>show</code></li>
+                </ul>
+            </li>
+            <li>
+                <p>使用示例：</p>
+<pre><code>$(&quot;.obt&quot;).sal_backtop({
+    ispeed : 20，
+    show   : flase 
+    });
+/* 也可以单独设置 show 属性 */
+$(&quot;.obt&quot;).sal_backtop({show : true});
+</code></pre>
+
+            </li>
+            <li>
+                <p>使用说明：</p>
+                <ul>
+                    <li>
+                        将属性设置为 <code>show : true</code>
+                        <ul>
+                            <li>目标元素首屏显示</li>
+                        </ul>
+                    </li>
+                    <li>
+                        将属性设置为 <code>show ：false</code>
+                        <ul>
+                            <li>目标元素首屏不显示</li>
+                        </ul>
+                    </li>
+                    <li>默认的属性为<code>false</code>，首屏不显示</li>
+                </ul>
+            </li>
+            <li>
+                <p>源代码：</p>
+<pre><code>;(function($,window,document,undefined){
+    &quot;use strict&quot;;
+    if(!$) { return console.warn('页面没有正确引入jQuery'); };
+    $.fn.sal_backtop = function(options){
+        var defaults = {
+            ispeed :  5,
+            show   :  false
+        }; 
+        var that = this;
+        var settings = $.extend({},defaults,options);
+        if(!settings.show){
+            this.css('display', 'none');
+            $(window).scroll(function(){
+                var scrollHeight=document.documentElement.scrollTop||document.body.scrollTop;  
+                var screenHeight = window.screen.availHeight; 
+                if(scrollHeight &lt;= screenHeight){
+                    that.css('display', 'none');
+                }else{ that.css('display', 'block');};
+            }); 
+        };
+        this.click (function(){
+            var timer = setInterval(function(){
+                var scrolltop = document.documentElement.scrollTop || document.body.scrollTop; 
+                var Ispeed = Math.floor(-scrolltop/settings.ispeed);    
+                document.documentElement.scrollTop = scrolltop + Ispeed;
+                document.body.scrollTop = scrolltop + Ispeed;
+                if(scrolltop === 0){ clearInterval(timer)};
+            },30);
+        });
+        return this;
+    };
+})(window.jQuery,window,document);
+</code></pre>
+
+            </li>
+        </ul>

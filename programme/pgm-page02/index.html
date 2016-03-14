@@ -1,0 +1,72 @@
+---
+layout: pgm-into
+title: jQuery回到顶部小插件(一)
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page02/pgm-page02.css">
+permalink: /programme/02
+---
+
+		<h1>jQuery回到顶部小插件(一)</h1>
+        <ul>
+            <li>
+                说明：
+                <ul>
+                    <li>此插件是基于jQuery插件开发，所以在使用此插件之前请一定要事先引用 jQuery，本插件兼容所有jQuery版本</li>
+                    <li>此插件兼容所有浏览器，如果要兼容IE8及以下，请确保引用的jQuery文件是<code>1.x</code>版本</li>
+                </ul>
+            </li>
+            <li>
+                <p>使用方法</p>
+                <ul>
+                    <li>此插件命名为sal_backtop</li>
+                    <li>
+                        提供一种属性 ispeed
+                        <ul>
+                            <li>将ispeed的值设置越大，网页回弹的时间就越长、速度就越慢</li>
+                            <li>如果将ispeed的值设置为数字 <code>0</code> 的话，网页直接回弹到顶部，有设置 锚点<code>#</code>效果相同</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>使用示例：</p>
+                        <ul>
+                            <li>
+                                <p>不加参数属性的引用：</p>
+<pre><code>$(&quot;.obt&quot;).sal_backtop();
+</code></pre>
+
+                            </li>
+                            <li>
+                                <p>设置ispeed属性的使用方法：</p>
+<pre><code>$(&quot;.obt&quot;).sal_backtop({ispeed: 20});
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>插件代码：</p>
+<pre><code>;(function($,window,document,undefined){
+    &quot;use strict&quot;;
+    if(!$) { return console.warn('页面没有正确引入jQuery'); };
+    $.fn.sal_backtop = function(options){
+        var defaults = {
+            ispeed :  5 
+        }; 
+        var settings = $.extend({},defaults,options);
+        this.click (function(){
+            var timer = setInterval(function(){
+                var scrolltop = document.documentElement.scrollTop || document.body.scrollTop; 
+                var Ispeed = Math.floor(-scrolltop/settings.ispeed);    
+                document.documentElement.scrollTop = scrolltop + Ispeed;
+                document.body.scrollTop = scrolltop + Ispeed;
+                if(scrolltop === 0){ clearInterval(timer)};
+            },30);
+        });
+        return this;
+    };
+})(window.jQuery,window,document);
+</code></pre>
+
+            </li>
+        </ul>

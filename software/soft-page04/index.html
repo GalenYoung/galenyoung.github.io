@@ -1,0 +1,32 @@
+---
+layout: soft-into
+title: 系统升级到WINDOW 10之后，出现非系统盘（如D盘、E盘等）无法访问的问题
+css: <link rel="stylesheet" type="text/css" href="../software/soft-page04/soft-page04.css">
+permalink: /software/04
+---
+        
+		<h1>系统升级到WINDOW 10之后，出现非系统盘（如D盘、E盘等）无法访问的问题</h1>
+        <ol>
+            <li>
+                <p><strong>原因分析</strong>：</p>
+                <p>出现这样的情况，多半是由于用户在升级win10系统之前，存在磁盘加锁的情况或者是软件锁及一些安全软件对磁盘保护，这样升级到Win10后就出现了权限不足的问题，导致拒绝访问的情况。</p>
+            </li>
+            <li>
+                <p><strong>解决办法</strong>：</p>
+                <ol>
+                    <li>
+                        <p>按下<code>WIN+X</code>键，然后选择 <code>命令提示符（管理员）</code>；</p>
+                    </li>
+                    <li>
+                        <p>打开命令提示符后，复制以下代码到命令提示符中 回车执行：（该步骤 为还原尝试还原D盘默认权限 如果你拒绝访问的是别的磁盘，相应的更改代码中的盘符）；<code>echo Y|cacls D:\ /s:D:PAI(A;;FA;;;BA)(A;OICIIO;GA;;;BA)(A;;FA;;;SY)(A;OICIIO;GA;;;SY)(A;;0x1301bf;;;AU)(A;OICIIO;SDGXGWGR;;;AU)(A;;0x1200a9;;;BU)(A;OICIIO;GXGR;;;BU)</code></p>
+                    </li>
+                    <li>
+                        <p>等待执行完毕后，测试D盘是否可以访问，如果D盘中的文件夹还出现需要权限的情况，可以继续执行以下命令：<code>echo Y|takeown /r /f D:\ &amp; icacls D:\ /inheritance:e /t &amp; pause</code></p>
+                    </li>
+                    <li>通过上面几个步骤的操作，我们就可以顺利解决Win7升级win10系统后访问磁盘被拒绝问题了。</li>
+                </ol>
+            </li>
+        </ol>
+        <!--
+    3. 参考地址：`http://www.xitongcheng.com/jiaocheng/win10_article_12034.html`
+    -->

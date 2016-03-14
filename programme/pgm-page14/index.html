@@ -1,0 +1,608 @@
+---
+layout: pgm-into
+title: CSS3知识点整理
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page14/pgm-page14.css">
+permalink: /programme/14
+---
+
+		<h1>CSS3知识点整理</h1>
+        <ol>
+            <li>
+                边框
+                <ul>
+                    <li>
+                        圆角效果 border-radius
+                        <ul>
+                            <li>border-radius: 5px 4px 3px 2px; /* 四个半径值分别是左上角、右上角、右下角和左下角，顺时针 */</li>
+                            <li>border-radius:10px; /* 所有角都使用半径为10px的圆角 */ </li>
+                            <li>兼容性：不支持IE8，只支持IE9及其它高级浏览器以上</li>
+                        </ul>
+                    </li>
+                    <li>
+                        阴影 box -shadow
+
+                        <ul>
+                            <li>box-shadow: X轴偏移量(必需) Y轴偏移量(必需) [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</li>
+                            <li>
+                                <img src="../programme/pgm-page14/imgs/54292d620001ffb107080250.jpg" alt="">
+                                <ul>
+                                    <li><code>注意：inset 可以写在参数的第一个或最后一个，其它位置是无效的。</code></li>
+                                </ul>
+                            </li>
+                            <li>兼容性：不支持IE8，只支持IE9及其它高级浏览器以上</li>
+                            <li>
+                                阴影模糊半径与阴影扩展半径的区别
+                                <ul>
+                                    <li>阴影模糊半径：此参数可选，其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；</li>
+                                    <li>阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        为边框应用图片 border-image
+                        <ul>
+                            <li><img src="../programme/pgm-page14/imgs/52e2201a0001b1e004720260.jpg"></li>
+                            <li>兼容性：只支持IE11以上和其它高级浏览器</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                颜色相关
+                <ul>
+                    <li>
+                        RGBA
+                        <ul>
+                            <li>RGB是一种色彩标准，是由红(R)、绿(G)、蓝(B)的变化以及相互叠加来得到各式各样的颜色。RGBA是在RGB的基础上增加了控制alpha透明度的参数;</li>
+                            <li>语法<code>color：rgba(R,G,B,A)</code>;</li>
+                            <li>以上R、G、B三个参数，正整数值的取值范围为：0 - 255。百分数值的取值范围为：0.0% - 100.0%。超出范围的数值将被截至其最接近的取值极限。并非所有浏览器都支持使用百分数值。A为透明度参数，取值在0~1之间，不可为负值。</li>
+                            <li>代码例子：<code>background-color:rgba(100,120,60,0.5)</code>;</li>
+                            <li>兼容性：不支持IE8，支持IE9及高级浏览器</li>
+                        </ul>
+                    </li>
+                    <li>
+                        渐变色彩
+                        <ul>
+                            <li>CSS3 Gradient 分为线性渐变(linear)和径向渐变(radial)；</li>
+                            <li><img src="../programme/pgm-page14/imgs/54b72b2e0001500103790158.jpg"></li>
+                            <li>参数：第一个参数:指定渐变方向，可以用“角度”的关键词或“英文”来表示</li>
+                            <li><img src="../programme/pgm-page14/imgs/542a25da00017e9406980223.jpg"></li>
+                            <li>第一个参数省略时，默认为“180deg”，等同于“to bottom”。</li>
+                            <li>第二个和第三个参数，表示颜色的起始点和结束点，可以有多个颜色值。</li>
+                            <li>例：<code>background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,violet);</code></li>
+                            <li><img src="../programme/pgm-page14/imgs/54b72c080001611c04230192.jpg"></li>
+                            <li>兼容性：不支持IE9浏览器，只支持IE10及其它高级浏览器</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>文字与字体</p>
+                <ul>
+                    <li>
+                        <p>text-overflow</p>
+                        <ul>
+                            <li>text-overflow用来设置是否使用一个省略标记（...）标示对象内文本的溢出。</li>
+                            <li><img src="../programme/pgm-page14/imgs/53070cc00001a5bc06000200.jpg"></li>
+                            <li>
+                                <p>text-overflow只是用来说明文字溢出时用什么方式显示，要实现溢出时产生省略号的效果，还须定义强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden），只有这样才能实现溢出文本显示省略号的效果</p>
+<pre><code>text-overflow:ellipsis; 
+overflow:hidden; 
+white-space:nowrap;
+</code></pre>
+
+                            </li>
+                            <li>兼容性：支持IE8及其它高级浏览器</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>word-wrap</p>
+                        <ul>
+                            <li>word-wrap也可以用来设置文本行为，当前行超过指定容器的边界时是否断开转行;</li>
+                            <li><img src="../programme/pgm-page14/imgs/53070cf700018a2b06000200.jpg"></li>
+                            <li>normal为浏览器默认值，break-word设置在长单词或 URL地址内部进行换行，此属性不常用，用浏览器默认值即可。</li>
+                            <li>兼容性：能支持IE8，但IE所有浏览器和Firefox浏览器都要加上前缀</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>嵌入字体 @font-face</p>
+                        <ul>
+                            <li>@font-face能够加载服务器端的字体文件，让浏览器端可以显示用户电脑里没有安装的字体;</li>
+                            <li>这样设置之后，就可以像使用普通字体一样在（font-*）中设置字体样式；</li>
+                            <li>
+                                <p>语法：</p>
+<pre><code>@font-face {
+    font-family : 字体名称;
+     src : 字体文件在服务器上的相对或绝对路径;
+} 
+</code></pre>
+
+                            </li>
+                            <li>兼容性：IE8需要前缀，支持IE9及其它高级浏览器</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>文本阴影 text-shadow</p>
+<pre><code>text-shadow: X-Offset Y-Offset blur color;
+</code></pre>
+
+                        <ul>
+                            <li>
+                                <code>X-Offset</code>：表示阴影的水平偏移距离，其值为正值时阴影向右偏移，反之向左偏移；
+                            </li>
+                            <li>
+                                <p><code>Y-Offset</code>：是指阴影的垂直偏移距离，如果其值是正值时，阴影向下偏移，反之向上偏移；</p>
+                            </li>
+                            <li>
+                                <p><code>Blur</code>：是指阴影的模糊程度，其值不能是负值，如果值越大，阴影越模糊，反之阴影越清晰，如果不需要阴影模糊可以将Blur值设置为0；</p>
+                            </li>
+                            <li>
+                                <p><code>Color</code>：是指阴影的颜色，其可以使用rgba色。</p>
+                            </li>
+                            <li>
+                                <p>举例：</p>
+<pre><code>text-shadow: 0 1px 1px #fff；
+</code></pre>
+
+                            </li>
+                            <li>兼容性：支持IE10以上及其它高级浏览器，但是IE浏览器的实现和标准稍有不同；</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>与背景相关的样式</p>
+                <ul>
+                    <li>
+                        <p>background-origin</p>
+                        <ul>
+                            <li>
+                                <p>设置元素背景图片的原始起始位置。</p>
+<pre><code>background-origin ： border-box | padding-box | content-box;
+</code></pre>
+
+                            </li>
+                            <li>参数分别表示背景图片是从边框，还是内边距（默认值），或者是内容区域开始显示。</li>
+                            <li><img src="../programme/pgm-page14/imgs/531003de0001166903660166.jpg"></li>
+                            <li>如果背景不是no-repeat，这个属性无效，它会从边框开始显示。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        background-clip
+                        <ul>
+                            <li>略</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>background-size</p>
+                        <ul>
+                            <li>设置背景图片的大小，以长度值或百分比显示，还可以通过cover和contain来对图片进行伸缩;</li>
+                            <li>
+                                <p>语法</p>
+<pre><code>background-size: auto | &lt;长度值&gt; | &lt;百分比&gt; | cover | contain
+</code></pre>
+
+                            </li>
+                            <li>
+                                <p>属性说明：</p>
+                                <ul>
+                                    <li>
+                                        <p>auto：默认值，不改变背景图片的原始高度和宽度；</p>
+                                    </li>
+                                    <li>
+                                        <p><长度值>：成对出现如200px 50px，将背景图片宽高依次设置为前面两个值，当设置一个值时，将其作为图片宽度值来等比缩放；</p>
+                                    </li>
+                                    <li>
+                                        <p><百分比>：0％~100％之间的任何值，将背景图片宽高依次设置为所在元素宽高乘以前面百分比得出的数值，当设置一个值时同上；</p>
+                                    </li>
+                                    <li>
+                                        <p>cover：顾名思义为覆盖，即将背景图片等比缩放以填满整个容器；</p>
+                                    </li>
+                                    <li>
+                                        <p>contain：容纳，即将背景图片等比缩放至某一边紧贴容器边缘为止。</p>
+                                    </li>
+                                    <li>兼容性：支持IE9及其它高级浏览器</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        multiple backgrounds
+                        <ul>
+                            <li>略</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>CSS3的选择器</p>
+                <ul>
+                    <li>
+                        <p>一些常用的选择器（并非全部为CSS3新加）</p>
+                        <ul>
+                            <li>
+                                <p>X + Y：</p>
+                                <ul>
+                                    <li>这被称作相邻选择符。它将只选择紧贴在X元素之后Y元素。上面的例子，仅每一个ul之后的第一个段落元素的文本为红色。</li>
+                                    <li>
+                                        <p>例：</p>
+<pre><code>ul + p {  
+     color: red;  
+}
+</code></pre>
+
+                                    </li>
+                                    <li>兼容性：IE 7+及其它高级浏览器</li>
+                                </ul>
+                            </li>
+                            <li>
+                                X &gt; Y:
+                                <ul>
+                                    <li>X Y和X &gt; Y之间的不同点是后者只选择直接子代;</li>
+                                    <li>兼容性：IE 7+及其它高级浏览器</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>X ~ Y:</p>
+                                <ul>
+                                    <li>
+                                        <p>例：</p>
+<pre><code>ul ~ p {  
+   color: red;  
+} 
+</code></pre>
+
+                                    </li>
+                                    <li>这是兄弟选择符和X + Y一样，然而，它没有约束。与相邻选择符（ul + li）仅选择前一个选择符后面的第一个元素比起来，兄弟选择符更宽泛。它会选择，我们上面例子中更在ul后面的任何p元素；</li>
+                                    <li>兼容性：IE 7+及其它高级浏览器</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>X[title]</p>
+                                <ul>
+                                    <li>
+                                        <p>例：</p>
+<pre><code>a[title] {  
+   color: green;  
+} 
+</code></pre>
+
+                                    </li>
+                                    <li>被称为属性选择器，在我们上面的例子里，这只会选择有title属性的锚标签。没有此属性的锚标签将不受影像。</li>
+                                    <li>兼容性：IE 7+及其它高级浏览器</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>X:checked</p>
+                                <ul>
+                                    <li>
+                                        <p>例：</p>
+<pre><code>input[type=radio]:checked {  
+   border: 1px solid black;  
+}  
+</code></pre>
+
+                                    </li>
+                                    <li>这种伪类只会匹配已经被选中的单选元素。就是这么简单；</li>
+                                    <li>兼容性：IE9+及其它高级浏览器</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>X:not(selector)</p>
+                                <ul>
+                                    <li>
+                                        <p>例：</p>
+<pre><code>div:not(#container) {  
+   color: blue;  
+}
+</code></pre>
+
+                                    </li>
+                                    <li>not伪类灰常有用。例如我要选择所有的div，除了有id为container的。上面那个代码片段就能完美的实现。</li>
+                                    <li>兼容性：IE 9+ 及其它高级浏览器</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>X:nth-child(n)</p>
+                                <ul>
+                                    <li>
+                                        <p>例：</p>
+<pre><code>li:nth-child(3) {  
+   color: red;  
+} 
+</code></pre>
+
+                                    </li>
+                                    <li>想想那些没法从元素堆中选择元素的日子。nth-child伪类解决了这个问题。请注意 nth-child接收整数和变量，不过不是从0开始的，如果你想选定第二个li，使用 li:nth-child(2)。我们甚至使用这个办法来选择任意的子元素。例如，我们可以用 li:nth-child(4n)来完成4为倍数的所有元素的选择。</li>
+                                    <li>兼容性：IE 9以上及其它高级浏览器</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        相关的参考资料地址：http://yanhaijing.com/css/2014/01/04/the-30-css-selectors-you-must-memorize/
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    CSS3的变形和动画
+                    CSS3 2D转换
+                </p>
+                <blockquote>
+                    <p>通过css3转换，我们能够对元素进行移动、缩放、转动、拉长或拉伸。</p>
+                </blockquote>
+                <p>浏览器的支持情况：</p>
+                <ol>
+                    <li>IE9需要添加前缀 -ms-</li>
+                </ol>
+                <p>涉及到的2D转换方法：</p>
+                <ul>
+                    <li>
+                        偏移：translate()
+                        <ul>
+                            <li>
+                                css属性：例
+                                transform:translate(50px,100px);
+                            </li>
+                            <li>
+                                兼容性写法：
+                                <ul>
+                                    <li>-ms-transform:translate(50px,100px);</li>
+                                    <li>-moz-transform:translate(50px,100px);</li>
+                                    <li>-o-transform:translate(50px,100px);</li>
+                                    <li>-webkit-transform:translate(50px,100px);</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        旋转：rotate()
+                        <ul>
+                            <li>
+                                css属性：例
+                                transform:rotate(30deg);
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        缩放：scale()
+                        <ul>
+                            <li>
+                                css属性：例
+                                transform:scale(2,4);
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        反转：skew()
+                        <ul>
+                            <li>
+                                css属性：例
+                                transform:skew(20deg,20deg);
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        组合：matrix()
+                        <ul>
+                            <li>matrix()方法把所有2D转换方法组合在一起。</li>
+                            <li>matrix()方法需要六个参数，包含</li>
+                        </ul>
+                    </li>
+                    <li>
+                        transform-origin旋转元素的基点（默认的是中心点）：
+                        <ul>
+                            <li>
+                                用法css属性：例
+                                transform:rotate(45deg);
+                                transform-origin:20% 40%;
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr />
+                <p>CSS3 3D转换</p>
+                <ol>
+                    <li>
+                        rotateX()
+                        <ul>
+                            <li>rotateX()方法，元素围绕其X轴以给定的度数进行旋转。</li>
+                            <li>
+                                css属性：例
+                                transform:rotateX(120deg);
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        rotateY()
+                        <ul>
+                            <li>通过rotateY()方法，元素围绕其Y轴以给定的度数旋转。</li>
+                            <li>
+                                css属性：例
+                                transform:rotateY(120deg);
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr />
+                <h3>CSS 3过渡</h3>
+                <ul>
+                    <li>
+                        transition
+                        <ul>
+                            <li>IE9不支持该属性</li>
+                            <li>CSS过渡是元素从一种样式逐渐改变为另一种效果。</li>
+                            <li>
+                                要实现这一点，必须规定俩项内容：
+                                <ul>
+                                    <li>规定效果添加到哪个CSS属性上</li>
+                                    <li>规定效果的时长</li>
+                                </ul>
+                            </li>
+                            <li>实例：</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>/*应用于宽度属性的过渡效果，时长为2秒 */</p>
+<pre><code>div{
+    width:100px;
+    height:100px;
+    background:yellow;
+    transition:width 2s, height 2s;
+    -moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
+    -webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+    -o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
+}
+div:hover{
+    width:200px;
+    height:200px;
+    transform:rotate(180deg);
+    -moz-transform:rotate(180deg); /* Firefox 4 */
+    -webkit-transform:rotate(180deg); /* Safari and Chrome */
+    -o-transform:rotate(180deg); /* Opera */
+}
+</code></pre>
+
+                <p>transition属性的简写</p>
+<pre><code>div{
+    transition: width 1s linear 2s;
+}
+//上面是下面元素的简写
+div{
+    transition-property: width;
+    transition-duration: 1s;
+    transition-timing-function: linear; //规定过渡效果的时间曲线
+    transition-delay: 2s; //延迟2秒显示效果
+}
+</code></pre>
+
+                <p>注释：如果没有规定时长，则不会有过渡效果，因为默认值为0。</p>
+                <hr />
+                <h3>CSS3 动画</h3>
+                <ul>
+                    <li>IE9不支持@keyframes规则和animation属性。</li>
+                    <li>使用css3创建动画，需要用到@keyfranes规则</li>
+                    <li>在@keyframes中创建动画时，请把它捆绑到某个选择器，否则不会产生动画效果。</li>
+                    <li>
+                        通过规定至少以下两项CSS3动画属性，即可将动画绑定到选择器
+                        <ul>
+                            <li>规定动画的名称</li>
+                            <li>规定动画的时长 </li>
+                        </ul>
+                    </li>
+                    <li>实例：</li>
+                </ul>
+                <p>```</p>
+<pre><code>div{
+    width:100px;
+    height:100px;
+    background:red;
+    animation:myfirst 5s;
+    -moz-animation:myfirst 5s; /* Firefox */
+    -webkit-animation:myfirst 5s; /* Safari and Chrome */
+    -o-animation:myfirst 5s; /* Opera */
+}
+@keyframes myfirst{
+    0%   {background:red;}
+    25%  {background:yellow;}
+    50%  {background:blue;}
+    100% {background:green;}
+}
+@-moz-keyframes myfirst /* Firefox */
+{
+    0%   {background:red;}
+    25%  {background:yellow;}
+    50%  {background:blue;}
+    100% {background:green;}
+}
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+    0%   {background:red;}
+    25%  {background:yellow;}
+    50%  {background:blue;}
+    100% {background:green;}
+}
+@-o-keyframes myfirst /* Opera */
+{
+    0%   {background:red;}
+    25%  {background:yellow;}
+    50%  {background:blue;}
+    100% {background:green;}
+}
+</code></pre>
+
+                <p>```</p>
+                <p>
+                    动画是使元素从一种样式逐渐变化为另一种样式的效果。
+                    您可以改变任意多的样式任意多的次数。请用百分比来规定变化发生的时间，或用关键词 &quot;from&quot; 和 &quot;to&quot;，等同于 0% 和 100%。
+                    0% 是动画的开始，100% 是动画的完成。
+                    为了得到最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。
+                </p>
+            </li>
+            <li>媒体查询和响应式设计</li>
+            <li>
+                <p>其它属性</p>
+                <ul>
+                    <li>
+                        <p>自由缩放属性resize</p>
+<pre><code> resize: none | both | horizontal | vertical | inherit;
+</code></pre>
+
+                        <ul>
+                            <li>它允许用户通过拖动的方式来修改元素的尺寸来改变元素的大小</li>
+                            <li>兼容性：IE浏览器完全不支持，其它高级浏览器的能够很好的支持；</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>CSS3外轮廓属性outline</p>
+                        <ul>
+                            <li>外轮廓outline在页面中呈现的效果和边框border呈现的效果极其相似，但和元素边框border完全不同，外轮廓线不占用网页布局空间，不一定是矩形，外轮廓是属于一种动态样式，只有元素获取到焦点或者被激活时呈现；</li>
+                            <li>
+                                <p>基本语法</p>
+<pre><code>outline: ［outline-color］ || [outline-style] || [outline-width] || [outline-offset] || inherit
+</code></pre>
+
+                            </li>
+                            <li><img src="../programme/pgm-page14/imgs/bba4e194aa25169d.jpg"></li>
+                            <li>兼容性：IE8及所有高级浏览器都支持</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>CSS生成内容</p>
+                        <ul>
+                            <li>我们可以通过CSS3的伪类“:before”，“:after”和CSS3的伪元素“::before”、“::after”来实现，其关键是依靠CSS3中的“content”属性来实现。不过这个属性对于img和input元素不起作用。</li>
+                            <li><img src="../programme/pgm-page14/imgs/1a52484f22471c02.png"></li>
+                            <li>
+                                <p>例：</p>
+                                <ul>
+                                    <li><code>&lt;a href=&quot;##&quot; title=&quot;我是一个title属性值，我插在你的后面&quot;&gt;我是元素&lt;/a&gt;</code></li>
+                                    <li>
+                                        <p>可以通过”:after”和”content:attr(title)”将元素的”title”值插入到元素内容“我是元素”之后：</p>
+<pre><code>a:after {
+    content:attr(title);
+    color:#f00;
+}   
+</code></pre>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>消除浮动</p>
+<pre><code>.wrap:after{   //假设父元素类名为wrap
+    content:&quot;&quot;;
+    display:block;
+    clear:both;
+    height:0;
+}
+</code></pre>
+
+                            </li>
+                            <li>兼容性：支持IE8及其它高级浏览器（但是IE8不支持双冒号的伪元素，只支持单冒号的伪类）</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
