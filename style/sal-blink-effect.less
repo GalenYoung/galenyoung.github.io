@@ -1,0 +1,77 @@
+//变量
+.ani-blink(@ani-name:sal-blink-effect,@timer:2s,@delay-time:0s,@fill-mode:forwards){
+    animation:@ani-name @timer;
+    animation-fill-mode:@fill-mode;
+    animation-delay:@delay-time;
+
+    -moz-animation:@ani-name @timer;
+    -moz-animation-fill-mode:@fill-mode;
+    -moz-animation-delay:@delay-time;
+
+    -webkit-animation:@ani-name @timer;
+    -webkit-animation-fill-mode:@fill-mode;
+    -webkit-animation-delay:@delay-time;
+
+    -o-animation:@ani-name @timer;
+    -o-animation-fill-mode:@fill-mode;
+    -o-animation-delay:@delay-time;
+}
+//样式
+.sal-blink{
+		height:102px;
+		width: 82px;
+		position: fixed;
+		top: 50%;
+		left: 0;
+		margin-top: -51px;
+		background:#fff url(../images/cartoon.jpg);
+		.ani-blink();
+		@keyframes sal-blink-effect{
+			from { width: 0 }
+			to { width:82px; }
+		}
+		@-moz-keyframes sal-blink-effect{
+			from { width: 0 }
+			to { width:82px; }
+		}
+		@-webkit-keyframes sal-blink-effect{
+			from { width: 0 }
+			to { width:82px; }
+		}
+		@-o-keyframes sal-blink-effect{
+			from { width: 0 }
+			to { width:82px; }
+		}
+	.sal-blink-wrap{
+		height: 16px;
+		width:16px;
+		position: absolute;
+		left: 56px;
+		border-radius: 8px;
+	}
+	.sal-blink-wrap-top{
+		top:26px;
+	}
+	.sal-blink-wrap-bottom{
+		top:56px;
+	}
+	.sal-blink-eyes{
+		height:8px;
+		width: 8px;
+		background-color: #000;
+		position: absolute;
+		top:10px;
+		left:8px;
+		border-radius: 4px;
+		display: none;
+	}
+	.sal-blink-close{
+		position: absolute;
+		top:37px;
+		left: 30px;
+		height:30px;
+		width: 30px;
+		display: block;
+		border-radius: 20px 16px;
+	}
+}

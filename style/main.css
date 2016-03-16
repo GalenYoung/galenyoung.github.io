@@ -84,12 +84,9 @@ p {
   top: -2px;
   height: 2px;
   background: #E91E63;
-  -webkit-animation: css-border0 4s;
-          animation: css-border0 4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation: css-border0 4s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
   -moz-animation: css-border0 4s;
   -moz-animation-fill-mode: forwards;
   -moz-animation-delay: 1s;
@@ -108,7 +105,23 @@ p {
     width: 80%;
   }
 }
+@-moz-keyframes css-border0 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80%;
+  }
+}
 @-webkit-keyframes css-border0 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80%;
+  }
+}
+@-o-keyframes css-border0 {
   from {
     width: 0;
   }
@@ -124,12 +137,9 @@ p {
   background: #e91e63;
   width: 2px;
   height: 0;
-  -webkit-animation: css-border1 1s;
-          animation: css-border1 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-delay: 5s;
-          animation-delay: 5s;
+  animation: css-border1 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 5s;
   -moz-animation: css-border1 1s;
   -moz-animation-fill-mode: forwards;
   -moz-animation-delay: 5s;
@@ -148,7 +158,23 @@ p {
     height: 100px;
   }
 }
+@-moz-keyframes css-border1 {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100px;
+  }
+}
 @-webkit-keyframes css-border1 {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100px;
+  }
+}
+@-o-keyframes css-border1 {
   from {
     height: 0;
   }
@@ -164,12 +190,9 @@ p {
   background: #e91e63;
   height: 2px;
   width: 0;
-  -webkit-animation: css-border2 3s;
-          animation: css-border2 3s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-delay: 6s;
-          animation-delay: 6s;
+  animation: css-border2 3s;
+  animation-fill-mode: forwards;
+  animation-delay: 6s;
   -moz-animation: css-border2 3s;
   -moz-animation-fill-mode: forwards;
   -moz-animation-delay: 6s;
@@ -188,7 +211,23 @@ p {
     width: 100%;
   }
 }
+@-moz-keyframes css-border2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 @-webkit-keyframes css-border2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@-o-keyframes css-border2 {
   from {
     width: 0;
   }
@@ -203,12 +242,9 @@ p {
   bottom: -2px;
   height: 2px;
   background: #E91E63;
-  -webkit-animation: css-border0 4s;
-          animation: css-border0 4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-delay: 11s;
-          animation-delay: 11s;
+  animation: css-border0 4s;
+  animation-fill-mode: forwards;
+  animation-delay: 11s;
   -moz-animation: css-border0 4s;
   -moz-animation-fill-mode: forwards;
   -moz-animation-delay: 11s;
@@ -249,12 +285,9 @@ p {
     top: -40px;
     background: #e91e63;
     width: 2px;
-    -webkit-animation: css-border3 2s;
-            animation: css-border3 2s;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-    -webkit-animation-delay: 9s;
-            animation-delay: 9s;
+    animation: css-border3 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 9s;
     -moz-animation: css-border3 2s;
     -moz-animation-fill-mode: forwards;
     -moz-animation-delay: 9s;
@@ -273,7 +306,23 @@ p {
       height: 540px;
     }
   }
+  @-moz-keyframes css-border3 {
+    from {
+      height: 0;
+    }
+    to {
+      height: 540px;
+    }
+  }
   @-webkit-keyframes css-border3 {
+    from {
+      height: 0;
+    }
+    to {
+      height: 540px;
+    }
+  }
+  @-o-keyframes css-border3 {
     from {
       height: 0;
     }
@@ -304,12 +353,9 @@ p {
     top: -40px;
     background: #e91e63;
     width: 2px;
-    -webkit-animation: css-border3 2s;
-            animation: css-border3 2s;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-    -webkit-animation-delay: 9s;
-            animation-delay: 9s;
+    animation: css-border3 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 9s;
     -moz-animation: css-border3 2s;
     -moz-animation-fill-mode: forwards;
     -moz-animation-delay: 9s;
@@ -328,7 +374,23 @@ p {
       height: 540px;
     }
   }
+  @-moz-keyframes css-border3 {
+    from {
+      height: 0;
+    }
+    to {
+      height: 540px;
+    }
+  }
   @-webkit-keyframes css-border3 {
+    from {
+      height: 0;
+    }
+    to {
+      height: 540px;
+    }
+  }
+  @-o-keyframes css-border3 {
     from {
       height: 0;
     }
@@ -359,12 +421,9 @@ p {
     top: -40px;
     background: #e91e63;
     width: 2px;
-    -webkit-animation: css-border3 2s;
-            animation: css-border3 2s;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-    -webkit-animation-delay: 9s;
-            animation-delay: 9s;
+    animation: css-border3 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 9s;
     -moz-animation: css-border3 2s;
     -moz-animation-fill-mode: forwards;
     -moz-animation-delay: 9s;
@@ -383,7 +442,23 @@ p {
       height: 540px;
     }
   }
+  @-moz-keyframes css-border3 {
+    from {
+      height: 0;
+    }
+    to {
+      height: 540px;
+    }
+  }
   @-webkit-keyframes css-border3 {
+    from {
+      height: 0;
+    }
+    to {
+      height: 540px;
+    }
+  }
+  @-o-keyframes css-border3 {
     from {
       height: 0;
     }
