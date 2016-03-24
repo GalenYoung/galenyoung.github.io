@@ -306,7 +306,13 @@ q{
     display: block;
     z-index: 1;
 }
+/* 评论功能样式 */
 /* 去掉多说评论的广告 */
 .ds-powered-by{
     display: none;
+}
+.ds-thread{
+    width: 100%;
+    max-width: 1000px;
+    margin:0 auto;
 }
