@@ -306,3 +306,7 @@ q{
     display: block;
     z-index: 1;
 }
+/* 去掉多说评论的广告 */
+.ds-powered-by{
+    display: none;
+}
