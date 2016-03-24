@@ -308,7 +308,7 @@ q{
 }
 /* 评论功能样式 */
 /* 去掉多说评论的广告 */
-.ds-powered-by{
+.ds-powered-by,.ds-dialog-footer{
     display: none;
 }
 .ds-thread{
