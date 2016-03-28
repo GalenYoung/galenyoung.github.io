@@ -16,40 +16,35 @@ a:hover {
   text-decoration: none;
 }
 /* 变量 */
-/* 引用网络字体 
-	@font-face{
-		font-family: "txtsksj";
-		src:url(../../fonts/腾祥铁山楷书简.ttf);
-	}
-*/
 /* 页面样式 */
-/* 头部样式 */
-.header {
-  width: 100%;
-  height: 50px;
-  border-bottom: 1px solid #eee;
-  position: relative;
-  text-align: right;
+/* 	头部样式
+.header{
+	width:100%;
+	height:50px;
+	border-bottom: 1px solid #eee;
+	position:relative;
+	text-align: right;
+	ul{
+		height:100%;
+		margin-right:20px;
+		li{
+			display: inline-block;
+			height:100%;
+			font:normal 400 18px/50px "Agency FB",STXingkai,KaiTi;		
+			margin: 0 18px;
+			a {
+				color:#4296DB;	
+				&:hover{
+					color:#E91E63;
+				}
+			}
+			&:nth-child(3) a{
+				color:#E91E63;
+			}
+		}
+	}
 }
-.header ul {
-  height: 100%;
-  margin-right: 20px;
-}
-.header ul li {
-  display: inline-block;
-  height: 100%;
-  font: normal 400 18px/50px "Agency FB", STXingkai, KaiTi;
-  margin: 0 18px;
-}
-.header ul li a {
-  color: #4296DB;
-}
-.header ul li a:hover {
-  color: #E91E63;
-}
-.header ul li:nth-child(3) a {
-  color: #E91E63;
-}
+ */
 /* 主体样式 */
 @media only screen and (min-width: 640px) {
   .soft-content {
@@ -64,8 +59,28 @@ a:hover {
     color: #4296DB;
     font: normal 400 22px/50px "Agency FB", STXingkai, KaiTi;
   }
+  .soft-content li a .sal-date-mark {
+    font-size: 14px;
+    line-height: 16px;
+    height: 16px;
+    color: #4296DB;
+    display: inline-block;
+    border: 1px solid #e1e1e1;
+    padding: 4px;
+    margin-left: 10px;
+    border-radius: 0 10px 0 ;
+  }
   .soft-content li a:hover {
     color: #E91E63;
+  }
+  .soft-content li a:hover .sal-date-mark {
+    background-color: #E91E63;
+    color: #fff;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
   }
 }
 @media only screen and (min-width: 414px) and (max-width: 640px) {
@@ -81,8 +96,28 @@ a:hover {
     color: #4296DB;
     font: normal 400 18px/48px "Agency FB", STXingkai, KaiTi;
   }
+  .soft-content li a .sal-date-mark {
+    font-size: 12px;
+    line-height: 14px;
+    height: 14px;
+    color: #4296DB;
+    display: inline-block;
+    border: 1px solid #e1e1e1;
+    padding: 3px;
+    margin-left: 8px;
+    border-radius: 0 8px 0 ;
+  }
   .soft-content li a:hover {
     color: #E91E63;
+  }
+  .soft-content li a:hover .sal-date-mark {
+    background-color: #E91E63;
+    color: #fff;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
   }
 }
 @media only screen and (max-width: 414px) {
@@ -98,24 +133,27 @@ a:hover {
     color: #4296DB;
     font: normal 400 14px/30px "Agency FB", STXingkai, KaiTi;
   }
+  .soft-content li a .sal-date-mark {
+    display: none;
+  }
   .soft-content li a:hover {
     color: #E91E63;
   }
 }
 /* 脚步样式 */
-.footer {
-  height: 80px;
-  border-top: 1px solid #eee;
-  padding-bottom: 20px;
-  font: normal 400 16px/80px "Agency FB", STXingkai, KaiTi;
-  color: #888;
-}
-.footer p {
-  text-align: center;
-}
-.footer a {
-  color: #666;
-}
+/* .footer{
+		height:80px;
+		border-top: 1px solid #eee;
+		padding-bottom:20px;
+		font:normal 400 16px/80px "Agency FB",STXingkai,KaiTi;
+		color: #888;
+		p{
+			text-align: center;
+		}
+		a{
+			color:#666;
+		}
+	} */
 /* 缓冲小动画样式 */
 .buffer-icon {
   height: 28px;
