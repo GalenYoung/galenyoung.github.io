@@ -6,7 +6,7 @@
 	var sal_blink_eyes = $class("sal-blink-eyes");
 	var sal_blink_close = $id("sal-blink-close");
 	var sal_blink = $id("sal-blink");
-	if(document.documentElement.clientWidth >= 1000px){
+	if(document.documentElement.clientWidth >= 1000){
 		sal_blink.style.display = "block";
 		onmousemove = function(e){
 			var e = e || window.event ;
