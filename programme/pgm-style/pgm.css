@@ -1,4 +1,5 @@
 @charset "utf-8";
+/* 变量 */
 /* 主体样式 */
 @media only screen and (min-width: 640px) {
   .pgm-content {
@@ -31,6 +32,11 @@
   .pgm-content li a:hover .sal-date-mark {
     background-color: #E91E63;
     color: #fff;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
   }
 }
 @media only screen and (min-width: 414px) and (max-width: 640px) {
@@ -46,8 +52,28 @@
     color: #4296DB;
     font: normal 400 18px/48px "Agency FB", STXingkai, KaiTi;
   }
+  .pgm-content li a .sal-date-mark {
+    font-size: 12px;
+    line-height: 14px;
+    height: 14px;
+    color: #4296DB;
+    display: inline-block;
+    border: 1px solid #e1e1e1;
+    padding: 3px;
+    margin-left: 8px;
+    border-radius: 0 8px 0 ;
+  }
   .pgm-content li a:hover {
     color: #E91E63;
+  }
+  .pgm-content li a:hover .sal-date-mark {
+    background-color: #E91E63;
+    color: #fff;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
   }
 }
 @media only screen and (max-width: 414px) {
@@ -62,6 +88,9 @@
   .pgm-content li a {
     color: #4296DB;
     font: normal 400 16px/40px "Agency FB", STXingkai, KaiTi;
+  }
+  .pgm-content li a .sal-date-mark {
+    display: none;
   }
   .pgm-content li a:hover {
     color: #E91E63;
