@@ -11,10 +11,26 @@
   }
   .pgm-content li a {
     color: #4296DB;
+    display: block;
     font: normal 400 22px/50px "Agency FB", STXingkai, KaiTi;
+  }
+  .pgm-content li a .sal-date-mark {
+    font-size: 14px;
+    line-height: 16px;
+    height: 16px;
+    color: #4296DB;
+    display: inline-block;
+    border: 1px solid #e1e1e1;
+    padding: 4px;
+    margin-left: 10px;
+    border-radius: 0 10px 0 ;
   }
   .pgm-content li a:hover {
     color: #E91E63;
+  }
+  .pgm-content li a:hover .sal-date-mark {
+    background-color: #E91E63;
+    color: #fff;
   }
 }
 @media only screen and (min-width: 414px) and (max-width: 640px) {
