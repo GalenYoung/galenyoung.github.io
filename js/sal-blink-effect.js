@@ -6,22 +6,24 @@
 	var sal_blink_eyes = $class("sal-blink-eyes");
 	var sal_blink_close = $id("sal-blink-close");
 	var sal_blink = $id("sal-blink");
-
-	onmousemove = function(e){
-		var e = e || window.event ;
-		var eClientX = e.clientX;
-		var eClientY = e.clientY;  
-		for(var i = 0 ; i < sal_blink_wrap.length ;i++){
-			sal_blink_eyes[i].style.top  = (sal_blink_wrap[0].offsetHeight * e.clientY / window.innerHeight) + "px";
-			sal_blink_eyes[i].style.left  = (sal_blink_wrap[0].offsetWidth * e.clientX / window.innerWidth) + "px";
+	if(document.documentElement.clientWidth >= 1000px){
+		sal_blink.style.display = "block";
+		onmousemove = function(e){
+			var e = e || window.event ;
+			var eClientX = e.clientX;
+			var eClientY = e.clientY;  
+			for(var i = 0 ; i < sal_blink_wrap.length ;i++){
+				sal_blink_eyes[i].style.top  = (sal_blink_wrap[0].offsetHeight * e.clientY / window.innerHeight) + "px";
+				sal_blink_eyes[i].style.left  = (sal_blink_wrap[0].offsetWidth * e.clientX / window.innerWidth) + "px";
+			};
 		};
-	};
-	sal_blink.addEventListener("animationend",function(){
-		for(var j = 0; j < sal_blink_eyes.length ; j++){
-			sal_blink_eyes[j].style.display = "block";	
+		sal_blink.addEventListener("animationend",function(){
+			for(var j = 0; j < sal_blink_eyes.length ; j++){
+				sal_blink_eyes[j].style.display = "block";	
+			};
+		});
+		sal_blink_close.onclick = function(){
+			sal_blink.style.display = "none";
 		};
-	});
-	sal_blink_close.onclick = function(){
-		sal_blink.style.display = "none";
-	};
+	}
 })(window,document)
