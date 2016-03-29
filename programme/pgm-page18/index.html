@@ -1,0 +1,189 @@
+---
+layout: pgm-into
+title: JavaScript正则表达式
+id: pgm-18
+url: programme/18
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page18/pgm-page18.css">
+permalink: /programme/18
+---
+<h1>JavaScript正则表达式</h1>
+<ul>
+    <li>
+        对字符进行匹配的方法
+        <ul>
+            <li>
+                作用
+                <ul>
+                    <li>匹配字符</li>
+                </ul>
+            </li>
+            <li>
+                工作原理
+                <ul>
+                    <li>通配符匹配技术</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        js中有正则regular expression的内置对象
+        <ul>
+            <li><code>var re = new RegExp(&quot;正则的内容&quot;,&quot;正则的标志&quot;)</code></li>
+            <li>
+                另一种 <code>var re = /正则的内容/正则的标志</code>
+                <ul>
+                    <li>
+                        eq： <code>var re = /a/i</code>
+                        <ul>
+                            <li>匹配字符中的所有a，加上<code>i</code>的意思是不区分大小写</li>
+                            <li><code>*</code>匹配所有字符</li>
+                            <li><code>\</code>转义</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>特殊符号都需要转义</p>
+        <ul>
+            <li>
+                特殊符号
+                <ul>
+                    <li><code>*</code> <code>!</code> <code>$</code> <code>^</code> <code>*</code> <code>+</code> <code>=</code> <code>|</code> <code>.</code> <code>?</code> <code>\</code> <code>/</code> <code>(</code> <code>)</code> <code>[</code> <code>]</code> <code>{</code> <code>}</code> </li>
+                </ul>
+            </li>
+            <li>
+                特殊字符
+                <ul>
+                    <li><code>o</code> <code>t</code> <code>n</code> <code>v</code> <code>f</code> <code>r</code> <code>xnn</code> <code>uxxx</code> <code>cX</code></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>字符类</p>
+        <ul>
+            <li><code>.</code> 匹配任意字符(除换行符以外:\n,\r,\u2028或者\u2029)</li>
+            <li><code>\w</code> 匹配任何ASCII单字符[a-z A-Z 0-9 _]</li>
+            <li><code>\W</code> 匹配ASCII单字符之外的字符</li>
+            <li><code>\s</code> 匹配任何Unicode空白符（就是<code>空格</code>）</li>
+            <li><code>\S</code> 匹配任何Unicode空白符之外的字符（就是<code>非空格</code>）</li>
+            <li><code>\d</code> 匹配任何数字[0-9]</li>
+            <li><code>\D</code> 匹配任何数字之外的字符 </li>
+            <li><code>[...]</code> 匹配方括号中的所有字符</li>
+            <li>
+                <code>[^...]</code> 匹配非方括号中的所有字符
+                <ul>
+                    <li>当<code>^</code>在正则表达式的最前一个字符时，表示匹配字符串的开头。当<code>^</code>在【】中时，表示“非”，也就是“取反”的意思。</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>重复类</p>
+        <ul>
+            <li>
+                <code>{n}</code> 匹配前一项n次
+                <ul>
+                    <li>
+                        eq: <code>var re = /a{3}/i</code>
+                        <ul>
+                            <li>需要连续三个字符a出现 如：<code>aaabcd</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><code>n,</code> 匹配前一项至少一次，至多不限</li>
+            <li><code>{n,m}</code> 匹配前一项至少n次，最多m次</li>
+            <li><code>{?}</code> 匹配前一项0次或者1次</li>
+            <li>
+                <code>{+}</code> 匹配前一项至少1次
+                <ul>
+                    <li>eq:<code>x+?</code> </li>
+                </ul>
+            </li>
+            <li><code>{*}</code> 匹配前一项0次或者多次 </li>
+        </ul>
+    </li>
+    <li>
+        <p>选择符 <code>|</code></p>
+        <ul>
+            <li>分隔可以用来选择的文字</li>
+            <li>
+                eq: `var re = /a|b/i
+                <ul>
+                    <li>匹配a字符或者b字符 </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>定位符</p>
+        <ul>
+            <li>
+                <code>^</code> 匹配字符串的开头
+                <ul>
+                    <li>
+                        eq: <code>var re = /^a/i</code>
+                        <ul>
+                            <li>a必须出现在字符串的开头</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <code>$</code> 匹配字符串的结尾
+                <ul>
+                    <li>
+                        eq: <code>var re = /a$/i</code>
+
+                        <ul>
+                            <li>a必须在行的末尾</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><code>\b</code> 匹配一个单词的边界</li>
+            <li><code>\B</code> 与<code>\b</code>相反，匹配一个非单词边界</li>
+        </ul>
+    </li>
+    <li>
+        <p>分组</p>
+        <ul>
+            <li><code>(...)</code> 将几个项目组合成一个单元</li>
+            <li>
+                <code>\n</code> 表示使用分组符(x)匹配到的字符串
+                <ul>
+                    <li>eq: <code>/(abc)\1/.test('abcabc');</code></li>
+                </ul>
+            </li>
+            <li><code>(?...)</code>与<code>(...)</code>类似，只是不记忆与该组合所匹配的内容</li>
+        </ul>
+    </li>
+    <li>
+        <p>标志</p>
+        <ul>
+            <li>
+                <code>i</code> 匹配时不区分大小写
+                <ul>
+                    <li>eq: <code>/abc/gim.test(&quot;AB&quot;)</code> - g,i,m无所谓顺序</li>
+                </ul>
+            </li>
+            <li><code>g</code> 匹配时执行全局匹配</li>
+            <li><code>m</code> 匹配时执行多行匹配</li>
+        </ul>
+    </li>
+    <li>
+        <p>正则表达式对象的方法</p>
+        <ul>
+            <li><code>exec()</code> 执行正则表达式的匹配，返回一个数组 </li>
+            <li><code>test()</code> 测试正则表达式的匹配，返回布尔值</li>
+            <li><code>toSource()</code> 返回RegExp对象的源代码</li>
+            <li>
+                <code>toString()</code> 将RegExp对象转成字符串
+            </li>
+            <li><code>compile()</code> </li>
+        </ul>
+    </li>
+</ul>
