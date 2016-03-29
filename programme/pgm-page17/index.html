@@ -1,0 +1,58 @@
+---
+layout: pgm-into
+title: Git学习笔记
+id: pgm-17
+url: programme/17
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page17/pgm-page17.css">
+permalink: /programme/17
+---
+<h1>关于数组元素的循环遍历</h1>
+<ul>
+    <li>
+        <p>首先我们定义一个用于演示的数组</p>
+<pre><code>//定义数组
+    let arr = [];
+    for(let i = 0 ; i &lt; 10 ; i++ ){
+    arr[i] = i * i ;
+    }
+    arr.prop = &quot;晨曦洒在我家屋檐上&quot;;
+    arr.method = function(){
+    return &quot;爷爷和我一起去放羊！&quot;;
+    };
+</code></pre>
+
+    </li>
+    <li>
+        <p>JavaScipt数组的<code>forEach</code>遍历</p>
+<pre><code>arr.forEach(function(e){
+    // e不是索引，而是每个数组中的值;
+    // forEach不能使用break中断循环
+    // forEach语句和for...in类似
+    console.log(e);
+    });
+</code></pre>
+
+    </li>
+    <li>
+        <p>JavaScript数组的<code>for...in</code>循环</p>
+<pre><code>for(let index in arr){
+    //index是索引值，它是字符串类型
+    //for...in 循环会将数组上的属性和方法也遍历出来
+    console.log(index + &quot;:&quot; + arr[index]);
+    };
+</code></pre>
+
+    </li>
+    <li>
+        <p><strong>ES6新方法:</strong> JavaScript数组的<code>for...of</code>循环</p>
+<pre><code> for(let turn of arr){
+    // for...of循环只遍历数组中具体的值。并不会遍历数组的属性和方法
+    // turn不是索引值，而是arr数组中的具体值
+    if(turn === 25){continue;}
+    console.log(turn);
+    };
+</code></pre>
+
+    </li>
+</ul>
+<!-- 参考地址；http://www.csdn.net/article/1970-01-01/2824965 -->
