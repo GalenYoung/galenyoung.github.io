@@ -1,5 +1,5 @@
-﻿;(function(window,document,undefined){
-    var clientHeight = document.documentElement.clientHeight;
+﻿window.onload = function(){
+	var clientHeight = document.documentElement.clientHeight;
     var footer = document.getElementById("footer");
     var footer_offset_height = footer.offsetHeight;
     var footer_offset_top = footer.offsetTop;
@@ -8,5 +8,5 @@
         footer.style.bottom = "0";
         footer.style.width = "100%" ;
         footer.style.backgroundColor = "#fff";
-    }
-})(window,document) 
+    };
+};
