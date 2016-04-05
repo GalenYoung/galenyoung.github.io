@@ -44,6 +44,12 @@ permalink: /programme/16
 	            <li><code>git reset --hard HEAD^</code> - 回退到上一个版本</li>
 	            <li><code>git reset --hard  &lt;版本号&gt;</code> - 回到到版本号的这个版本</li>
 	            <li><code>git reflog</code> - 显示记录你的每一条命令，方便你如果忘记新版法回到新版本的状况</li>
+	            <li>如果版本已经提交给远程服务器
+					<ul>
+						<li>在本地退回到之前的版本<code>git reset --hard HEAD^</code></li>
+						<li>将新的提交 强制推到 git 服务器上<code>git push -f origin master</code></li>
+					</ul>
+	            </li>
 	        </ul>
 	    </li>
 	    <li>
