@@ -44,23 +44,6 @@ permalink: /programme/17
 
     </li>
     <li>
-        <p><code>map</code>方法</p>
-<pre><code>let arr = [];
-    for(let i = 0 ; i &lt; 10 ; i++ ){
-    arr[i] = i;
-    }
-    arr.prop = &quot;晨曦洒在我家屋檐上&quot;;
-    arr.method = function(){
-    return &quot;爷爷和我一起去放羊！&quot;;
-    };
-    function doit(a){ return a*a};
-    console.log(arr);   //输出： Array [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-    let arr1 = arr.map(doit);
-    console.log(arr1); //输出： Array [ 0, 1, 4, 9, 16, 25, 36, 49, 64, 81 ]
-</code></pre>
-
-    </li>
-    <li>
         <p><strong>ES6新方法:</strong> JavaScript数组的<code>for...of</code>循环</p>
 <pre><code> for(let turn of arr){
     // for...of循环只遍历数组中具体的值。并不会遍历数组的属性和方法
