@@ -380,21 +380,3 @@ origin  https://github.com/usename/learngit.git (push)
 	        <!--</ul>-->
 	    <!--</li>-->
 	</ul>
-<script type="text/javascript">
-	var ul = document.getElementsByTagName("ul")[0];
-	console.log(ul);
-		ul.onclick = function(e){
-			var e = e || window.event ;
-			var eSrc = e.target || e.srcElement;
-			
-			if(eSrc.nodeName === "LI"){
-				if(eSrc.getElementsByTagName("ul")[0]){
-					if(eSrc.getElementsByTagName("ul")[0].style.display != "none" ){
-						eSrc.getElementsByTagName("ul")[0].style.display = "none";
-					}else{
-						eSrc.getElementsByTagName("ul")[0].style.display = "block";
-					}
-				}
-			};
-		};
-</script>
