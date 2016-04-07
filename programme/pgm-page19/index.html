@@ -30,88 +30,88 @@ permalink: /programme/19
     </li>
     <li>
         <p>less 样式</p>
-    <pre><code>
-    @charset &quot;utf-8&quot;;
+    <pre>
+<code>@charset &quot;utf-8&quot;;
 
-    //变量
-    .round-switch(@w:100px,@h:@w/2,@border: 0px,@border-color:#999,@borderRadius:@w/4){
-        width:@w;
-        height:@h ;
-        border-radius: @borderRadius ;
-        border:@border solid @border-color;
-        background:#e1e1e1; //小滑块容器默认背景色
+//变量
+.round-switch(@w:100px,@h:@w/2,@border: 0px,@border-color:#999,@borderRadius:@w/4){
+    width:@w;
+    height:@h ;
+    border-radius: @borderRadius ;
+    border:@border solid @border-color;
+    background:#e1e1e1; //小滑块容器默认背景色
+    display: inline-block;
+    b{
+        background: #000; //滑块内部颜色
+        height:@h;
+        width:@h;
+        //margin-left: @w - @h;
+        border-radius:@borderRadius ;
         display: inline-block;
-        b{
-            background: #000; //滑块内部颜色
-            height:@h;
-            width:@h;
-            //margin-left: @w - @h;
-            border-radius:@borderRadius ;
-            display: inline-block;
-            border:@border solid @border-color;
-            position: relative;
-            top:-@border;
-            left:-@border;
-        }
+        border:@border solid @border-color;
+        position: relative;
+        top:-@border;
+        left:-@border;
     }
+}
 
-    //样式
-    .round-switch{
-    .round-switch;
-    }
+//样式
+.round-switch{
+.round-switch;
+}
 </code></pre>
 
     </li>
     <li>
         <p>JavaScript</p>
 <pre>
-    <code>
-    ;(function(window,document,undefined){
+    
+<code>;(function(window,document,undefined){
 
-        //get dom
-        var round_switch = document.getElementById("round-switch");
-        var round_switch_in = round_switch.getElementsByTagName('b')[0];
-        var touch_start , touch_move , touch_end ; 
-        var action_distance = (round_switch.offsetWidth - round_switch_in.offsetHeight);
+    //get dom
+    var round_switch = document.getElementById("round-switch");
+    var round_switch_in = round_switch.getElementsByTagName('b')[0];
+    var touch_start , touch_move , touch_end ; 
+    var action_distance = (round_switch.offsetWidth - round_switch_in.offsetHeight);
 
-         //logic
-         round_switch_in.addEventListener('touchstart',function(e){
-            var e = e ||window.event ; 
-            touch_start = e.touches[0].clientX ; 
-        },false);
+     //logic
+     round_switch_in.addEventListener('touchstart',function(e){
+        var e = e ||window.event ; 
+        touch_start = e.touches[0].clientX ; 
+    },false);
 
-        round_switch_in.addEventListener('touchmove',function(e){
-            var e = e || window.event ; 
-            touch_move = e.touches[0].clientX ; 
-            //touch_move小于touch_start,说明向左滑
-            if(touch_move < touch_start){
-                if((touch_start - touch_move) <=action_distance){
-                    this.style.marginLeft = action_distance - (touch_start - touch_move) + "px";
-                };
+    round_switch_in.addEventListener('touchmove',function(e){
+        var e = e || window.event ; 
+        touch_move = e.touches[0].clientX ; 
+        //touch_move小于touch_start,说明向左滑
+        if(touch_move < touch_start){
+            if((touch_start - touch_move) <=action_distance){
+                this.style.marginLeft = action_distance - (touch_start - touch_move) + "px";
             };
-            //touch_move大于touch_start,说明向右滑
-            if(touch_move > touch_start){
-                if((touch_move - touch_start) <= action_distance){
-                    this.style.marginLeft = (touch_move - touch_start) + "px";
-                };
+        };
+        //touch_move大于touch_start,说明向右滑
+        if(touch_move > touch_start){
+            if((touch_move - touch_start) <= action_distance){
+                this.style.marginLeft = (touch_move - touch_start) + "px";
             };
+        };
 
-            
-        },false);
+        
+    },false);
 
-        round_switch_in.addEventListener('touchend',function(e){
-            var e = e ||window.event ; 
-            touch_end = e.changedTouches[0].clientX ; 
-            if(touch_end > (touch_start + action_distance/2)){
-                this.style.marginLeft = action_distance + "px";
-                round_switch.style.background = "#666";  //滑块开关开启时，小开关容器背景色
-            }else{
-                this.style.marginLeft = 0;
-                round_switch.style.background = "#e1e1e1"; //滑块开关关闭，小开关容器背景色恢复到原设置
-            };
-        },false);
+    round_switch_in.addEventListener('touchend',function(e){
+        var e = e ||window.event ; 
+        touch_end = e.changedTouches[0].clientX ; 
+        if(touch_end > (touch_start + action_distance/2)){
+            this.style.marginLeft = action_distance + "px";
+            round_switch.style.background = "#666";  //滑块开关开启时，小开关容器背景色
+        }else{
+            this.style.marginLeft = 0;
+            round_switch.style.background = "#e1e1e1"; //滑块开关关闭，小开关容器背景色恢复到原设置
+        };
+    },false);
 
-    })(window,document);
+})(window,document);
     </code>
 </pre>
 
