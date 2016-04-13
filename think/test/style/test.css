@@ -15,6 +15,7 @@ body {
   position: fixed;
   bottom: 10%;
   text-align: center;
+  overflow: hidden;
 }
 .cont .left {
   left: 0;
@@ -28,5 +29,7 @@ body {
   border-radius: 10px;
   color: #999;
   width: 80%;
-  font: normal 500 1.8em/2em "Microsoft YaHei";
+  height: 100%;
+  line-height: 100%;
+  font-size: 4em;
 }

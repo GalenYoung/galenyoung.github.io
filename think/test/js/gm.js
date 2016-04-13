@@ -13,7 +13,11 @@
 	};
 
 	//get Dom
-	
+	wrap = $class("wrap");
 	//logic
+	for(let i = 0 ; i < wrap.length ; i++){
+		wrap[i].style.height = wrap[i].offsetWidth/3 + "px";
+		$tag("a",wrap[i])[0].style.lineHeight = wrap[i].offsetHeight + "px";
+	}
 	
 })(window,document);
