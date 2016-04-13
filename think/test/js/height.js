@@ -1,5 +1,7 @@
 window.onload = function(){
+	alert(000);
 	;(function(window,document,undefined){
+		alert(111);
 		var $tag = function(tagname,parentSelector){
 			parentSelector === undefined ? parentSelector = document : parentSelector;
 			return parentSelector.getElementsByTagName(tagname);
