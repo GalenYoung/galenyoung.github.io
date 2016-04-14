@@ -84,24 +84,22 @@ console.log(JayZhou.age);
                     <li>
                         <p>源代码：</p>
                         <pre>
-<code>
-class singger {
+<code>class singger {
     constructor(name,sex){
         this.name = name ;
         this.sex =sex ;
         this.prop = "PROP";
     }
 
-    pop(n){
-        console.log(this.name + "是非常 " + n + "的！");
+    pop(mark){
+        console.log(this.name + "是非常 " + mark + "的！");
     };
 }
 
 var zhoujielun = new singger("jay-zhou" , "male");
 zhoujielun.pop("popular");      //jay-zhou是非常 popular的！
-console.log(zhoujielun.prop);   //ROP
-console.log(zhoujielun.name);   //jay-zhou
-</code>
+console.log(zhoujielun.prop);   //PROP
+console.log(zhoujielun.name);   //jay-zhou</code>
                         </pre>
                     </li>
                 </ul>
