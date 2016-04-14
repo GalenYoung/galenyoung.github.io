@@ -1,13 +1,13 @@
 ---
 layout: pgm-into
-title: JavaScript 实现继承的三种方式
+title: JavaScript 实现继承的四种方式
 id: pgm-09
 url: programme/09
 css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page09/pgm-page09.css">
 permalink: /programme/09
 ---
 
-		<h1>JavaScript 实现继承的三种方式</h1>
+		<h1>JavaScript 实现继承的四种方式</h1>
         <ol>
             <li>
                 <p>普通继承方法</p>
@@ -74,6 +74,35 @@ console.log(JayZhou.age);
  */
 </code></pre>
 
+                    </li>
+                </ul>
+            </li>
+
+             <li>
+                <p>使用<code>ECMAScript2015</code>标准提供的<code>class</code>新方法实现继承</p>
+                <ul>
+                    <li>
+                        <p>源代码：</p>
+                        <pre>
+<code>
+class singger {
+    constructor(name,sex){
+        this.name = name ;
+        this.sex =sex ;
+        this.prop = "PROP";
+    }
+
+    pop(n){
+        console.log(this.name + "是非常 " + n + "的！");
+    };
+}
+
+var zhoujielun = new singger("jay-zhou" , "male");
+zhoujielun.pop("popular");      //jay-zhou是非常 popular的！
+console.log(zhoujielun.prop);   //ROP
+console.log(zhoujielun.name);   //jay-zhou
+</code>
+                        </pre>
                     </li>
                 </ul>
             </li>
