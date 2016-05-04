@@ -1,0 +1,270 @@
+---
+layout: pgm-into
+title: JavaScript数组的增删改查
+id: pgm-20
+url: programme/20
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page20/pgm-page20.css">
+permalink: /programme/20
+---
+<h1>JavaScript数组的增删改查</h1>
+<h2>增</h2>
+<h3>concat() 方法</h3>
+<ul>
+    <li>concat() 方法用于连接两个或多个数组</li>
+    <li>该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本</li>
+    <li>
+        <p>语法：<code>arrayObject.concat(arrayX,arrayX,......,arrayX)</code></p>
+<pre><code>var arr0 = [];
+    var arr1 = [];
+    for(let i = 0; i &lt; 4 ; i++){
+    arr0[i] = i + 1;
+    arr1[i] = (i+1)*(i+1);
+    };
+    console.log(arr0);  //Array [ 1, 2, 3, 4 ]
+    console.log(arr1);  //Array [ 1, 4, 9, 16 ]
+
+    /* 连接俩个数组 */
+    var arr2 = arr0.concat(arr1); //也可以这种形式 a.concat(4,5)
+    console.log(arr0);  //Array [ 1, 2, 3, 4 ]
+    console.log(arr1);  //Array [ 1, 4, 9, 16 ]
+    console.log(arr2);  //Array [ 1, 2, 3, 4, 1, 4, 9, 16 ]
+
+    /* 连接三个数组 */
+    var arr3 = arr0.concat(arr1,arr2);
+    console.log(arr3);  //Array [ 1, 2, 3, 4, 1, 4, 9, 16,1, 2, 3, 4, 1, 4, 9, 16] //连接顺序 arr0,arr1,arr2
+</code></pre>
+
+    </li>
+</ul>
+<h3>push()方法 和 unshift()方法</h3>
+<ul>
+    <li>
+        <p><code>push()</code>方法</p>
+        <ul>
+            <li>
+                <p>push()方法可向数组的末尾添加一个或多个元素，并返回新的长度</p>
+<pre><code>var arr = [];
+    for(let i = 0; i &lt; 4 ; i++){
+    arr[i] = i + 1;
+    };
+    console.log(arr);   //[1, 2, 3, 4]
+    var arr_push = arr.push(&quot;APPEND&quot;);
+    console.log(arr_push);  // 5
+    console.log(arr);   //[1, 2, 3, 4, &quot;APPEND&quot;]
+</code></pre>
+
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p><code>unshift()</code> 方法</p>
+        <ul>
+            <li>与push方法相对应</li>
+            <li>unshift() 方法不创建新的创建，而是直接修改原有的数组</li>
+            <li>
+                <p>unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度</p>
+<pre><code>var arr = [];
+    for(let i = 0; i &lt; 4 ; i++){
+    arr[i] = i + 1;
+    };
+    console.log(arr);   //Array [ 1, 2, 3, 4 ]
+    var arr_unshift = arr.unshift(&quot;APPEND&quot;);
+    console.log(arr_unshift);   // 5
+    console.log(arr);   //Array [ &quot;APPEND&quot;, 1, 2, 3, 4 ]
+</code></pre>
+
+            </li>
+        </ul>
+    </li>
+</ul>
+<h2>删</h2>
+<h3>shift()方法 和 pop()方法</h3>
+<pre><code>* `shift()`方法
+    * shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+    * 如果数组是空的，那么 shift() 方法将不进行任何操作，返回 `undefined` 值
+    * 该方法不创建新数组，而是直接修改原有的 arrayObject
+    * 该方法会改变数组的长度
+
+    var arr = [];
+    for(let i = 0; i &lt; 4 ; i++){
+    arr[i] = i + 1;
+    };
+    console.log(arr);   //Array [ 1, 2, 3, 4 ]
+    console.log(arr.length);        // 4
+    var arr_shift = arr.shift();
+    console.log(arr_shift);     // 1
+    console.log(arr);       // Array [ 2, 3, 4 ]
+    console.log(arr.length);    // 3
+
+    * `pop()`方法
+    * pop() 方法用于删除并返回数组的最后一个元素
+    * 如果数组已经为空，则 pop() 不改变数组，并返回 `undefined` 值
+    * 该方法不创建新数组，而是直接修改原有的 arrayObject
+    * 该方法会改变数组的长度
+
+    var arr = [];
+    for(let i = 0; i &lt; 4 ; i++){
+    arr[i] = i + 1;
+    };
+    console.log(arr);   //Array [ 1, 2, 3, 4 ]
+    console.log(arr.length);        // 4
+    var arr_pop = arr.pop();
+    console.log(arr_pop);       // 4
+    console.log(arr);       // Array [ 1, 2, 3]
+    console.log(arr.length);    // 3
+</code></pre>
+
+<h2>改</h2>
+<h3>join()方法</h3>
+<ul>
+    <li>
+        join() 方法<code>arrayObject.join(separator)</code>用于把数组中的所有元素放入一个字符串（就是把数组转化为字符串，<code>separator</code>就是指定的分隔符）
+        <ul>
+            <li>separator - 可选 指定要使用的分隔符。如果省略该参数，则使用逗号作为分隔符</li>
+        </ul>
+    </li>
+</ul>
+<h3>toString()方法</h3>
+<ul>
+    <li>toString() 方法可把数组转换为字符串，并返回结果</li>
+    <li>语法　－<code>arrayObject.toString()</code></li>
+    <li>数组中的元素之间用逗号分隔</li>
+    <li>
+        <p>该方法并不会改变原数组，而是返回一个新数组</p>
+<pre><code>var arr = [1,0,6,4,5,9,2,&quot;b&quot;,&quot;a&quot;,&quot;c&quot;];
+    var arr0 = arr.toString();
+    console.log(arr);   // Array [ 1, 0, 6, 4, 5, 9, 2, &quot;b&quot;, &quot;a&quot;, &quot;c&quot; ]
+    console.log(arr0);  // 1,0,6,4,5,9,2,b,a,c
+</code></pre>
+
+    </li>
+</ul>
+<h3>toLocaleString() 方法</h3>
+<ul>
+    <li>
+        把数组转换为本地字符串
+        <ul>
+            <li>toLocaleString 方法返回一个 String 对象，这个对象中包含了用当前区域设置的默认格式表示的日期</li>
+        </ul>
+    </li>
+    <li>
+        语法 - <code>dateObj.toLocaleString()</code>
+        <ul>
+            <li>必选项 dateObj 为任意的 Date 对象</li>
+        </ul>
+    </li>
+    <li>
+        NOTICE：
+        <ul>
+            <li>toLocaleString 只用来显示结果给用户；不要在脚本中用来做基本计算，因为返回的结果是随机器不同而不同的</li>
+        </ul>
+    </li>
+    <li>
+        <p>eq：</p>
+<pre><code>var d, s, t;                      // 声明变量。
+    d = new Date();                // 创建 Date 对象。
+    s = &quot;当前的时间是 &quot;;
+    t = s;
+    t += d.toLocaleString();       // 转换为当前区域。
+    console.log(t);     //当前的时间是 2016/5/4 上午10:54:09
+    s += d.toString();
+    console.log(s);     //当前的时间是 Wed May 04 2016 10:54:27 GMT+0800
+</code></pre>
+
+    </li>
+</ul>
+<h3>reverse() 方法</h3>
+<ul>
+    <li>reverse() 方法用于颠倒数组中元素的顺序</li>
+    <li>
+        <p>该方法会改变原来的数组，而不会创建新的数组</p>
+<pre><code>var arr = [];
+
+    for(let i = 0; i &lt; 4 ; i++){
+    arr[i] = i + 1;
+    };
+
+    console.log(arr);   //Array [ 1, 2, 3, 4 ]
+    arr.reverse();
+    console.log(arr);   //Array [ 4, 3, 2, 1 ]
+</code></pre>
+
+    </li>
+</ul>
+<h3>sort()方法</h3>
+<ul>
+    <li>sort() 方法用于对数组的元素进行排序</li>
+    <li>
+        语法 <code>arrayObject.sort(sortby)</code>
+        <ul>
+            <li>参数<code>sortby</code> - 可选，规定排序顺序（必须是函数）</li>
+            <li>如果调用该方法时没有使用参数，将按字母顺序对数组中的元素进行排序</li>
+            <li>
+                如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：
+                <ul>
+                    <li>若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。</li>
+                    <li>若 a 等于 b，则返回 0。</li>
+                    <li>若 a 大于 b，则返回一个大于 0 的值</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>数组在原数组上进行排序，不生成副本</p>
+<pre><code>var arr = [1,0,6,4,5,9,2,&quot;b&quot;,&quot;a&quot;,&quot;c&quot;];
+
+    function sortNumber0(a,b){
+    return a-b
+    };
+    console.log(arr.sort(sortNumber0)); //Array [ &quot;c&quot;, &quot;a&quot;, &quot;b&quot;, 0, 1, 2, 4, 5, 6, 9 ]
+    function sortNumber1(a,b){
+    return b-a
+    };
+    console.log(arr.sort(sortNumber1)); //Array [ 9, 6, 5, 4, 2, 1, 0, &quot;b&quot;, &quot;a&quot;, &quot;c&quot; ]
+</code></pre>
+
+    </li>
+</ul>
+<h3><a href="javascript:void(0);"><strong><em>splice()方法</em></strong></a></h3>
+<ul>
+    <li>splice() 方法用于插入、删除或替换数组的元素</li>
+    <li>该方法会改变原始数组</li>
+    <li>
+        语法 <code>arrayObject.splice(index,howmany,item1,.....,itemX)</code>
+        <ul>
+            <li><code>index</code> - 必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。</li>
+            <li><code>howmany</code> - 必需。要删除的项目数量。如果设置为 0，则不会删除项目</li>
+            <li><code>item1, ..., itemX</code> - 可选。向数组添加的新项目</li>
+        </ul>
+    </li>
+</ul>
+<h2>查</h2>
+<h3>slice()方法</h3>
+<ul>
+    <li>slice() 方法可从已有的数组中返回选定的元素</li>
+    <li>
+        <p>语法 <code>arrayObject.slice(start,end)</code></p>
+        <ul>
+            <li><code>start</code> - 必需。规定从何处开始选取，不可以为负数</li>
+            <li><code>end</code> - 可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素</li>
+            <li>返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素</li>
+            <li>
+                <p>该方法并不会修改数组，而是返回一个子数组</p>
+<pre><code>var arr0 = [];
+    for(let i = 0; i &lt; 10 ; i++){
+    arr0[i] = i + 1;
+    };
+    console.log(arr0);  //Array [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+    var arr1 = arr0.slice(1,3);
+    console.log(arr0);  //Array [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+    console.log(arr1);  //Array [ 2, 3 ]
+    var arr2 = arr0.slice(0,2);
+    console.log(arr2);  //Array [ 1, 2 ]
+    var arr3 = arr0.slice(-1,-2);
+    console.log(arr3);  //Array [  ];   length:0
+</code></pre>
+
+            </li>
+        </ul>
+    </li>
+</ul>
