@@ -1,0 +1,270 @@
+---
+layout: pgm-into
+title: SCSS 知识点整理
+id: pgm-21
+url: programme/21
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page21/pgm-page21.css">
+permalink: /programme/21
+---
+
+    <h1>SCSS 知识点整理</h1>
+    <h2>编译</h2>
+    <h3>Koala 编译</h3>
+    <h3>Gulp 自动化编译</h3>
+    <ul>
+        <li>
+            <strong>NOTICE:</strong>
+            <ul>
+                <li>SCSS不支持GBK编码，注意使用 <strong>UTF-8</strong></li>
+                <li>目录避免出现中文</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>输出方式</h2>
+    <ul>
+        <li>压缩输出方式 compressed</li>
+        <li>展开输出方式 expanded</li>
+    </ul>
+    <h2>注释（和less相同）</h2>
+    <ul>
+        <li><code>/* 此种注释会在编译出的css中显示出来 */</code></li>
+        <li><code>//不会在css中显示</code></li>
+    </ul>
+    <h2>变量</h2>
+    <ul>
+        <li>
+            scss声明变量使用 <code>$</code>
+            <ul>
+                <li>eq： <code>$width: 100px;</code></li>
+            </ul>
+        </li>
+        <li>
+            <p>普通变量 VS 默认变量</p>
+            <ul>
+                <li>
+                    普通变量
+                    <ul>
+                        <li>定义之后可以在全局范围内引用</li>
+                    </ul>
+                </li>
+                <li>
+                    默认变量
+                    <ul>
+                        <li>
+                            sass 的默认变量仅需要在值后面加上 !default 即可
+                            <ul>
+                                <li>eq： <code>$fontSiz:18px !default;</code></li>
+                                <li>scss 的默认变量一般是用来设置默认值，然后根据需求来覆盖的</li>
+                                <li>!default是一个默认值，就相当于在一个变量里，先设置一个数值，如果有其他的值则优先替换为实际的，没有其他的则显示这个默认的 </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p>全局变量 VS 局部变量</p>
+            <ul>
+                <li>局部变量只会在局部范围内覆盖全局变量</li>
+                <li><code>&amp;</code>和less的使用方法一样</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>嵌套</h2>
+    <ul>
+        <li>
+            <p>属性嵌套</p>
+            <ul>
+                <li>
+                    <p>eq</p>
+    <pre><code>// SCSS
+        *{
+        border:{
+        top:    1px solid #e1e1e1;
+        bottom: 2px dashed #ccc;
+        left:   3px dotted #999;
+        right:  4px dotted #666;
+        }
+        }
+        //编译后
+        * {
+        border-top: 1px solid #e1e1e1;
+        border-bottom: 2px dashed #ccc;
+        border-left: 3px dotted #999;
+        border-right: 4px dotted #666;
+        }
+    </code></pre>
+
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <h2>混合宏</h2>
+    <ul>
+        <li>
+            <p>声明混合宏</p>
+            <ul>
+                <li>
+                    <p>不带参数的混合宏</p>
+    <pre><code>@mixin border-radius{
+        border-radius:6px;
+        -webkit-border-radius:6px;
+        -moz-border-radius:6px;
+        }
+    </code></pre>
+
+                </li>
+                <li>
+                    <p>　带参数的混合宏</p>
+    <pre><code>@mixin border-radius($radius:6px){
+        border-radius:6px;
+        -webkit-border-radius:6px;
+        -moz-border-radius:6px;
+        }
+    </code></pre>
+
+                </li>
+                <li>
+                    <p>复杂的混合宏</p>
+    <pre><code>@mixin box-shadow($shadows...){
+        @if length($shadows) &gt;= 1 {
+        -webkit-box-shadow: $shadows;
+        box-shadow: $shadows;
+        } @else {
+        $shadows: 0 0 2px rgba(#000,.25);
+        -webkit-box-shadow: $shadow;
+        box-shadow: $shadow;
+        }
+        }
+        //调用
+        .box {
+        @include box-shadow(0 0 1px rgba(#000,.5),0 0 2px rgba(#000,.2));
+        }
+        //编译后的css样式
+        .box {
+        -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+        }
+    </code></pre>
+
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p>调用混合宏</p>
+            <ul>
+                <li>
+                    <p><code>@include +　混合宏名字</code></p>
+    <pre><code>button{
+        @include border-radius ;
+        }
+    </code></pre>
+
+                </li>
+                <li>
+                    <p>混合宏（含不带值的参数）</p>
+    <pre><code>//定义
+        @mixin border-radius($radius){
+        -webkit-border-radius: $radius;
+        border-radius: $radius;
+        }
+        //调用
+        .box {
+        @include border-radius(6px);
+        }
+    </code></pre>
+
+                </li>
+                <li>
+                    <p>混合宏（含带值得参数）</p>
+    <pre><code>//定义
+        @mixin border-radius($radius:3px){
+        -webkit-border-radius: $radius;
+        border-radius: $radius;
+        }
+        //调用
+        .btn {
+        @include border-radius;
+        }
+        //也可以覆盖默认值
+
+        .btn{
+        @include border-radius(50%);
+        }
+    </code></pre>
+
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <h2>继承 - <code>@extend</code></h2>
+    <ul>
+        <li>
+            <p>在 Sass 中的继承，可以继承类样式块中所有样式代码，而且编译出来的 CSS 会将选择器合并在一起，形成组合选择器</p>
+    <pre><code>//SCSS
+        .btn {
+        border: 1px solid #ccc;
+        padding: 6px 10px;
+        font-size: 14px;
+        }
+
+        .btn-primary {
+        background-color: #f36;
+        color: #fff;
+        @extend .btn;
+        }
+
+        .btn-second {
+        background-color: orange;
+        color: #fff;
+        @extend .btn;
+        }
+
+        编译出来之后：
+        //CSS
+        .btn, .btn-primary, .btn-second {
+        border: 1px solid #ccc;
+        padding: 6px 10px;
+        font-size: 14px;
+        }
+
+        .btn-primary {
+        background-color: #f36;
+        color: #fff;
+        }
+
+        .btn-second {
+        background-clor: orange;
+        color: #fff;
+        }
+    </code></pre>
+
+        </li>
+    </ul>
+    <h2>占位符 %placeholder</h2>
+    <ul>
+        <li>
+            <p>%placeholder 声明的代码，如果不被 @extend 调用的话，不会产生任何代码</p>
+    <pre><code>%border-radius{
+        border-radius:6px;
+        -webkit-radius:6px;
+        }
+        //使用继承调用
+        div{
+        @extend %border-radius;
+        }
+    </code></pre>
+
+        </li>
+        <li>
+            <p>继承和混合宏的区别</p>
+            <ul>
+                <li>继承在编译后可以减少沉余代码</li>
+                <li>混合宏的优点是可以带参数</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>混合宏 VS 继承 VS 占位符</h2>
+    <p style="text-align:center;">
+        <img src="imgs/scss-mixin-extend-placeholder.jpg">
+    </p>
