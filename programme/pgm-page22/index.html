@@ -1,0 +1,290 @@
+---
+layout: pgm-into
+title: 关于form的知识点整理
+id: pgm-22
+url: programme/22
+css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page22/pgm-page22.css">
+permalink: /programme/22
+---
+	<h1>关于form知识点整理</h1>
+	<h2>form 标签</h2>
+	<p><code>&lt;form action=&quot;URL&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot; autocomplete=&quot;on&quot; name=&quot;form_name&quot; novalidate&gt;</code></p>
+	<ol>
+	    <li>action - 规定当提交表单时向何处发送表单数据</li>
+	    <li>method - 规定用于发送 form-data 的 HTTP 方法</li>
+	    <li>accept-charset - 规定服务器可处理的表单数据字符集</li>
+	    <li>
+	        autocomplete - HTML5属性
+	        <ul>
+	            <li>兼容所有主流浏览器</li>
+	            <li>firefox和chrome会忽略autocomplete=&quot;off&quot;属性，最好当要自动填充的时候在使用autocomplete属性</li>
+	        </ul>
+	    </li>
+	    <li>name - 规定表单的名称</li>
+	    <li>
+	        novalidate
+	        <ul>
+	            <li>novalidate 属性是一个布尔属性 	</li>
+	            <li>novalidate 属性规定当提交表单时不对表单数据（输入）进行验证</li>
+	            <li>兼容性：IE10+，不支持Safari，其它浏览器支持</li>
+	        </ul>
+	    </li>
+	</ol>
+	<h2>label 标签</h2>
+	<p><code>&lt;label for=&quot;text_ID&quot; form = &quot;form_name&quot;&gt; &amp;lt;label&amp;gt;标签为 input 元素定义标注（标记）&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; value=&quot;&quot; id=&quot;text_ID&quot;&gt;</code></p>
+	<p><label for="text_ID" form = "form_name"> &lt;label&gt;标签为 input 元素定义标注（标记）</label><input type="text" name="" value="" id="text_ID"></p>
+	<ul>
+	    <li>
+	        <label> 标签为 input 元素定义标注（标记）
+	            <ul>
+	                <li>label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上 </li>
+	            </ul>
+	    </li>
+	    <li>所有主流浏览器都支持 <label> 标签</li>
+	    <li>
+	        <label> 标签含有俩个属性
+	            <ul>
+	                <li>
+	                    for属性
+	                    <ul>
+	                        <li><label> 标签的 for 属性应当与相关元素的 id 属性相同</li>
+	                    </ul>
+	                </li>
+	                <li>
+	                    form属性
+	                    <ul>
+	                        <li>form 属性规定 label 所属的一个或多个表单 	</li>
+	                        <li>form 属性的值为form-name的值</li>
+	                        <li>此属性其它form标签通用</li>
+	                    </ul>
+	                </li>
+	            </ul>
+	    </li>
+	</ul>
+	<h2>文本域</h2>
+	<ul>
+	    <li>
+	        单行文本域 input 和多行文本域 textarea 通用属性
+	        <ul>
+	            <li>
+	                placeholder
+	                <ul>
+	                    <li>HTML5新属性</li>
+	                    <li>支持IE11及其它高级浏览器</li>
+	                    <li>当value属性和placeholder都设置时，显示value的值</li>
+	                </ul>
+	            </li>
+	            <li>
+	                readonly
+	                <ul>
+	                    <li>
+	                        readonly 属性规定文本区域为只读
+	                        <ul>
+	                            <li>在只读的文本区域中，无法对内容进行修改，但用户可以通过 tab 键切换到该控件，选取或复制其中的内容 	</li>
+	                        </ul>
+	                    </li>
+	                    <li>所有主流浏览器都支持 readonly 属性</li>
+	                    <li>readonly 属性是一个布尔属性</li>
+	                </ul>
+	            </li>
+	            <li>
+	                maxlength
+	                <ul>
+	                    <li>maxlength 属性规定文本区域的最大长度（以字符计）</li>
+	                </ul>
+	            </li>
+	            <li>
+	                required
+	                <ul>
+	                    <li>required 属性规定一个文本区域是必需的/必须填写（以提交表单）</li>
+	                    <li>支持IE10及其它高级浏览器(safari可能不显示警告框)</li>
+	                    <li>required 属性是一个布尔属性</li>
+	                </ul>
+	            </li>
+	        </ul>
+	    </li>
+	</ul>
+	<h3>单行文本域</h3>
+	<p><code>&lt;input type=&quot;text&quot; name=&quot;&quot; value=&quot;&quot; placeholder=&quot;&quot; &gt;</code></p>
+	<p><input type="text" name="" value="" placeholder="" ></p>
+	<ul>
+	    <li>value - 初始文本域中的值</li>
+	</ul>
+	<h3>多行文本域</h3>
+	<p><code>&lt;textarea rows=&quot;10&quot; cols=&quot;30&quot; autofocus disabled readonly maxlength=&quot;100&quot; required wrap=&quot;hard&quot; name=&quot;&quot;&gt;&lt;/textarea&gt;</code></p>
+	<p><textarea rows="10" cols="30" autofocus disabled readonly maxlength="100" required wrap="hard" name=""></textarea></p>
+	<ul>
+	    <li>多行文本域</li>
+	    <li>支持所有浏览器</li>
+	    <li>
+	        rows 和 cols 属性
+	        <ul>
+	            <li>可以通过 cols 和 rows 属性来规定 textarea 的尺寸大小，不过更好的办法是使用 CSS 的 height 和 width 属性</li>
+	        </ul>
+	    </li>
+	    <li>
+	        autofocus属性
+	        <ul>
+	            <li>autofocus 属性规定文本区域应该在页面加载时自动获得焦点</li>
+	            <li>autofocus 属性是一个布尔属性</li>
+	            <li>IE10+及其它高级浏览器支持	 </li>
+	            <li>此属性其它form标签通用</li>
+	        </ul>
+	    </li>
+	    <li>
+	        disabled
+	        <ul>
+	            <li>
+	                disabled 属性规定文本区域应该被禁用
+	                <ul>
+	                    <li>被禁用的文本区域既不可用，文本也不可选择（不能被复制） </li>
+	                </ul>
+	            </li>
+	            <li>disabled 属性是一个布尔属性</li>
+	            <li>支持所有主流浏览器
+	            </li>
+	            <li>此属性其它form标签通用</li>
+	        </ul>
+	    </li>
+	    <li>
+	        wrap
+	        <ul>
+	            <li>wrap 属性规定在表单提交时文本区域中的文本是如何换行的 </li>
+	            <li>HTML5针对textarea标签的新属性	</li>
+	            <li>所有浏览器都支持该属性 </li>
+	            <li>
+	                属性值
+	                <ul>
+	                    <li>soft - 在表单提交时，textarea 中的文本不换行（默认）</li>
+	                    <li>
+	                        hard - 在表单提交时，textarea 中的文本换行（包含换行符）
+	                        <ul>
+	                            <li>当使用 &quot;hard&quot; 时，必须指定 cols 属性	</li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+	        </ul>
+	    </li>
+	    <li>
+	        固定文本域大小
+	        <ul>
+	            <li>
+	                需要在<code>css样式中设置</code>
+	                <ul>
+	                    <li>
+	                        <code>resize</code> 属性
+	                        <ul>
+	                            <li>只有IE和其edge不支持该属性</li>
+	                            <li>
+	                                <code>resize: none|both|horizontal|vertical;</code>
+	                                <ul>
+	                                    <li><code>none</code> - 用户无法调整元素的尺寸</li>
+	                                    <li><code>both</code> - 用户可调整元素的高度和宽度</li>
+	                                    <li><code>horizontal</code> - 用户可调整元素的宽度</li>
+	                                    <li><code>vertical</code> - 用户可调整元素的高度</li>
+	                                </ul>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+	        </ul>
+	    </li>
+	</ul>
+	<h2>input的不同type值</h2>
+	<h3>密码域</h3>
+	<p><code>&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;</code></p>
+	<p><input type="password" name="password"></p>
+	<h3>复选框</h3>
+	<pre><code>&lt;p&gt;猫&lt;input type=&quot;checkbox&quot; name=&quot;cat&quot;&gt;&lt;/p&gt;
+	    &lt;p&gt;狗&lt;input type=&quot;checkbox&quot; name=&quot;dog&quot;&gt;&lt;/p&gt;
+	</code></pre>
+
+	<p>猫<input type="checkbox" name="cat"></p>
+	<p>狗<input type="checkbox" name="dog"></p>
+	<h3>单选框</h3>
+	<pre><code>&lt;p&gt;男&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot;&gt;&lt;/p&gt;
+	    &lt;p&gt;女&lt;input type=&quot;radio&quot; name=&quot;sex&quot; checked value=&quot;female&quot;&gt;&lt;/p&gt;
+	</code></pre>
+
+	<p>男<input type="radio" name="sex" value="male"></p>
+	<p>女<input type="radio" name="sex" checked value="female"></p>
+	<ul>
+	    <li><code>checked</code> 预先指定选中</li>
+	</ul>
+	<h3>下拉列表</h3>
+	<pre><code>&lt;select name=&quot;cars&quot;&gt;
+	    &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
+	    &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
+	    &lt;option value=&quot;fiat&quot; selected&gt;Fiat&lt;/option&gt;
+	    &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
+	    &lt;/select&gt;
+	</code></pre>
+
+	<p><select name="cars">
+	    <option value="volvo">Volvo</option>
+	    <option value="saab">Saab</option>
+	    <option value="fiat" selected>Fiat</option>
+	    <option value="audi">Audi</option>
+	</select></p>
+	<ul>
+	    <li>selected 预选值指预先指定的首选项</li>
+	</ul>
+	<h3>电子邮件</h3>
+	<p><code>&lt;p&gt;电子邮件：&lt;input type=&quot;text&quot; name=&quot;mail&quot; value=&quot;&quot; size=&quot;20&quot; placeholder=&quot;请填写您的邮箱地址&quot;&gt;&lt;/p&gt;</code></p>
+	<p>电子邮件：<input type="text" name="mail" value="" size="20" placeholder="请填写您的邮箱地址"></p>
+	<h3>上传文件</h3>
+	<p><code>&lt;input type=&quot;file&quot; name=&quot;pic&quot; accept=&quot;image/gif, image/jpeg&quot;&gt;</code></p>
+	<p><input type="file" name="pic" accept="image/gif, image/jpeg"></p>
+	<!-- 限制图片类型为gif和jepg，如果不限制图像的格式，可以写为：accept="image/*" -->
+	<ul>
+	    <li>
+	        <code>accept</code>
+	        <ul>
+	            <li><code>accept</code> 属性只能与 <code>&lt;input type=&quot;file&quot;&gt;</code> 配合使用。它规定能够通过文件上传进行提交的文件类型</li>
+	            <li>请避免使用该属性。应该在服务器端验证文件上传 	</li>
+	            <li>用<code>逗号</code>隔开的 MIME 类型列表</li>
+	        </ul>
+	    </li>
+	</ul>
+	<h2>按钮</h2>
+	<ul>
+	    <li>
+	        普通按钮
+	        <ul>
+	            <li><code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot;&gt;</code> 等价 <code>&lt;button&gt;按钮&lt;/button&gt;</code>
+	                <button>按钮</button></li>
+	        </ul>
+	    </li>
+	    <li>
+	        提交按钮
+	        <ul>
+	            <li><code>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</code>
+	                <input type="submit" value="提交"></li>
+	        </ul>
+	    </li>
+	    <li>
+	        重置按钮
+	        <ul>
+	            <li><code>&lt;input type=&quot;reset&quot; value=&quot;重置&quot;&gt;</code>
+	                <input type="reset" value="重置"></li>
+	        </ul>
+	    </li>
+	</ul>
+	<h2>fieldset-legend 分组</h2>
+	<pre><code> &lt;fieldset&gt;
+	    &lt;legend&gt;标题或说明标题&lt;/legend&gt;
+	    &lt;input type=&quot;button&quot; name=&quot;&quot; value=&quot;&quot;&gt;
+	</code></pre>
+
+	<h2>	 </fieldset></h2>
+	<fieldset>
+	    <legend>标题或说明标题</legend>
+	    <input type="button" name="" value="演示标签占位">
+	</fieldset>
+	<ul>
+	    <li><code>&lt;fieldset&gt;</code> 标签可以将表单内的相关元素分组</li>
+	    <li><code>&lt;legend&gt;</code> 标签为 <code>&lt;fieldset&gt;</code> 元素定义标题</li>
+	    <li>兼容所有浏览器</li>
+	</ul>
