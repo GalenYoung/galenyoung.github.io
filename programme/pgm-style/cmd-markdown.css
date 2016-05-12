@@ -9921,7 +9921,7 @@ button:focus {
 
 /* self-style ：start*/
 #wmd-preview{
-  	max-width:960px;
+  	max-width:1000px;
   	margin:0 auto;
   	border:none;
 }
