@@ -9925,4 +9925,14 @@ button:focus {
   	margin:0 auto;
   	border:none;
 }
+/* 评论功能样式 */
+/* 去掉多说评论的广告 */
+.ds-powered-by,.ds-dialog-footer{
+    display: none;
+}
+.ds-thread{
+    width: 100%;
+    max-width: 1000px;
+    margin:0 auto;
+}
 /* self-style ：end */
