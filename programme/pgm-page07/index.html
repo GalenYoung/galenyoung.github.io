@@ -886,5 +886,53 @@ monospace   Courier
                     <li>主要用到的使用场景就是文本中的图像和textarea</li>
                 </ul>
             </li>
+            <li>
+                <p>伪类：last-of-type 和 last-child之间的区别？</p>
+                <ul>
+                    <li>
+                        <p>CSS3 :<code>last-of-type</code> 选择器</p>
+                        <ul>
+                            <li>兼容性 - 所有主流浏览器均支持 <code>:last-of-type</code> 选择器，除了 IE8 及更早的版本</li>
+                            <li>
+                                定义和用法 - <code>:last-of-type</code> 选择器匹配属于其父元素的特定类型的最后一个子元素的每个元素
+                                <ul>
+                                    <li>提示：等同于 :<code>nth-last-of-type(1)</code></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>例子 </p>
+<pre><code>//指定父元素的最后一个 p 元素的背景色
+    p:last-of-type{
+    background:#ff0000;
+    }
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>CSS3 <code>:last-child</code>选择器</p>
+                        <ul>
+                            <li>兼容性 - 所有主流浏览器均支持 <code>:last-child</code> 选择器，除了 IE8 及更早的版本</li>
+                            <li>
+                                定义和用法 - <code>:last-child</code>选择器匹配属于其父元素的最后一个子元素的每个元素
+                                <ul>
+                                    <li>提示：<code>p:last-child</code> 等同于 <code>p:nth-last-child(1)</code></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>例子 </p>
+<pre><code>//指定属于其父元素的最后一个子元素的背景色
+    //Notice：只有在 p是父元素最后一个子元素的情况下才会起作用
+    p:last-child{
+    background:#ff0000;
+    }
+</code></pre>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         </ul>
     
