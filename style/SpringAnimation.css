@@ -1,3 +1,9 @@
+@font-face{
+	font-family: webfont;
+	src:url(../font/fontawesome-webfont.ttf),
+	src:url(../font/fontawesome-webfont.woff);
+}
+
 springAnimation{
   text-align: center;
   display: block;
@@ -12,11 +18,9 @@ springAnimation{
   
   animation: 5s wobble linear 1;
   -webkit-animation: 5s wobble linear 1;
-
-  font-family: Lobster, sans-serif;
   font-size: 10vw;
   font-weight: 700;
-  font-family: STXingkai,"Agency FB",KaiTi;
+  font-family: webfont,STXingkai,"Agency FB",KaiTi;
   color:#E91E63;
 }
 
