@@ -10,7 +10,7 @@ permalink: /programme/10
 		<h1>Javascript Tab普通切换插件(一)</h1>
         <ul>
             <li>
-                <p><strong>HTML结构</strong></p>
+                <p><strong>HTML结构（建议结构）</strong></p>
 <pre><code>&lt;div class=&quot;sal-commonTab&quot;&gt;
     &lt;ul class=&quot;sal-choiceUL&quot;&gt;
         &lt;li class=&quot;sal-choiceLI sal-choiceLI-hover&quot;&gt; a &lt;/li&gt;
@@ -28,43 +28,81 @@ permalink: /programme/10
             </li>
             <li>
                 <p><strong>JavaScript</strong></p>
-<pre><code>(function(window,document,undefined){
-    &quot;use strict&quot;;
-    var sal_choiceUL = document.getElementsByClassName(&quot;sal-choiceUL&quot;)[0];
-    var sal_choiceLI = document.getElementsByClassName(&quot;sal-choiceLI&quot;);
-    var sal_showUL = document.getElementsByClassName(&quot;sal-showUL&quot;)[0];
-    var sal_showLI = document.getElementsByClassName(&quot;sal-showLI&quot;);
-    if (sal_showLI.length === sal_choiceLI.length) {
-        for (var i = 0; i &lt; sal_choiceLI.length; i++) {
-            sal_choiceLI[i].index = i;
-            if (i === 0) {
-                sal_choiceLI[0].onmouseover = function(){
-                    for (var j = 0 ; j &lt; sal_choiceLI.length ; j++){
-                        sal_choiceLI[j].className = &quot;sal-choiceLI&quot;;
-                        sal_showLI[j].style.display = &quot;none&quot;;
+<pre>
+<code>var COMMON_TAB = function(c_ele,s_ele){
+    this.c = document.querySelectorAll(c_ele);  //选择集
+    this.s = document.querySelectorAll(s_ele);  //显示集
+}
+
+COMMON_TAB.prototype = {
+    /**
+     * [mouseover 方法]
+     * @param  {obj} h [选中样式css类]
+     */
+    mouseover : function(h){
+        var c = this.c ;   
+        var s = this.s ;
+        var var_class = c[1].getAttribute('class'); // 为选中样式类的集合
+        /**
+         * 将选中样式类 '.sal-choiceLI-hover'转化成 'sal-choiceLI-hover'
+         */
+        var h_arry = h.split('');
+        h_arry.shift();
+        var H = h_arry.join('');
+        
+        /**
+         * 选中样式类和显示样式类数量相等
+         */
+        if(c.length === s.length){
+            /**
+             * 给选中样式类添加onmouseover方法
+             */
+            for(var a = 0 ; a < c.length ; a++){
+                c[a].index = a ; //统一选中样式类和显示类的索引
+                c[a].onmouseover = function(){
+                    for(var b = 0 ; b < c.length ; b++){
+                        c[b].setAttribute('class',var_class);
+                        s[b].style.display = "none";
                     };
-                    this.className = &quot;sal-choiceLI sal-choiceLI-hover&quot;;  //注意：如果有另加的class样式，一定不要忘记添加到此处
-                    sal_showLI[0].style.display = &quot;block&quot;;
-                };
-            }else{
-                sal_choiceLI[i].onmouseover = function(){
-                    for(var j = 1 ; j &lt; sal_choiceLI.length ; j++){
-                        sal_choiceLI[j].className = &quot;sal-choiceLI&quot;;
-                        sal_showLI[j].style.display = &quot;none&quot;;
-                    };
-                    sal_choiceLI[0].className = &quot;sal-choiceLI&quot;;
-                    sal_showLI[0].style.display = &quot;none&quot;;
-                    this.className = &quot;sal-choiceLI sal-choiceLI-hover&quot;;
-                    sal_showLI[this.index].style.display = &quot;block&quot;;
+                    this.className = var_class + ' ' + H ; 
+                    s[this.index].style.display = 'block';
+                    
                 }
-            }
-        };
-    };
-})(window,document)
+            }   
+        }
+        
+    },
+    /**
+     * click方法
+     */
+    click : function(h){
+        var c = this.c ;
+        var s = this.s ;
+        var var_class = c[1].getAttribute('class'); 
+        var h_arry = h.split('');
+        h_arry.shift();
+        var H = h_arry.join('');
+        if(c.length === s.length){
+            for(var a = 0 ; a < c.length ; a++){
+                c[a].index = a ;
+                c[a].onclick = function(){
+                    for(var b = 0 ; b < c.length ; b++){
+                        c[b].setAttribute('class',var_class);
+                        s[b].style.display = "none";
+                    };
+                    this.className = var_class + ' ' + H ; 
+                    s[this.index].style.display = 'block';
+                    
+                }
+            }   
+        }
+        
+    }
+};
 </code></pre>
 
             </li>
-            <li>
+           <!--  <li>
                 <p>注意：</p>
                 <ul>
                     <li>要注意css的类名使用的是<code>-</code>连接,如：<code>sal-choiceUL</code>；JS的变量使用的是<code>_</code>连接，如：<code>sal_choiceUL</code></li>
@@ -76,5 +114,17 @@ permalink: /programme/10
                         </ul>
                     </li>
                 </ul>
+            </li> -->
+            <li>
+                <p>引用方式</p>
+                <pre>
+                    <code>  //实例化 0
+    var test0 = new COMMON_TAB('.sal-choiceLI','.sal-showLI');
+    test0.mouseover('.sal-choiceLI-hover');
+
+    //实例化1
+    var test1 = new COMMON_TAB('.sal-choiceLI1','.sal-showLI1');
+    test1.click('.sal-choiceLI-hover1');</code>
+                </pre>
             </li>
         </ul>
