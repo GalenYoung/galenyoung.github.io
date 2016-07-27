@@ -1,6 +1,6 @@
 require.config({
 	paths :{
-		'solve_footer_Location' : '../solve_footer_Location'
+		'solve_footer_Location' : '../../solve_footer_Location'
 	},
 });
 
