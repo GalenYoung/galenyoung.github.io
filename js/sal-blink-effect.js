@@ -1,31 +1,33 @@
 define(function(){
+	// salBlinkEffect module
 	var salBlinkEffect = function(){
+		//简化 dom
 		var $class = function(classname){ return document.getElementsByClassName(classname)};
 		var $id = function(id){ return document.getElementById(id)};
 
+		//向页面中追加cartoon的html
 		var SBE_html = [
-			'<div class="sal-blink" id="sal-blink">',
-		        '<span class="sal-blink-wrap sal-blink-wrap-top">',
-		            '<b class="sal-blink-eyes sal-blink-eye-left" id="sal-blink-eye-left"></b>',
-		        '</span>',
-		        '<span class="sal-blink-wrap sal-blink-wrap-bottom">',
-		            '<b class="sal-blink-eyes sal-blink-eye-right" id="sal-blink-eye-right"></b>',
-		        '</span>',
-		        '<span class="sal-blink-close" id="sal-blink-close"></span>',
-		    '</div>'
+	        '<span class="sal-blink-wrap sal-blink-wrap-top">',
+	            '<b class="sal-blink-eyes sal-blink-eye-left" id="sal-blink-eye-left"></b>',
+	        '</span>',
+	        '<span class="sal-blink-wrap sal-blink-wrap-bottom">',
+	            '<b class="sal-blink-eyes sal-blink-eye-right" id="sal-blink-eye-right"></b>',
+	        '</span>',
+	        '<span class="sal-blink-close" id="sal-blink-close"></span>',
 		].join('');
-		//var SBE = document.createElement('div');
-		//SBE.setAttribute('class','sal-blink');
-		//SBE.setAttribute('id','sal-blink');
-		//SBE.innerHTML = SBE_html;
+		var SBE = document.createElement('div');
+		SBE.setAttribute('class','sal-blink');
+		SBE.setAttribute('id','sal-blink');
+		SBE.innerHTML = SBE_html;
 		document.getElementsByTagName('body')[0].appendChild(SBE_html);
 
+		//get cartoon's dom
 		var sal_blink_wrap = $class("sal-blink-wrap");
 		var sal_blink_eyes = $class("sal-blink-eyes");
 		var sal_blink_close = $id("sal-blink-close");
 		var sal_blink = $id("sal-blink");
 
-
+		//cartoon's logic
 		if(document.documentElement.clientWidth >= 1000){
 			sal_blink.style.display = "block";
 			onmousemove = function(e){
