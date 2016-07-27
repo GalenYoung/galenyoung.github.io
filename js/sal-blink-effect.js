@@ -2,6 +2,7 @@ define(function(){
 	var salBlinkEffect = function(){
 		var $class = function(classname){ return document.getElementsByClassName(classname)};
 		var $id = function(id){ return document.getElementById(id)};
+
 		var SBE_html = [
 			'<div class="sal-blink" id="sal-blink">',
 		        '<span class="sal-blink-wrap sal-blink-wrap-top">',
@@ -13,7 +14,11 @@ define(function(){
 		        '<span class="sal-blink-close" id="sal-blink-close"></span>',
 		    '</div>'
 		].join('');
-		document.getElementsByTagName('body').appendChild(SBE_html);
+		var SBE = document.createElement('div');
+		SBE.setAttribute('class','sal-blink');
+		SBE.setAttribute('id','sal-blink');
+		SBE.innerHTML = SBE_html;
+		document.getElementsByTagName('body').appendChild(SBE);
 
 		var sal_blink_wrap = $class("sal-blink-wrap");
 		var sal_blink_eyes = $class("sal-blink-eyes");
