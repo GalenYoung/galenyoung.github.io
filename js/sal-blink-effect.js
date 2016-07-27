@@ -18,7 +18,7 @@ define(function(){
 		SBE.setAttribute('class','sal-blink');
 		SBE.setAttribute('id','sal-blink');
 		SBE.innerHTML = SBE_html;
-		document.getElementsByTagName('body').appendChild(SBE);
+		document.getElementsByTagName('body')[0].appendChild(SBE);
 
 		var sal_blink_wrap = $class("sal-blink-wrap");
 		var sal_blink_eyes = $class("sal-blink-eyes");
