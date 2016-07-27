@@ -14,11 +14,11 @@ define(function(){
 		        '<span class="sal-blink-close" id="sal-blink-close"></span>',
 		    '</div>'
 		].join('');
-		var SBE = document.createElement('div');
-		SBE.setAttribute('class','sal-blink');
-		SBE.setAttribute('id','sal-blink');
-		SBE.innerHTML = SBE_html;
-		document.getElementsByTagName('body')[0].appendChild(SBE);
+		//var SBE = document.createElement('div');
+		//SBE.setAttribute('class','sal-blink');
+		//SBE.setAttribute('id','sal-blink');
+		//SBE.innerHTML = SBE_html;
+		document.getElementsByTagName('body')[0].appendChild(SBE_html);
 
 		var sal_blink_wrap = $class("sal-blink-wrap");
 		var sal_blink_eyes = $class("sal-blink-eyes");
