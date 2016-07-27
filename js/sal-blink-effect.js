@@ -13,8 +13,8 @@ define(function(){
 		        '<span class="sal-blink-close" id="sal-blink-close"></span>',
 		    '</div>'
 		].join('');
-		document.body.appendChild(SBE_html);
-		
+		document.getElementsByTagName('body').appendChild(SBE_html);
+
 		var sal_blink_wrap = $class("sal-blink-wrap");
 		var sal_blink_eyes = $class("sal-blink-eyes");
 		var sal_blink_close = $id("sal-blink-close");
