@@ -5,3 +5,7 @@ require.config({
 	},
 	
 });
+
+require(['sal-blink-effect'],function(SBE){
+	var sbe = new SBE.salBlinkEffect();
+})
