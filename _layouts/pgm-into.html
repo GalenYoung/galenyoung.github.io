@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang='zh-cmn-Hans'>
-
-  {% include head.html %}
-  
-  <body>
-
-    {% include pgm-into-css.html %}
-
-    {% include header.html %}
-
+{% include head.html %}
+<body>
+{% include pgm-into-css.html %}
+{% include header.html %}
     <div class="pgm-markdContent-wrap">
-      {{ content }}
+        {{ content }}
     </div>
-	{% include comment.html %}
-    {% include footer.html %}
-
-  </body>
-
+{% include comment.html %}
+{% include footer.html %}
+    <script src='../js/require.min.js' data-main='../js/pgm/pgm-into/pgm_into-main'></script>
+</body>
 </html>
