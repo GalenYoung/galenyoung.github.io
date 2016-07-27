@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang='zh-cmn-Hans'>
-
-  {% include head.html %}
-
-  <body>
-    {% include soft-css.html %}
-    {% include header.html %}
-
-    <div class="soft-content">
-      {{ content }}
-    </div>
-
-    {% include footer.html %}
-
-  </body>
-
+{% include head.html %}
+<body>
+{% include soft-css.html %}
+{% include header.html %}
+<div class="soft-content">
+{{ content }}
+</div>
+{% include footer.html %}
+	<script src="../js/require.min.js" data-main = '../js/soft/soft-main'></script>
+</body>
 </html>
