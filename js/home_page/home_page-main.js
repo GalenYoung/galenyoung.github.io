@@ -1,7 +1,8 @@
 require.config({
 	paths :{
 		'sal-blink-effect' : '../sal-blink-effect',
-		'SpringAnimation' :'../SpringAnimation'
+		'SpringAnimation' :'../SpringAnimation',
+		'solve_footer_Location' : '../solve_footer_Location',
 	},
 	
 });
@@ -11,4 +12,7 @@ require(['sal-blink-effect'],function(SBE){
 });
 require(['SpringAnimation'],function(SA){
 	var sa = new SA.springAnimation();
+});
+require(['solve_footer_Location'],function(SFL){
+	var sfl = new SFL.solveFooterLocation();
 })
