@@ -19,7 +19,7 @@ define(function(){
 		SBE.setAttribute('class','sal-blink');
 		SBE.setAttribute('id','sal-blink');
 		SBE.innerHTML = SBE_html;
-		document.getElementsByTagName('body')[0].appendChild(SBE_html);
+		document.getElementsByTagName('body')[0].appendChild(SBE);
 
 		//get cartoon's dom
 		var sal_blink_wrap = $class("sal-blink-wrap");
