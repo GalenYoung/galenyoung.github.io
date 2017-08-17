@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang='zh-cmn-Hans'>
-{% include head.html %}
-{% include pgm-css.html %}
+<head>
+	{% include head.html %}
+	{% include pgm-css.html %}
+</head>
 <body>
-{% include header.html %}
-<div class="pgm-content">
-{{ content }}
-</div>
-{% include footer.html %}
+	{% include header.html %}
+
+	<div class="pgm-content">
+		{{ content }}
+	</div>
+	
+	{% include footer.html %}
+	
 	<script src="../js/require.min.js" data-main = '../js/pgm/pgm-main'></script>
 </body>
 </html>
