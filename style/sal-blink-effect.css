@@ -5,7 +5,7 @@
   top: 50%;
   left: 0;
   margin-top: -51px;
-  background: #ffffff url(../images/cartoon.png);
+  background: #fff url(../images/cartoon.png);
   display: none;
   animation: sal-blink-effect 2s;
   animation-fill-mode: forwards;
