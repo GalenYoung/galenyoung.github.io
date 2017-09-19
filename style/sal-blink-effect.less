@@ -24,7 +24,7 @@
 		top: 50%;
 		left: 0;
 		margin-top: -51px;
-		background:#fff url(../images/cartoon.jpg);
+		background:#fff url(../images/cartoon.png);
 		display: none;
 		.ani-blink();
 		@keyframes sal-blink-effect{
@@ -68,11 +68,15 @@
 	}
 	.sal-blink-close{
 		position: absolute;
-		top:37px;
-		left: 30px;
-		height:30px;
-		width: 30px;
+		top: 38px;
+		left: 29px;
+		height: 28px;
+		width: 31px;
 		display: block;
-		border-radius: 20px 16px;
+		border-radius: 20px;
+		&:hover{
+			background-color: #E91E63;
+			cursor: pointer;
+		}
 	}
 }

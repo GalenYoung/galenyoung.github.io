@@ -272,7 +272,7 @@ p {
 /* 响应式样式设计 */
 @media only screen and (min-width: 1440px) {
   .cont-pic {
-    background: #fff url(../images/hp-bigpic.jpg) center top no-repeat;
+    background: #ffffff url(../images/hp-bigpic.jpg) center top no-repeat;
     height: 460px;
     width: 60%;
     margin: 0 auto;
@@ -340,7 +340,7 @@ p {
     display: none;
   }
   .cont-pic {
-    background: #fff url(../images/hp-bigpic-min.jpg) center top no-repeat;
+    background: #ffffff url(../images/hp-bigpic-min.jpg) center top no-repeat;
     height: 420px;
     width: 80%;
     margin: 0 auto;
@@ -408,7 +408,7 @@ p {
     display: none;
   }
   .cont-pic {
-    background: #fff url(../images/hp-bigpic-min.414-764.jpg) center top no-repeat;
+    background: #ffffff url(../images/hp-bigpic-min.414-764.jpg) center top no-repeat;
     height: 300px;
     width: 100%;
     margin: 0 auto;
