@@ -1,12 +1,13 @@
 ---
 layout: pgm-into
-title: 关于数组元素的循环遍历
+title: 关于数组元素和对象的循环遍历
 id: pgm-17
 url: programme/17
 css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page17/pgm-page17.css">
 permalink: /programme/17
 ---
-<h1>关于数组元素的循环遍历</h1>
+<h1>关于数组元素和对象的循环遍历</h1>
+<h2>关于数组元素的循环遍历</h2>
 <ul>
     <li>
         <p>首先我们定义一个用于演示的数组</p>
@@ -23,7 +24,7 @@ permalink: /programme/17
 
     </li>
     <li>
-        <p>JavaScipt数组的<code>forEach</code>遍历</p>
+        <p>JavaScipt数组的<code>forEach</code>遍历(兼容IE9+)</p>
 <pre><code>arr.forEach(function(e){
     // e不是索引，而是每个数组中的值;
     // forEach不能使用break中断循环
@@ -34,7 +35,7 @@ permalink: /programme/17
 
     </li>
     <li>
-        <p>JavaScript数组的<code>for...in</code>循环</p>
+        <p>JavaScript数组的<code>for...in</code>循环(兼容IE)</p>
 <pre><code>for(let index in arr){
     //index是索引值，它是字符串类型
     //for...in 循环会将数组上的属性和方法也遍历出来
@@ -44,7 +45,7 @@ permalink: /programme/17
 
     </li>
     <li>
-        <p><code>map</code>方法</p>
+        <p><code>map</code>方法(兼容IE9+)</p>
 <pre><code>let arr = [];
     for(let i = 0 ; i &lt; 10 ; i++ ){
     arr[i] = i;
@@ -61,7 +62,7 @@ permalink: /programme/17
 
     </li>
     <li>
-        <p><strong>ES6新方法:</strong> JavaScript数组的<code>for...of</code>循环</p>
+        <p><strong>ES6新方法:</strong> JavaScript数组的<code>for...of</code>循环(不兼容IE)</p>
 <pre><code> for(let turn of arr){
     // for...of循环只遍历数组中具体的值。并不会遍历数组的属性和方法
     // turn不是索引值，而是arr数组中的具体值
@@ -70,6 +71,42 @@ permalink: /programme/17
     };
 </code></pre>
 
+    </li>
+</ul>
+<h2>关于对象的循环遍历</h2>
+<ul>
+    <li>
+        <p>定义演示对象</p>
+        <pre><code>
+            let exampleObj = {
+                'key1':1,
+                'Key2':2,
+                "key3":3
+        };
+        </code></pre>
+    </li>
+    <li>
+        <p><code> Object.keys</code>方法(兼容到IE9+)</p>
+        <ul>
+            <li>Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组</li>
+            <li><pre><code>Object.keys(exampleObj) //Array [ "key1", "Key2", "key3" ]</code></pre> </li>
+        </ul>
+
+    </li>
+    <li>
+        <p><code> Object.values</code>方法(不兼容IE)</p>
+        <ul>
+            <li>Object.values()方法返回一个给定对象自己的所有可枚举属性值的数组</li>
+            <li><pre><code>Object.values(exampleObj) //Array [ 1, 2, 3 ]</code></pre> </li>
+        </ul> 
+    </li>
+     <li>
+        <p><code> Object.entries</code>方法(不兼容IE,safari)</p>
+        <ul>
+            <li>Object.entries() 方法返回一个给定对象自己的可枚举属性[key，value]对的数组</li>
+            <li><pre><code>Object.entries(exampleObj) //[[ "key1", 1 ],[ "key2", 2 ],[ "key3", 3 ]]
+            </code></pre> </li>
+        </ul> 
     </li>
 </ul>
 <!-- 参考地址；http://www.csdn.net/article/1970-01-01/2824965 -->
