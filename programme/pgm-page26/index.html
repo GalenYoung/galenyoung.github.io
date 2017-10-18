@@ -7,7 +7,9 @@ css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page25/pgm-pa
 permalink: /programme/26
 ---
 <div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><h1 data-anchor-id="ktiz" id="react复制功能组件实现">[react]复制功能组件实现</h1><hr><p data-anchor-id="65zp"><code>JavaScript</code> <code>React</code> <code>copy</code> <code>component</code>  <br>
-站内信目前有个需求，设计了一种可后台配置带复制功能的消息格式</p><p></p><p data-anchor-id="xh84">当用户点击复制按钮，将会把左边的对应的兑换码或卡密复制到剪切版中</p><ul data-anchor-id="uiq8">
+站内信目前有个需求，设计了一种可后台配置带复制功能的消息格式</p><p>
+	<img src="./show1.jpg" height="326" width="429" alt="样式展示">
+</p><p data-anchor-id="xh84">当用户点击复制按钮，将会把左边的对应的兑换码或卡密复制到剪切版中</p><ul data-anchor-id="uiq8">
 <li><p>思路</p>
 
 <ul><li>由于<code>textObject.select()</code>方法和目前尚未普及的<code>selectionDirection</code>方法(不支持<code>IE</code>)仅支持取<code>type</code>为<code>text</code>, <code>search</code>, <code>URL</code>, <code>tel</code> and <code>password</code>的<code>input</code>元素的值,其它元素无法实现复制功能，这种模式显然不适合需求实现，此插件就是为解决此问题而设计。</li>
