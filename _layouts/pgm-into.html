@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang='zh-cmn-Hans'>
-{% include head.html %}
+    {% include head.html %}
+    {% include pgm-into-css.html %}
 <body>
-{% include pgm-into-css.html %}
 {% include header.html %}
-    <div class="pgm-markdContent-wrap">
+    <div class="pgm-markdContent-wrap  markdown-body">
         {{ content }}
     </div>
 {% include footer.html %}

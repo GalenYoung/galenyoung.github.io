@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build:gulp": "gulp",
-    "build:soft":"node software/softMdToHtml && gulp"
+    "build:soft":"node software/softMdToHtml && gulp",
+    "build:pgm" :"node programme/pgmMdToHtml && gulp"
   },
   "author": {
     "name": "yg",
