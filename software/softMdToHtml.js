@@ -8,15 +8,16 @@ marked.setOptions({
   }
 })
 
-function fixedText(title='Software Document', sign=1) {
+function fixedText(title, sign) {
   return `---
-    layout: soft-into
-    title: ${title}
-    id: soft-${sign}
-    url: software/${sign}
-    css: <link rel="stylesheet" type="text/css" href="../software/soft-page${sign}/soft-page${sign}.css">
-    permalink: /software/${sign}
-    ---`;
+  layout: soft-into
+  title: ${title}
+  id: soft-${sign}
+  url: software/${sign}
+  css: <link rel="stylesheet" type="text/css" href="../software/soft-page${sign}/soft-page${sign}.css">
+  permalink: /software/${sign}
+  ---
+  `;
 }
 
 
@@ -34,8 +35,8 @@ fs.readdir(__dirname, function (err, files) {
             fs.readFile(path.join(__dirname, filename, file), "utf8", function (mdError, data) {
               if (mdError) throw mdError;
 
-              fs.writeFile(path.join(__dirname, filename.trim().slice(-2), `${path.parse(file).name}.html`),
-              fixedText(path.parse(file).name,) + marked(data),
+              fs.writeFile(path.join(__dirname, filename, `${path.parse(file).name}.html`),
+              fixedText(path.parse(file).name,filename.trim().slice(-2)) + marked(data),
                 function (errorIn) {
                   if (errorIn) throw errorIn;
                 })
