@@ -35,7 +35,7 @@ fs.readdir(__dirname, function (err, files) {
             fs.readFile(path.join(__dirname, filename, file), "utf8", function (mdError, data) {
               if (mdError) throw mdError;
 
-              fs.writeFile(path.join(__dirname, filename, `${path.parse(file).name}.html`),
+              fs.writeFile(path.join(__dirname, filename, index.html),
               fixedText(path.parse(file).name,filename.trim().slice(-2)) + marked(data),
                 function (errorIn) {
                   if (errorIn) throw errorIn;
