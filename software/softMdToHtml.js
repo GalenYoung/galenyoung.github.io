@@ -20,8 +20,6 @@ function fixedText(title, sign) {
   `;
 }
 
-
-
 fs.readdir(__dirname, function (err, files) {
   if (err) throw err;
 
@@ -46,6 +44,4 @@ fs.readdir(__dirname, function (err, files) {
       })
     };
   });
-
-
 });
