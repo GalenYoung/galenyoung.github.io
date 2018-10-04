@@ -49,6 +49,3 @@ fs.readdir(__dirname, function (err, files) {
 
 
 });
-
-var markdownString = '```js\n console.log("hello"); \n```';
-var HTMLString = marked(markdownString);
