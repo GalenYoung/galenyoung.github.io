@@ -14,7 +14,7 @@ function fixedText(title, sign) {
   title: ${title}
   id: pgm-${sign}
   url: programme/${sign}
-  css：<link rel="stylesheet" href="../programme/pgm-page${sign}/pgm-page${sign}.css">
+  css: <link rel="stylesheet" href="../programme/pgm-page${sign}/pgm-page${sign}.css">
   permalink: /programme/${sign}
 ---
   `;
