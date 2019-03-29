@@ -1,113 +1,195 @@
 ---
 layout: pgm-into
-title: 基于jQuery的可以钉在网页的pin插件
+title: 爬虫获取图片知识点整理
 id: pgm-28
 url: programme/28
 css: <link rel="stylesheet" type="text/css" href="../programme/pgm-page28/pgm-page28.css">
 permalink: /programme/28
 ---
 
-		<h1>基于jQuery的可以钉在网页的pin插件</h1>
-        <ul>
-            <li>
-                <p>使用示例</p>
-<pre><code>  $(&quot;.goal-element&quot;).sal_pin({
-        minWidth: 1000,
-        containerSelector: &quot;.parent-container&quot;
-    });
-</code></pre>
+<h1 id="node-">node爬虫获取图片知识点整理</h1>
+<h2 id="-npm-">所需第三方npm组件</h2>
+<ul>
+<li><p>cheerio </p>
+<ul>
+<li>像jQuery一样获取dom</li>
+<li>常用方法<ul>
+<li><code>const $ = cheerio.load(body);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>iconv-lite</p>
+<ul>
+<li><p>处理编码使用gbk/gb2312的网页</p>
+</li>
+<li><p>常用方法</p>
+<pre><code class="language-javascript">  <span class="hljs-keyword">var</span> iconv = <span class="hljs-built_in">require</span>(<span class="hljs-string">'iconv-lite'</span>);
 
-            </li>
-            <li>
-                <p>使用说明</p>
-                <ul>
-                    <li>
-                        本插件共提供俩个接口
-                        <ul>
-                            <li><code>minWidth</code>: 在小于设置的<code>minWidth</code>尺寸的屏幕上禁用Pin效果</li>
-                            <li><code>containerSelector</code> : 将目标元素钉在设置的<code>containerSelector</code>父元素中</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>默认的属性为</p>
-<pre><code>minWidth: 0,
-containerSelector:body
-</code></pre>
+  <span class="hljs-keyword">var</span> html = iconv.decode(Buffer.concat(body), <span class="hljs-string">'gb2312'</span>);
+  <span class="hljs-keyword">var</span> $ = cheerio.load(html, { <span class="hljs-attr">decodeEntities</span>: <span class="hljs-literal">false</span> });
 
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <p>源代码</p>
-<pre><code>;(function($,window,document,undefined){
-    &quot;use strict&quot;;
-    if(!$) { return console.warn('页面没有正确引入jQuery'); };  
-    $.fn.sal_pin = function(options){
-        var that = this;
-        options = options || {minWidth: 0,containerSelector: $(document.body)}; 
-        if( $(window).width() &gt;= options.minWidth){
-            //目标元素距顶部的距离
-            var thatOffsetTop = that.offset().top;
-            //获取目标元素距离浏览器左侧的距离
-            var thatOffsetLeft = that.offset().left;
-            //获取目标元素的高度
-            var thatHeight =  parseInt(that.css(&quot;height&quot;));
-            //为了能够在页面向上滚动回去的时候，目标元素的定位能够恢复到以前的设置，我们要获取它之前的定位属性
-            var thatPos = that.css(&quot;position&quot;);
-            var thatTop = that.css(&quot;top&quot;);
-            var thatLeft = that.css(&quot;left&quot;);
-            //如果设置了相对父元素定位的父元素的话，获取其 dom
-            var $container = options.containerSelector ? $(that.closest(options.containerSelector)) : $(document.body);
-            //获得父元素距离浏览器顶部的距离
-            var $containerOffsetTop = $container.offset().top;
-            //获取父元素的高度
-            var $containerHeight = $container.height();
-            $(window).scroll(function(){
-                //页面滚动的距离
-                var winScrollTop = $(window).scrollTop();
-                //获取目标元素的margin-top值
-                var thatMarginTop = parseInt(that.css(&quot;marginTop&quot;));
-                if(winScrollTop &gt;= (thatOffsetTop - thatMarginTop) ){
-                    that.css({
-                        position : 'fixed',
-                        top      : '0',
-                        left     : thatOffsetLeft
-                    });
-                }else{
-                    that.css({
-                        position: thatPos,
-                        top     : thatTop,
-                        left    : thatLeft
-                    });
-                };
-                if(options.containerSelector){
-                    if (winScrollTop &gt;= ($containerOffsetTop + $containerHeight-  thatHeight - thatMarginTop)) {
-                        if( $container.css(&quot;position&quot;) === &quot;static&quot;){
-                             $container.css('position', 'relative');
-                        };
-                        that.css({
-                            position : 'absolute',
-                            top      : ( $containerHeight - 2 * thatHeight),
-                            left     : thatLeft
-                        });
-                    };
-                };
-            });
-        };
-        return this;
+  getImages($(<span class="hljs-string">'.t_msgfont img'</span>), $(<span class="hljs-string">'.t_msg span.bold'</span>).text());</code></pre>
+</li>
+</ul>
+</li>
+<li><p>request</p>
+<ul>
+<li>发起请求</li>
+</ul>
+</li>
+<li><p>fs-extra</p>
+<ul>
+<li><p>强化fs组件</p>
+</li>
+<li><p>fs-extra继承了fs组件的所有方法</p>
+</li>
+<li><p>常用方法</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> fse = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs-extra'</span>);
+
+fse.ensureDir(path.resolve(baseUrls, title), <span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
+  <span class="hljs-keyword">if</span> (err) <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"mkdirErr:"</span>, err);
+  resolve({
+    imgSrcArr: $(<span class="hljs-string">'.pics img'</span>),
+    title
+  });
+})</code></pre>
+</li>
+</ul>
+</li>
+<li><p>bagpipe</p>
+<ul>
+<li><p>控制并发个数</p>
+</li>
+<li><p>常用方法</p>
+<pre><code class="language-javascript">  <span class="hljs-keyword">const</span> Bagpipe = <span class="hljs-built_in">require</span>(<span class="hljs-string">'bagpipe'</span>);
+  <span class="hljs-keyword">const</span> bagpipe = <span class="hljs-keyword">new</span> Bagpipe(<span class="hljs-number">10</span>, { <span class="hljs-attribute">timeout</span>: <span class="hljs-number">5000</span> });
+
+  bagpipe.push(getDetailImg, item.attribs.src, obj.title, <span class="hljs-built_in">url</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>{
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"bagpipe-Err:"</span>, err);
+  })</code></pre>
+</li>
+</ul>
+</li>
+<li><p>filenamify</p>
+<ul>
+<li><p>去除替换wins系统创建文件夹及文件时，名称包含非法字符</p>
+</li>
+<li><p>常用方法</p>
+<pre><code class="language-javascript"><span class="hljs-attribute">  const filenamify</span> = require(<span class="hljs-string">'filenamify'</span>);
+
+<span class="hljs-attribute">  title</span> = filenamify(title, { replacement: <span class="hljs-string">'-'</span> });</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="-">具体细节点</h2>
+<h3 id="-">网页需要登录</h3>
+<ul>
+<li><p>代码：</p>
+<pre><code class="language-javascript">  <span class="hljs-comment">//设置Options</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOptions</span>(<span class="hljs-params">urlPath</span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      host: <span class="hljs-string">'www.yoursite.com'</span>,
+      port: <span class="hljs-string">'80'</span>,
+      path: <span class="hljs-string">`/<span class="hljs-subst">${urlPath}</span>`</span>,
+      method: <span class="hljs-string">'get'</span>,
+      headers: {
+        <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0'</span>,
+        <span class="hljs-string">'Connection'</span>: <span class="hljs-string">'keep-alive'</span>,
+        <span class="hljs-string">'Cookie'</span>: <span class="hljs-string">'your-brower-cookie'</span>
+      }
     };
-})(window.jQuery,window,document)
-</code></pre>
+  }
 
-            </li>
-            <li>
-                <p>注意：</p>
-                <ul>
-                    <li>本插件所有的定位都采用的是<code>top</code>、<code>left</code>,以免出现bug,需要用到该插件的元素的定位都应该使用<code>top</code>和<code>left</code></li>
-                </ul>
-                <!--
-            问题：that.offset().top的值是否包括margin值?
-                    答案是：包括
-             -->
-            </li>
-        </ul>
+  http.get(getOptions(url), <span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {
+    <span class="hljs-keyword">let</span> body = [];
+
+    response.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> body.push(data));
+    response.on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-keyword">const</span> html = iconv.decode(Buffer.concat(body), <span class="hljs-string">'gb2312'</span>);
+      <span class="hljs-keyword">const</span> $ = cheerio.load(html, { decodeEntities: <span class="hljs-literal">false</span> });
+
+    })
+});</code></pre>
+</li>
+</ul>
+<h3 id="-">网页编码</h3>
+<ul>
+<li><p>如果网页编码是<strong>gbk</strong></p>
+<pre><code class="language-javascript">  <span class="hljs-keyword">const</span> iconv = <span class="hljs-built_in">require</span>(<span class="hljs-string">'iconv-lite'</span>);
+
+  <span class="hljs-comment">//http请求回调函数</span>
+  response =&gt; {
+    <span class="hljs-keyword">let</span> body = [];
+
+    response.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> body.push(data));
+    response.on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-keyword">const</span> html = iconv.decode(Buffer.concat(body), <span class="hljs-string">'gb2312'</span>);
+      <span class="hljs-keyword">const</span> $ = cheerio.load(html, { decodeEntities: <span class="hljs-literal">false</span> });
+
+    })
+  })</code></pre>
+</li>
+<li><p>网页编码<strong>utf-8</strong></p>
+<pre><code class="language-javascript">  <span class="hljs-comment">//http请求回调函数</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-keyword">let</span> body = <span class="hljs-string">''</span>;
+
+    response.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> body += data);
+    response.on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-keyword">const</span> $ = cheerio.load(body);
+
+    });
+  })</code></pre>
+</li>
+</ul>
+<h3 id="-">网页包含分页</h3>
+<ul>
+<li>第一步：首先获取网页目录集合</li>
+<li>第二步：遍历目录集合，根据每个页的数据创建文件夹<ul>
+<li>保存第一页图片</li>
+<li>检测页面是否含有分页<ul>
+<li>如果有，记录该<strong>分页网址</strong>及<strong>页码总数</strong>存入另一个文件中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第三步：<ul>
+<li>下载除第一页的其它页面的图片</li>
+</ul>
+</li>
+</ul>
+<h3 id="-">下载图片</h3>
+<ul>
+<li><p>使用<strong>request</strong>组件下载图片</p>
+<pre><code class="language-javascript">  request(src, { timeout: <span class="hljs-number">20e3</span> })
+  .on(<span class="hljs-string">'error'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span></span> { console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"IMG-ERROR:"</span>, err) })
+  .pipe(fse.createWriteStream(<span class="hljs-built_in">path</span>.resolve(baseUrls, title, filenamify(src.split(<span class="hljs-string">'/'</span>).pop(), { replacement: <span class="hljs-string">'-'</span> }))))
+  .on(<span class="hljs-string">'close'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span> {
+    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"正在下载"</span> + url + <span class="hljs-string">"的图片:"</span> + title);
+  })</code></pre>
+</li>
+<li><p>使用http或https模块</p>
+</li>
+</ul>
+<pre><code class="language-javascript">  <span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);
+  <span class="hljs-keyword">var</span> https = <span class="hljs-built_in">require</span>(<span class="hljs-string">'https'</span>);
+
+  <span class="hljs-comment">//下载图片函数</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getDetailImg</span>(<span class="hljs-params">src, title</span>) </span>{
+    <span class="hljs-keyword">var</span> agreement = <span class="hljs-built_in">String</span>(src).indexOf(<span class="hljs-string">"https"</span>) === <span class="hljs-number">0</span> ? https : http;
+
+    agreement.get(src, <span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+      res.setEncoding(<span class="hljs-string">"binary"</span>);
+      <span class="hljs-keyword">let</span> imageData = <span class="hljs-string">''</span>;
+
+      res.on(<span class="hljs-string">"data"</span>, <span class="hljs-function"><span class="hljs-params">chunk</span> =&gt;</span> imageData += chunk);
+      res.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        fs.writeFile(<span class="hljs-string">`<span class="hljs-subst">${baseUrls}</span><span class="hljs-subst">${title}</span>/<span class="hljs-subst">${src.split('/').pop()}</span>`</span>, imageData, <span class="hljs-string">'binary'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+          <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"正在下载"</span> + title + <span class="hljs-string">"的图片"</span>);
+        });
+      })
+    })
+}</code></pre>
